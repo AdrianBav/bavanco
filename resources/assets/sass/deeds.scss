@@ -1,0 +1,294 @@
+
+/*!
+ * Bavanco (http://www.bavanco.co.uk)
+ * Copyright 2002-2016 Bavanco.
+ * Title Deeds
+ */
+
+
+// Define the scale of the deed
+$scale: 0.68;
+
+// Deed dimentions
+$deed-width: (320px * $scale);
+$deed-height: (425px * $scale);
+
+// Fonts
+
+// "Work Sans": Used for deed headers
+// family=Work+Sans:100,200,300,400,500,600,700,800,900
+// font-family: 'Work Sans', sans-serif;
+
+// "Raleway": Used for deed body text
+// Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i
+// font-family: 'Raleway', sans-serif;
+
+
+/* 
+ * Common to all Deeds
+ */
+.deed {
+    background-color: #f1eddc;
+    background-image: url('/images/card.png');
+    border-radius: (15px * $scale);    
+    box-shadow: 0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903;
+    padding: (35px * $scale) (22px * $scale);
+
+    height: $deed-height;
+    width: $deed-width;
+
+    // for the hover transition
+    -webkit-transition: box-shadow 0s;
+}
+.deed:hover {
+    cursor: pointer;
+    box-shadow: 
+        0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903, 
+        0 (4px * $scale) (8px * $scale) 0 rgba(0, 0, 0, 0.9);
+}
+
+.deed .deed-inner {
+    $border-width: (2px * $scale);
+    $vertical-padding: (8px * $scale);
+    $horizontal-padding: (6px * $scale);
+
+    border: $border-width solid #000000;
+    padding: $vertical-padding $horizontal-padding;
+
+    height: ($deed-height - (2 * ($vertical-padding + $border-width)));
+}
+
+
+/* 
+ * Property Deed
+ */
+.deed-property .deed-header {
+    color: #000000;
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+    text-transform: uppercase;    
+    margin: 0;
+    padding: (10px * $scale) 0 (15px * $scale);
+}
+.deed-property .deed-header .deed-subtitle {
+    font-weight: 600;
+    font-size: (16px * $scale);    
+    letter-spacing: (-0.5px * $scale);
+    word-spacing: (4px * $scale);    
+    margin-bottom: (3px * $scale);
+}
+.deed-property .deed-header h2.deed-title {
+    font-weight: 800;   
+    font-size: (26px * $scale);    
+    letter-spacing: (-0.5px * $scale); 
+    word-spacing: (8px * $scale);
+    margin: 0;
+}
+
+// Header Groups 1 and 8 are styles slighly differently
+.deed-property .deed-header.deed-group1,
+.deed-property .deed-header.deed-group8 {
+    color: #ffffff;
+    padding: (7px * $scale) 0 (7px * $scale);
+}
+.deed-property .deed-header.deed-group1 .deed-subtitle,
+.deed-property .deed-header.deed-group8 .deed-subtitle {
+    font-weight: 400;
+    font-size: (22px * $scale);
+    word-spacing: (4px * $scale);
+    margin-bottom: 0;
+}
+.deed-property .deed-header.deed-group1 h2.deed-title,
+.deed-property .deed-header.deed-group8 h2.deed-title {
+    font-weight: 500;
+    font-size: (32px * $scale);
+    word-spacing: (4px * $scale);
+}
+
+// Body
+.deed-property .deed-body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: (18px * $scale);
+    line-height: 1.5;
+    letter-spacing: (0.25px * $scale);
+    word-spacing: (3px * $scale);      
+    padding: (2px * $scale) (8px * $scale);
+}
+
+.deed-property .deed-body small {     
+    font-weight: 600;
+    font-size: (11px * $scale);
+    line-height: 1.5;
+    word-spacing: (4px * $scale);    
+    // so that it inherits the line height
+    display: inline-block;
+}
+
+
+/* 
+ * Station & Utility Deed
+ */
+
+.deed-station .deed-header,
+.deed-utility .deed-header {    
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin: (15px * $scale) 0 (40px * $scale);   
+}
+.deed-station .deed-header h2.deed-title,
+.deed-utility .deed-header h2.deed-title {
+    font-weight: 700;
+    font-size: (23px * $scale);    
+    letter-spacing: (0.5px * $scale);
+    word-spacing: (2px * $scale);
+    margin: 0 0 (15px * $scale);
+}
+.deed-station .deed-header .deed-subtitle {
+    font-weight: 700;
+    font-size: (15px * $scale);    
+    letter-spacing: (0.5px * $scale);
+    word-spacing: (2px * $scale);
+}
+
+.deed-station .deed-body,
+.deed-utility .deed-body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: (19px * $scale);
+    line-height: 1.5;
+    letter-spacing: (0.5px * $scale);
+    word-spacing: (4px * $scale);     
+    padding: (2px * $scale) (8px * $scale);
+}
+
+
+/* 
+ * Mortgaged Deed
+ */
+
+// Override the default 'deed-inner'
+.deed-mortgaged .deed-inner {
+    border: 0;
+    color: #d21625;
+    font-family: 'Work Sans', sans-serif;
+    text-align: center;
+}
+
+.deed-mortgaged .deed-header {
+    margin-top: (45px * $scale);
+    text-transform: uppercase;
+}
+.deed-mortgaged .deed-header .deed-subtitle {    
+    font-weight: 800;
+    font-size: (42px * $scale);    
+    word-spacing: (4px * $scale);
+    margin-top: (25px * $scale);
+}
+.deed-mortgaged .deed-header h2.deed-title {    
+    border-top: (3px * $scale) solid #d21625;
+    border-bottom: (3px * $scale) solid #d21625;
+    font-weight: 800;
+    font-size: (24px * $scale);      
+    word-spacing: (4px * $scale);
+    margin: (60px * $scale) 0 (10px * $scale);
+    padding: (8px * $scale) 0;
+    // So that the lines don't extend past the text
+    display: inline-block;
+}
+
+.deed-mortgaged .deed-body .deed-info {
+    font-weight: 500;
+    font-size: (22px * $scale);    
+    word-spacing: (5px * $scale);
+    margin: (15px * $scale) 0 (50px * $scale);
+}
+.deed-mortgaged .deed-body .deed-details {
+    font-weight: 700;
+    font-size: (16px * $scale);
+    line-height: 1.5;
+    padding: 0 (30px * $scale);
+}
+
+
+/* 
+ * Utilities
+ */
+
+// Header colour groups
+.deed-group1 {
+    background-color: #712321;
+}
+.deed-group2 {
+    background-color: #3671be;
+}
+.deed-group3 {
+    background-color: #b92768;
+}
+.deed-group4 {
+    background-color: #e1562a;
+}
+.deed-group5 {
+    background-color: #da1e25;
+}
+.deed-group6 {
+    background-color: #f5ea28;
+}
+.deed-group7 {
+    background-color: #337024;
+}
+.deed-group8 {
+    background-color: #263489;
+}
+
+// For long titles, reduce the word spacing
+.deed-property .deed-header.long-title h2.deed-title,
+.deed-station .deed-header.long-title h2.deed-title {    
+    word-spacing: 0;
+}
+
+// Small text indent
+.indent {
+    text-indent: (24px * $scale);
+    text-align: justify;
+}
+
+// Ditto marks
+.ditto-mark {  
+    // hide the word to be ditto'd
+    color: transparent;
+    // positioning for the :after pseudo element
+    position: relative;
+}
+.ditto-mark:after {
+    // Position the ditto mark over the original word
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    // Style the ditto mark
+    content: ",,";
+    color: #000000;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: (18px * $scale);
+    letter-spacing: (1px * $scale);
+}
+
+// Spacer
+.spacer {  
+    // hide the word, making it a spacer
+    color: transparent;
+}
+
+// Right align
+.right-align {
+    float: right;
+}
+.right-align:after {
+    content: '';
+    display: block;
+    clear: both;
+}
