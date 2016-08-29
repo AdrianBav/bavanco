@@ -125,7 +125,7 @@ class Card extends Model
     public static function rankings() 
     {
         // Get all cards in order of total visits
-        $visit_order = DB::table('cards')
+        $results_collection = DB::table('cards')
             ->leftJoin('visits', 'cards.id', '=', 'visits.card_id')
             ->select('cards.id AS card_id')
             ->addSelect(DB::raw('COUNT(visits.card_id) as total'))
@@ -134,12 +134,9 @@ class Card extends Model
             ->orderBy('cards.created_at', 'asc')
             ->get();
 
-        // Convert the result to a collection so that the array can be manipulated
-        $collection = collect($visit_order);
-
         // Transform the results collection to produce and array
         // where the key is the card id and the value is the rank
-        $ranks = $collection
+        $ranks = $results_collection
             ->pluck('card_id')
             ->prepend(0)
             ->flip()
