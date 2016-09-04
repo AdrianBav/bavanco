@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
 
         // The faker library is only available in development
         // Also, on production we'll generate real visit data
-        if (App::environment('local')) {
+        if (App::environment('local'))
         {
             $this->call(VisitsTableSeeder::class);    
         }
