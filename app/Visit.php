@@ -14,8 +14,7 @@ class Visit extends Model
      * @var array
      */
     protected $fillable = [
-        'card_id', 'visit_ip_id', 'visit_agent_id', 
-        'created_at'    // temp!!
+        'card_id', 'visit_ip_id', 'visit_agent_id'
     ];
 
 

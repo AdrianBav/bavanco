@@ -15,8 +15,7 @@ class Card extends Model
      * @var array
      */
     protected $fillable = [
-        'site_identifier', 'url',
-        'created_at'    // temp!!
+        'site_identifier', 'url'
     ];
 
 
