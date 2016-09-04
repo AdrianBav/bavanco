@@ -9,7 +9,7 @@
 @overwrite
 
 @section('title') 
-    Bavanco Domains
+    Bavanco Sites
 @overwrite
 
 

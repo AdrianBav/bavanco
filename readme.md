@@ -1,13 +1,13 @@
 # Bavanco
 
 ## record user activity
-- Add geo stats to trait?
+- Elixar assets
 - Complete cards specific stats
 - Add API auth?
-- Move api into queued events?
 
 
 ## Low Priority
+- Add geo stats to trait?
 - update favicon with new font
 - header to change group colors each time it goes back to top
 - Merge normalize.css into app.css
