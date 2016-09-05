@@ -33,7 +33,7 @@ class HomeController extends Controller
     {
         $cards = $deeds->getCards();
 
-        return view('home', compact('cards'));
+        return view('pages.monopoly', compact('cards'));
     }  
 
     /**

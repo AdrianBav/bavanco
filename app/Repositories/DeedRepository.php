@@ -64,9 +64,9 @@ class DeedRepository
             $card = new Card;
 
             // The 'partial' function in the Card object will 
-            // use the 'monopoly' property to adjust the slug accordingly.
+            // use the 'monopoly' property to adjust the site identifier accordingly.
             $card->monopoly = true;
-            $card->slug = $deed;
+            $card->site_identifier = $deed;
 
             $cards[] = $card;
         }
