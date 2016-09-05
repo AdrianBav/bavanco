@@ -20,9 +20,9 @@
     @ditto('ARCHIV') Total unique visits @right($total_unique_visits)<br>
     @ditto('ARCHIV') @ditto('Total') visits @right($total_visits)<br>
     @ditto('ARCHIV') leaderboard @right($leaderboard)<br>
-    <small>If a player owns ALL the Sites on any Colour-Group, the rent is Doubled on Unimproved Sites in that group.</small><br>
-    ARCHIVES has 3 domains<br>
-    @ditto('ARCHIVES') @ditto('has') 13 archived sites<br>
-    @spacer('ARCHIVES') @spacer('has') 1 author<br>
+    <small>This archives site aims to Preserve a Definitive History of the Bavanco branding and online Web Presence.</small><br>
+    ARCHIVE spans 5 domains<br>
+    @ditto('ARCHIVE') @ditto('span') 11 archived sites<br>
+    @spacer('ARCHIVE') @spacer('span') {{ $active_years }} active years<br>
     Number of DAYS live, {{ $days }}
 @overwrite

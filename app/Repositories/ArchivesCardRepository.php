@@ -19,7 +19,15 @@ class ArchivesCardRepository implements CardRepository
      */ 
 	public function getData(Card $card)
 	{
-        return $this->get_visit_statistics($card);
+        $visit_statistics = $this->get_visit_statistics($card);
+
+        $site_statistics = array(
+            'active_years' => date('Y') - 2002,
+        );
+
+        $data = array_merge($visit_statistics, $site_statistics);
+
+        return $data;   
 	}
 
 }

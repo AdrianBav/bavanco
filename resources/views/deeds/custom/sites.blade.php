@@ -14,15 +14,15 @@
 
 
 @section('details')
-    SITES—Other Work<br>
+    SITES—A Reference<br>
     @ditto('SITES') YTD unique visits @right($ydt_unique_visits)<br>
     @ditto('SITES') @ditto('YTD') visits @right($ydt_visits)<br>
     @ditto('SITES') Total unique visits @right($total_unique_visits)<br>
     @ditto('SITES') @ditto('Total') visits @right($total_visits)<br>
     @ditto('SITES') leaderboard @right($leaderboard)<br>
-    <small>If a player owns ALL the Sites on any Colour-Group, the rent is Doubled on Unimproved Sites in that group.</small><br>
+    <small>This Site serves as a Handy Reference to ALL the Websites I have recently Developed for Friends and Myself.</small><br>
     SITES has 5 domains<br>
-    @ditto('SITES') @ditto('has') 23 sub-domains<br>
-    @ditto('SITES') @ditto('has') 7 databases<br>
+    @ditto('SITES') @ditto('has') 2 development sites<br>
+    @ditto('SITES') @ditto('has') 5 microsites<br>
     Number of DAYS live, {{ $days }}
 @overwrite
