@@ -63,7 +63,7 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'archives',
-            'url'             => 'http://archives.bavanco.co.uk',
+            'url'             => (App::environment() == 'local') ? 'http://archives.bavanco.local' : 'http://archives.bavanco.co.uk',
             'created_at'      => $this->random_date(),
         ]);
 
