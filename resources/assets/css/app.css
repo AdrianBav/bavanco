@@ -8,6 +8,7 @@ body {
 
 .green-felt {
   background: #005800;
+  background: -webkit-linear-gradient(top, #42a042 0%, #005800 100%);
   background: linear-gradient(to bottom, #42a042 0%, #005800 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42a042', endColorstr='#005800',GradientType=0 ); }
 
@@ -20,6 +21,7 @@ header {
   background: #263489;
   border-bottom: 4px solid #000000;
   text-align: center;
+  -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease; }
 
 header {
@@ -72,13 +74,13 @@ footer {
   padding-left: 20px; }
 
 .container {
-  display: -ms-flexbox;
+  display: -webkit-box;
   display: flex;
-  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
   flex-direction: row;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -ms-flex-pack: center;
+  -webkit-box-pack: center;
   justify-content: center;
   margin: 0 auto;
   max-width: 1200px;

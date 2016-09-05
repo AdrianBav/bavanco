@@ -12,16 +12,15 @@
         <meta name="description" content="Welcome to the Bavanco Website">
         <meta name="author" content="Adrian Bavister">
 
-        <!-- Fonts -->
+        <!-- Fonts (CDN) -->
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Raleway:500,600' rel='stylesheet'>
 
-        <!-- Characters for Ditto Marks -->
+        <!-- Characters for Ditto Marks (CDN) -->
         <link href='https://fonts.googleapis.com/css?family=Raleway:800&amp;text=,' rel='stylesheet'>
 
         <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <link rel="stylesheet" href="{{ elixir('css/all.css') }}">
     </head>
 
     <body class="green-felt">
@@ -32,22 +31,14 @@
             <h1>Bavanco</h1>
         </header>
 
-        <!-- Container of Deed cards -->
+        <!-- Page Content (Typically a deck of cards) -->
         @yield('content')
 
         <!-- Footer -->
         @include('partials.footer')
 
-        <!-- Sticky Header script -->
-        <script>
-            window.onscroll = function() {
-                if (window.pageYOffset > 1) {
-                    document.getElementById( "app-header" ).classList.add( "sticky" );
-                } else {
-                    document.getElementById( "app-header" ).classList.remove( "sticky" );
-                }                
-            };
-        </script>
+        <!-- Scripts -->
+        <script src="{{ elixir('js/app.js') }}"></script>
 
     </body>
 </html>
