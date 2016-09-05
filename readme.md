@@ -1,17 +1,15 @@
 # Bavanco
 
-## record user activity
-- Elixar assets
-- Complete cards specific stats
-- Add API auth?
+## Top Jobs
+- Rename leaderboard to popularity
 
 
 ## Low Priority
 - Add geo stats to trait?
+- Add API auth?
+- header to change group colors each time it goes back to top (or just monopoly page?)
 - update favicon with new font
-- header to change group colors each time it goes back to top
-- Merge normalize.css into app.css
-- Meta description
+- Meta descriptions in layout file
 
 
 
@@ -19,15 +17,15 @@
 
 git pull origin master
 
-composer install --no-dev -o
+composer install --no-dev -o (not every time)
 
-php artisan vendor:publish
+php artisan vendor:publish (first time only)
 php artisan geoip:update
 
 
-## main app
-rm -rf /home/adrianbav/public_html/staging.bavanco.co.uk/css/
+## assets
+rm -rf /home/adrianbav/public_html/staging.bavanco.co.uk/build/
 rm -rf /home/adrianbav/public_html/staging.bavanco.co.uk/images/
 
-cp -r public/css /home/adrianbav/public_html/staging.bavanco.co.uk/
+cp -r public/build /home/adrianbav/public_html/staging.bavanco.co.uk/
 cp -r public/images /home/adrianbav/public_html/staging.bavanco.co.uk/
