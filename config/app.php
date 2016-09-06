@@ -168,6 +168,7 @@ return [
          */
         Torann\GeoIP\GeoIPServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Nwidart\LaravelForecast\LaravelForecastServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
          */
         'GeoIP' => Torann\GeoIP\GeoIPFacade::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'Forecast' => Nwidart\LaravelForecast\ForecastFacade::class,
         
     ],
 
