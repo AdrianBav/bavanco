@@ -52,7 +52,8 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'about-author',
-            'url'             => '/about',
+            'url'             => 'http://adrianbavister.com/',
+            'created_at'      => Carbon::createFromDate(2015, 11, 3)->toDateTimeString(),
         ]);
 
         Card::create([
@@ -63,10 +64,12 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'world-temperatures',
+            'created_at'      => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
         ]);
 
         Card::create([
             'site_identifier' => 'world-times',
+            'created_at'      => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
         ]);
     }
 
