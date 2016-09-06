@@ -19,7 +19,7 @@
     @ditto('MONOP') @ditto('YTD') visits @right($ydt_visits)<br>
     @ditto('MONOP') Total unique visits @right($total_unique_visits)<br>
     @ditto('MONOP') @ditto('Total') visits @right($total_visits)<br>
-    @ditto('MONOP') leaderboard @right($leaderboard)<br>
+    @ditto('MONOP') popularity @right($rankings)<br>
     <small>If a player owns ALL the Sites on any Colour-Group, the rent is Doubled on Unimproved Sites in that group.</small><br>
     MONOPOLY has 24 locations<br>
     @ditto('MONOPOLY') @ditto('has') 166 photos<br>

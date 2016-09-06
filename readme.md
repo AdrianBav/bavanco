@@ -1,7 +1,8 @@
 # Bavanco
 
 ## Top Jobs
-- Rename leaderboard to popularity
+- bavanco global cards
+- Write artisan command to copy assets!
 
 
 ## Low Priority

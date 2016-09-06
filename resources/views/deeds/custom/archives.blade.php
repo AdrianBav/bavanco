@@ -19,7 +19,7 @@
     @ditto('ARCHIV') @ditto('YTD') visits @right($ydt_visits)<br>
     @ditto('ARCHIV') Total unique visits @right($total_unique_visits)<br>
     @ditto('ARCHIV') @ditto('Total') visits @right($total_visits)<br>
-    @ditto('ARCHIV') leaderboard @right($leaderboard)<br>
+    @ditto('ARCHIV') popularity @right($rankings)<br>
     <small>This archives site aims to Preserve a Definitive History of the Bavanco branding and online Web Presence.</small><br>
     ARCHIVE spans 5 domains<br>
     @ditto('ARCHIVE') @ditto('span') 11 archived sites<br>
