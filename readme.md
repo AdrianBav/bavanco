@@ -1,13 +1,11 @@
 # Bavanco
 
 ## Top Jobs
-- bavanco global cards
-- Write artisan command to copy assets!
-
+- ?
 
 ## Low Priority
-- Add geo stats to trait?
 - Add API auth?
+- Cron job to update IP package
 - header to change group colors each time it goes back to top (or just monopoly page?)
 - update favicon with new font
 - Meta descriptions in layout file
@@ -23,10 +21,4 @@ composer install --no-dev -o (not every time)
 php artisan vendor:publish (first time only)
 php artisan geoip:update
 
-
-## assets
-rm -rf /home/adrianbav/public_html/staging.bavanco.co.uk/build/
-rm -rf /home/adrianbav/public_html/staging.bavanco.co.uk/images/
-
-cp -r public/build /home/adrianbav/public_html/staging.bavanco.co.uk/
-cp -r public/images /home/adrianbav/public_html/staging.bavanco.co.uk/
+php artisan assets:publish
