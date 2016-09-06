@@ -1,7 +1,7 @@
 @extends('deeds.station')
 
 @section('title') 
-    Times
+    World Times
 @overwrite
 
 @section('subtitle') 
@@ -10,9 +10,9 @@
 
 
 @section('details')
-    Time<br><br>
+    Time @right('at page load')<br><br>
     @ditto('Time') in Dallas @right($dallas)<br><br>
     @ditto('Time') @ditto('in') London @right($london)<br><br>
     @ditto('Time') @ditto('in') Honolulu @right($honolulu)<br><br>
-    Dallas Season @right('Summer')
+    % of Year Elapsed @right($percent)
 @overwrite

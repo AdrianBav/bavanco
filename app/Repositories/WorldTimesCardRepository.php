@@ -17,10 +17,17 @@ class WorldTimesCardRepository implements CardRepository
      */ 
 	public function getData(Card $card)
 	{
+        // Calculate the percent of the year that has elapsed
+        $dt = Carbon::now();
+        $days_in_year = ($dt->isLeapYear()) ? 366 : 365;
+        $day_of_year = $dt->dayOfYear;
+        $percent_of_year = floor(($day_of_year / $days_in_year) * 100);
+
         $data = array(
-            'dallas' => Carbon::now('America/Chicago')->format('g:i a'),
-            'london' => Carbon::now('Europe/London')->format('g:i a'),
+            'dallas'   => Carbon::now('America/Chicago')->format('g:i a'),
+            'london'   => Carbon::now('Europe/London')->format('g:i a'),
             'honolulu' => Carbon::now('Pacific/Honolulu')->format('g:i a'),
+            'percent'  => "{$percent_of_year}%",
         );
 
         return $data;		

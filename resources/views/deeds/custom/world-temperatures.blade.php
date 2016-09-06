@@ -1,7 +1,7 @@
 @extends('deeds.station')
 
 @section('title') 
-    Temperatues
+    World Temperatures
 @overwrite
 
 @section('subtitle') 
@@ -14,5 +14,5 @@
     @ditto('Temperat') in Dallas @right($dallas)<br><br>
     @ditto('Temperat') @ditto('in') London @right($london)<br><br>
     @ditto('Temperat') @ditto('in') Honolulu @right($honolulu)<br><br>
-    Dallas Max @right('50/90')
+    Dallas YTD Max @right($dallas_max)
 @overwrite

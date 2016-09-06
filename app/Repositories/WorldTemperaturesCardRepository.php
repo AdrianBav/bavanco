@@ -17,9 +17,10 @@ class WorldTemperaturesCardRepository implements CardRepository
 	public function getData(Card $card)
 	{
         $data = array(
-            'dallas' => '50/90',
-            'london' => '20/60',
-            'honolulu' => '45/85', 
+            'dallas'     => '50/90',
+            'london'     => '20/60',
+            'honolulu'   => '45/85', 
+            'dallas_max' => '101&deg;F',
         );
 
         return $data;		
