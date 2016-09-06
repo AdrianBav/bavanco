@@ -36,12 +36,10 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'lumi',
-            'url'             => '/lumi',
         ]);
 
         Card::create([
             'site_identifier' => 'cat-a-log',
-            'url'             => '/cat-a-log',
         ]);
 
         Card::create([
