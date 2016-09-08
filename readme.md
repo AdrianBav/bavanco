@@ -16,9 +16,13 @@
 
 git pull origin master
 
-composer install --no-dev -o (not every time)
+
+php artisan assets:publish (on assets change)
+
+composer install --no-dev -o (on package change)
+
 
 php artisan vendor:publish (first time only)
-php artisan geoip:update
 
-php artisan assets:publish
+
+php artisan geoip:update (periodically)

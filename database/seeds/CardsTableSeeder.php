@@ -21,7 +21,7 @@ class CardsTableSeeder extends Seeder
 
 		Card::create([
             'site_identifier' => 'gallery',
-            'url' 	          => 'https://html5up.net/uploads/demos/multiverse',
+            'url' 	          => (App::environment() == 'local') ? 'http://gallery.bavanco.local' : 'http://gallery.bavanco.co.uk',
         ]);
 
         Card::create([
