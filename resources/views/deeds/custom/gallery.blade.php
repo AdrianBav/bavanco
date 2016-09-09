@@ -21,8 +21,8 @@
     @ditto('GALLER') @ditto('Total') visits @right($total_visits)<br>
     @ditto('GALLER') popularity @right($rankings)<br>
     <small>If a player owns ALL the Sites on any Colour-Group, the rent is Doubled on Unimproved Sites in that group.</small><br>
-    GALLERY has 3 collections<br>
-    @ditto('GALLERY') @ditto('has') 33 photos<br>
-    @spacer('GALLERY') @spacer('has') in 7 countries<br>
+    GALLERY has {{ $year_span }} year span<br>
+    @ditto('GALLERY') @ditto('has') 9 collections<br>
+    @spacer('GALLERY') @ditto('has') 90 photos<br>
     Number of DAYS live, {{ $days }}
 @overwrite
