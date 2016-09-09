@@ -7,7 +7,6 @@
 - Add API auth?
 - Cron job to update IP package
 - header to change group colors each time it goes back to top (or just monopoly page?)
-- update favicon with new font
 - Meta descriptions in layout file
 
 

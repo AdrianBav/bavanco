@@ -31,7 +31,6 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'monopoly',
-            'url'             => '/monopoly',
         ]);
 
         Card::create([

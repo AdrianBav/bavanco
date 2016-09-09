@@ -9,7 +9,7 @@
 @overwrite
 
 @section('title') 
-    Travel Photos
+    Travel Gallery
 @overwrite
 
 
