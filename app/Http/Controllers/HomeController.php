@@ -27,6 +27,7 @@ class HomeController extends Controller
     /**
     * Show the home page with all the official monopoly properties.
     *
+    * @param  DeedRepository $deeds
     * @return Response
     */
     public function monopoly(DeedRepository $deeds)
@@ -43,7 +44,7 @@ class HomeController extends Controller
     */
     public function about()
     {
-        return 'About page';
+        return view('pages.about');
     }  
 
 }

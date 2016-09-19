@@ -14,7 +14,7 @@
 
         <!-- Fonts (CDN) -->
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700,800" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Raleway:500,600' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Raleway:500,600,900' rel='stylesheet'>
 
         <!-- Characters for Ditto Marks (CDN) -->
         <link href='https://fonts.googleapis.com/css?family=Raleway:800&amp;text=,' rel='stylesheet'>

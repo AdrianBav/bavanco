@@ -512,6 +512,11 @@ a.item {
   color: #000000;
   text-decoration: none; }
 
+a.card-link {
+  display: block;
+  color: #000000;
+  text-decoration: none; }
+
 /*!
  * Bavanco (http://www.bavanco.co.uk)
  * Copyright 2002-2016 Bavanco.
@@ -561,7 +566,7 @@ a.item {
   font-weight: 800;
   font-size: 17.68px;
   letter-spacing: -0.34px;
-  word-spacing: 5.44px;
+  word-spacing: 6.8px;
   margin: 0; }
 
 .deed-property .deed-header.deed-group1,
@@ -573,14 +578,12 @@ a.item {
 .deed-property .deed-header.deed-group8 .deed-subtitle {
   font-weight: 400;
   font-size: 14.96px;
-  word-spacing: 2.72px;
   margin-bottom: 0; }
 
 .deed-property .deed-header.deed-group1 h2.deed-title,
 .deed-property .deed-header.deed-group8 h2.deed-title {
   font-weight: 500;
-  font-size: 21.76px;
-  word-spacing: 2.72px; }
+  font-size: 21.76px; }
 
 .deed-property .deed-body {
   font-family: 'Raleway', sans-serif;
@@ -672,6 +675,52 @@ a.item {
   font-size: 10.88px;
   line-height: 1.5;
   padding: 0 20.4px; }
+
+/* 
+ * Card
+ */
+.card {
+  background-color: #ffffff;
+  border-radius: 10.2px;
+  box-shadow: 0 6.8px 4.08px -4.08px #032903;
+  height: 180.2px;
+  width: 306px;
+  -webkit-transition: box-shadow 0s; }
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 6.8px 4.08px -4.08px #032903, 0 2.72px 5.44px 0 rgba(0, 0, 0, 0.9); }
+
+.card.community-chest {
+  background-color: #f5ebad; }
+
+.card.chance {
+  background-color: #f26166; }
+
+.card .card-inner {
+  padding: 5.44px 4.08px;
+  height: 169.32px;
+  font-family: 'Raleway', sans-serif; }
+
+.card-header {
+  padding-top: 30.6px;
+  letter-spacing: 0px;
+  text-align: center;
+  text-transform: uppercase; }
+
+.card-header h2.card-title {
+  font-weight: 900;
+  font-size: 12.24px;
+  word-spacing: 2.72px; }
+
+.card-body {
+  font-weight: 600;
+  font-size: 10.88px;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: uppercase;
+  word-spacing: 4.08px;
+  margin-top: 34px; }
 
 /* 
  * Utilities

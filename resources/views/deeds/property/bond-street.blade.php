@@ -1,5 +1,8 @@
 @extends('deeds.property')
 
+@section('extra')
+@overwrite
+
 @section('group') 
     deed-group7
 @overwrite

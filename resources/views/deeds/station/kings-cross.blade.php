@@ -1,5 +1,8 @@
 @extends('deeds.station')
 
+@section('extra')
+@overwrite
+
 @section('title') 
     King's Cross Station
 @overwrite

@@ -1,5 +1,8 @@
 @extends('deeds.property')
 
+@section('extra')
+@overwrite
+
 @section('extra') 
     long-title
 @overwrite

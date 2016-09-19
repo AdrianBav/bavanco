@@ -13,6 +13,10 @@ $scale: 0.68;
 $deed-width: (320px * $scale);
 $deed-height: (425px * $scale);
 
+// Card dimentions
+$card-width: (450px * $scale);
+$card-height: (265px * $scale);
+
 // Fonts
 
 // "Work Sans": Used for deed headers
@@ -81,7 +85,7 @@ $deed-height: (425px * $scale);
     font-weight: 800;   
     font-size: (26px * $scale);    
     letter-spacing: (-0.5px * $scale); 
-    word-spacing: (8px * $scale);
+    word-spacing: (10px * $scale);
     margin: 0;
 }
 
@@ -95,14 +99,12 @@ $deed-height: (425px * $scale);
 .deed-property .deed-header.deed-group8 .deed-subtitle {
     font-weight: 400;
     font-size: (22px * $scale);
-    word-spacing: (4px * $scale);
     margin-bottom: 0;
 }
 .deed-property .deed-header.deed-group1 h2.deed-title,
 .deed-property .deed-header.deed-group8 h2.deed-title {
     font-weight: 500;
     font-size: (32px * $scale);
-    word-spacing: (4px * $scale);
 }
 
 // Body
@@ -209,6 +211,66 @@ $deed-height: (425px * $scale);
     font-size: (16px * $scale);
     line-height: 1.5;
     padding: 0 (30px * $scale);
+}
+
+
+/* 
+ * Card
+ */
+.card {
+    background-color: #ffffff;
+    border-radius: (15px * $scale);    
+    box-shadow: 0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903;
+
+    height: $card-height;
+    width: $card-width;
+
+    // for the hover transition
+    -webkit-transition: box-shadow 0s;
+}
+.card:hover {
+    cursor: pointer;
+    box-shadow: 
+        0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903, 
+        0 (4px * $scale) (8px * $scale) 0 rgba(0, 0, 0, 0.9);
+}
+.card.community-chest {
+    background-color: #f5ebad;
+}
+.card.chance {
+    background-color: #f26166;
+}
+
+.card .card-inner {
+    $vertical-padding: (8px * $scale);
+    $horizontal-padding: (6px * $scale);
+
+    padding: $vertical-padding $horizontal-padding;
+    height: ($card-height - (2 * $vertical-padding));
+
+    font-family: 'Raleway', sans-serif;
+}
+
+.card-header {
+    padding-top: (45px * $scale);
+    letter-spacing: (0px * $scale);
+    text-align: center;
+    text-transform: uppercase;
+}
+.card-header h2.card-title {
+    font-weight: 900;
+    font-size: (18px * $scale);  
+    word-spacing: (4px * $scale);
+}
+.card-body {
+    font-weight: 600;
+    font-size: (16px * $scale);      
+    line-height: 1.5;
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: (6px * $scale);
+
+    margin-top: (50px * $scale);
 }
 
 
