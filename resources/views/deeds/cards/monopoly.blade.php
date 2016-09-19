@@ -1,14 +1,15 @@
 @extends('deeds.card')
 
 @section('card-type') 
-    chance
+    community-chest
 @overwrite
 
 @section('title') 
-    Chance
+    Community Chest
 @overwrite
 
 
 @section('details')
-    Go back three spaces
+    View CSS renders of<br>
+    all property deeds
 @overwrite

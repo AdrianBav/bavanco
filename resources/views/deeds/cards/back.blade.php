@@ -1,14 +1,14 @@
 @extends('deeds.card')
 
 @section('card-type') 
-    community-chest
+    chance
 @overwrite
 
 @section('title') 
-    Community Chest
+    Chance
 @overwrite
 
 
 @section('details')
-    Advance to "Go"
+    Go back to the home page
 @overwrite

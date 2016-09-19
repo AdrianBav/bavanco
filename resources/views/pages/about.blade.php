@@ -7,34 +7,33 @@
     
 	<br><br>
 
-	@include('deeds.cards.bank')
+	<!-- Intro -->
+	@include('deeds.cards.welcome')
 	<br><br>
 
-	<img src="" alt="Show photopgraphs of board detail">
+    @include('deeds.cards.actual')
 	<br><br>
 
-    @include('deeds.cards.history')
+	<!-- Deed comparison -->
+	@include('deeds.cards.comparison')
 	<br><br>
 
 	<figure>
-		<img src="" alt="Photo">
-		<div class="css-deed"></div>
-		<figcaption>Show comparison of photo vs CSS render vs modern card</figcaption>
+		<img src="{{ asset('images/deed_comparison.jpg') }}" alt="Deed comparison">
+		<figcaption>Left: Scan of original | Right: CSS Rendering</figcaption>
 	</figure>
 	<br><br>
 
 	<!-- Link to Monopoly page -->
 	<a class="card-link" href="/monopoly">
-    	@include('deeds.cards.advance-go')
+    	@include('deeds.cards.monopoly')
 	</a>
-
 	<br><br>
 
-	<!-- Back to home page -->
+	<!-- Link back to home page -->
 	<a class="card-link" href="/">
-    	@include('deeds.cards.go-back')
+    	@include('deeds.cards.back')
     </a>
-
 	<br><br>
 
 </div>

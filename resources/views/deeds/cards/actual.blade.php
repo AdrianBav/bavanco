@@ -10,5 +10,6 @@
 
 
 @section('details')
-    The history of this set...
+    The website is based on the actual<br>
+    Monopoly set passed down to us
 @overwrite

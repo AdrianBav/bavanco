@@ -10,6 +10,7 @@
 
 
 @section('details')
-    Bank error in your favour<br>
-    Collect $200
+    Figure 1 compares a scan of the<br>
+    original next to a screen shot of<br>
+    a rendered CSS version
 @overwrite
