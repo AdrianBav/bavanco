@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div style="width: 1000px; margin: 0 auto;">
+<div style="width: 1000px; margin: 0 auto; text-align: center;">
     
 	<br><br>
 
@@ -20,7 +20,19 @@
 
 	<figure>
 		<img src="{{ asset('images/deed_comparison.jpg') }}" alt="Deed comparison">
-		<figcaption>Left: Scan of original | Right: CSS Rendering</figcaption>
+		<figcaption>Fig A: Left: Scan of original | Right: CSS Rendering</figcaption>
+	</figure>
+	<br><br>
+
+	<figure>
+		<img src="{{ asset('images/deeds_1993.jpg') }}" alt="Deed comparison">
+		<figcaption>Fig B: Title Deed Cards from 1993.</figcaption>
+	</figure>
+	<br><br>
+
+	<figure>
+		<img src="{{ asset('images/deeds_1996.jpg') }}" alt="Deed comparison">
+		<figcaption>Fig C: Title Deed Cards from 1996.</figcaption>
 	</figure>
 	<br><br>
 

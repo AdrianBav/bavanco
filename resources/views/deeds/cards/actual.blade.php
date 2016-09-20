@@ -10,6 +10,7 @@
 
 
 @section('details')
-    The website is based on the actual<br>
-    Monopoly set passed down to us
+	Not just any set but the actual<br>
+    passed down Monopoly set I<br>
+    would play on as a child
 @overwrite

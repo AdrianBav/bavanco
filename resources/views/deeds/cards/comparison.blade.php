@@ -10,7 +10,7 @@
 
 
 @section('details')
-    Figure 1 compares a scan of the<br>
+    Fig A compares a scan of the<br>
     original next to a screen shot of<br>
     a rendered CSS version
 @overwrite
