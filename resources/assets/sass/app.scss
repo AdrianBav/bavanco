@@ -146,19 +146,28 @@ a.item {
 // 
 // About page
 //
-a.card-link {
-    // undo link styling        
+#about-page.container {
+    max-width: 600px;
+}
+#about-page a.card-link {    
+    margin-top: 14px;
+    // undo link styling            
     display: block;
     color: #000000;
     text-decoration: none;
 }
 
-figure {
-
+#about-page figure {
+    margin-top: 14px;
 }
-figure img {
-
+#about-page figure img {
+    border: 6px solid #205a20;
+    padding: 6px;
 }
-figure figcaption {
-
+#about-page figure figcaption {
+    background-color: #ffffff;
+    border: 6px solid #205a20;
+    font-style: italic;
+    padding: 6px;
+    text-align: center;
 }

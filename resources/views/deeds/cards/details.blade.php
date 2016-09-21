@@ -10,6 +10,7 @@
 
 
 @section('details')
-    View CSS renders of<br>
-    all property deeds
+	Note the large word spacing<br>
+	Mix of case and a liberal<br>
+	sprinkling of ditto marks 
 @overwrite

@@ -92,10 +92,28 @@ a.item {
   color: #000000;
   text-decoration: none; }
 
-a.card-link {
+#about-page.container {
+  max-width: 600px; }
+
+#about-page a.card-link {
+  margin-top: 14px;
   display: block;
   color: #000000;
   text-decoration: none; }
+
+#about-page figure {
+  margin-top: 14px; }
+
+#about-page figure img {
+  border: 6px solid #205a20;
+  padding: 6px; }
+
+#about-page figure figcaption {
+  background-color: #ffffff;
+  border: 6px solid #205a20;
+  font-style: italic;
+  padding: 6px;
+  text-align: center; }
 
 /*!
  * Bavanco (http://www.bavanco.co.uk)

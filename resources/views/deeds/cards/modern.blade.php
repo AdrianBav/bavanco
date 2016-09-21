@@ -10,7 +10,7 @@
 
 
 @section('details')
-	For comparison Fig. A shows<br>
-	a scan of the original next to<br> 
-	a screen shot of the new card
+	Modern versions of the same card<br>
+	do not seem to retain many of<br>
+	the original details as in Fig. B
 @overwrite

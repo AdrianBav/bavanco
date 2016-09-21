@@ -3,50 +3,60 @@
 
 @section('content')
 
-<div style="width: 1000px; margin: 0 auto; text-align: center;">
+<div id="about-page" class="container">
     
-	<br><br>
+	<a class="card-link" href="javascript:void(0);">
+		@include('deeds.cards.welcome')
+	</a>
 
-	<!-- Intro -->
-	@include('deeds.cards.welcome')
-	<br><br>
+	<a class="card-link" href="javascript:void(0);">
+    	@include('deeds.cards.actual')
+	</a>
 
-    @include('deeds.cards.actual')
-	<br><br>
+	<a class="card-link" href="javascript:void(0);">
+		@include('deeds.cards.replicated')
+	</a>
 
-	<!-- Deed comparison -->
-	@include('deeds.cards.comparison')
-	<br><br>
+	<a class="card-link" href="javascript:void(0);">
+		@include('deeds.cards.comparison')
+	</a>
 
-	<figure>
-		<img src="{{ asset('images/deed_comparison.jpg') }}" alt="Deed comparison">
-		<figcaption>Fig A: Left: Scan of original | Right: CSS Rendering</figcaption>
-	</figure>
-	<br><br>
-
-	<figure>
-		<img src="{{ asset('images/deeds_1993.jpg') }}" alt="Deed comparison">
-		<figcaption>Fig B: Title Deed Cards from 1993.</figcaption>
-	</figure>
-	<br><br>
+	<a class="card-link" href="javascript:void(0);">
+		@include('deeds.cards.details')
+	</a>
 
 	<figure>
-		<img src="{{ asset('images/deeds_1996.jpg') }}" alt="Deed comparison">
-		<figcaption>Fig C: Title Deed Cards from 1996.</figcaption>
+		<img src="{{ asset('images/deed_comparison.jpg') }}" alt="Comparison of Title Deed cards">
+		<figcaption><strong>Fig A:</strong> On the left, a scan of original and on the right, a CSS rendering.</figcaption>
 	</figure>
-	<br><br>
+
+	<a class="card-link" href="javascript:void(0);">
+		@include('deeds.cards.modern')
+	</a>	
+
+	<figure>
+		<img src="{{ asset('images/deeds_1993.jpg') }}" alt="Title Deed cards from 1993">
+		<figcaption><strong>Fig B:</strong> Title Deed Cards from 1993.</figcaption>
+	</figure>
+
+	<a class="card-link" href="javascript:void(0);">
+    	@include('deeds.cards.disaster')
+	</a>
+
+	<figure>
+		<img src="{{ asset('images/deeds_1996.jpg') }}" alt="Title Deed cards from 1996">
+		<figcaption><strong>Fig C:</strong> Title Deed Cards from 1996.</figcaption>
+	</figure>
 
 	<!-- Link to Monopoly page -->
-	<a class="card-link" href="/monopoly">
-    	@include('deeds.cards.monopoly')
+	<a class="card-link" href="/monopoly" target="_blank">
+    	@include('deeds.cards.renders')
 	</a>
-	<br><br>
 
 	<!-- Link back to home page -->
 	<a class="card-link" href="/">
     	@include('deeds.cards.back')
     </a>
-	<br><br>
 
 </div>
 

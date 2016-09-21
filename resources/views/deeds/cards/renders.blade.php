@@ -10,7 +10,7 @@
 
 
 @section('details')
-	For comparison Fig. A shows<br>
-	a scan of the original next to<br> 
-	a screen shot of the new card
+	Click here to see all<br>
+	Title Deed cards<br>
+	rendered in CSS
 @overwrite
