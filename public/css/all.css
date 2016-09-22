@@ -526,7 +526,10 @@ a.item {
 
 #about-page figure img {
   border: 6px solid #205a20;
-  padding: 6px; }
+  padding: 6px;
+  display: block;
+  max-width: 100%;
+  height: auto; }
 
 #about-page figure figcaption {
   background-color: #ffffff;
