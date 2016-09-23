@@ -1,16 +1,16 @@
 @extends('deeds.card')
 
 @section('card-type') 
-    community-chest
+    chance
 @overwrite
 
 @section('title') 
-    Community Chest
+    Chance
 @overwrite
 
 
 @section('details')
 	Modern versions of the same card<br>
 	do not seem to retain many of<br>
-	the original details as in Fig. B
+	the original details as in Fig C
 @overwrite

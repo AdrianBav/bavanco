@@ -10,8 +10,8 @@
 
 
 @section('details')
-	Things get worse in 1996 with<br>
-	massive spacing in the header<br>
-	and square edges meeting<br>
-	rounded corners (Fig. C)
+	Things get worse in 1996 Fig D<br>
+	with massive spacing in the<br>
+	header and square edges<br>
+	meeting rounded corners
 @overwrite

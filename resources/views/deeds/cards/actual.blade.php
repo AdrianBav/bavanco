@@ -11,6 +11,5 @@
 
 @section('details')
 	Not just any set but the actual<br>
-    passed down Monopoly set I<br>
-    would play on as a child
+    set I would play on as a child
 @overwrite

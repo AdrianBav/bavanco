@@ -10,7 +10,7 @@
 
 
 @section('details')
-	The style of the Title Deed cards<br>
-	has been replicated using<br>
-	HTML and CSS<br>
+	I have replicated the unique style<br>
+	of the Title Deed cards using<br>
+	HTML and CSS
 @overwrite

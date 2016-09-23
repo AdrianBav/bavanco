@@ -10,7 +10,7 @@
 
 
 @section('details')
-	Click here to see all<br>
-	Title Deed cards<br>
-	rendered in CSS
+	Click here to see a<br>
+	gallery of Title Deed<br>
+	cards rendered in CSS
 @overwrite
