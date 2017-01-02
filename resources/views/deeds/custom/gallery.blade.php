@@ -23,9 +23,9 @@
     @ditto('GALLER') Total unique visits @right($total_unique_visits)<br>
     @ditto('GALLER') @ditto('Total') visits @right($total_visits)<br>
     @ditto('GALLER') popularity @right($rankings)<br>
-    <small>If a player owns ALL the Sites on any Colour-Group, the rent is Doubled on Unimproved Sites in that group.</small><br>
-    GALLERY has {{ $year_span }} year span<br>
-    @ditto('GALLERY') @ditto('has') 9 collections<br>
-    @spacer('GALLERY') @ditto('has') 90 photos<br>
+    <small>A gallery of photographs documenting the world travels of Adrian and Jillian since the time they first met.</small><br>    
+    GALLERY has {{ $duration_in_years }} years of travels<br>
+    @ditto('GALLERY') @ditto('has') {{ $total_collections }} destinations<br>
+    @spacer('GALLERY') @ditto('has') {{ $total_photos }} photographs<br>
     Number of DAYS live, {{ $days }}
 @overwrite
