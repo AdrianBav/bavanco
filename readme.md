@@ -1,7 +1,8 @@
 # Bavanco
 
 ## Top Jobs
-- ?
+- Site must handle when guzzle returns 404
+
 
 ## Low Priority
 - Add API auth?
@@ -11,7 +12,7 @@
 
 
 
-# GoDaddy Deployment
+# Deployment ?
 
 git pull origin master
 
