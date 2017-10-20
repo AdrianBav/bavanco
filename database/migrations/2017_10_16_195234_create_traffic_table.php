@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsageTable extends Migration
+class CreateTrafficTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUsageTable extends Migration
      */
     public function up()
     {
-        Schema::create('usage', function (Blueprint $table) {
+        Schema::create('traffic', function (Blueprint $table) {
             $table->increments('id');
 
             $table->string('site_identifier');
@@ -31,6 +31,6 @@ class CreateUsageTable extends Migration
      */
     public function down()
     {
-        Schema::drop('usage');
+        Schema::drop('traffic');
     }
 }
