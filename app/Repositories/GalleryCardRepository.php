@@ -25,20 +25,26 @@ class GalleryCardRepository implements CardRepository
      *
      * @param  Card  $card
      * @return array
-     */ 
+     */
 	public function getData(Card $card)
 	{
         $visit_statistics = $this->get_visit_statistics($card);
 
         // Get site statistics
-        $site_statistics = Cache::remember('gallery_statistics', $this->cache_minutes, function() use ($card) {
-            return $this->get_site_statistics($card->url);
-        });
+        // $site_statistics = Cache::remember('gallery_statistics', $this->cache_minutes, function() use ($card) {
+        //     return $this->get_site_statistics($card->url);
+        // });
+
+        $site_statistics = [
+            'duration_in_years' => '1',
+            'total_collections' => '1',
+            'total_photos' => '1',
+        ];
 
         // Return the card data
         $data = array_merge($visit_statistics, $site_statistics);
 
-        return $data;   
+        return $data;
 	}
 
 
@@ -49,7 +55,7 @@ class GalleryCardRepository implements CardRepository
      *
      * @param  string  $card_url
      * @return array
-     */ 
+     */
     private function get_site_statistics($card_url)
     {
         // Generate the API statistics URL
@@ -65,7 +71,7 @@ class GalleryCardRepository implements CardRepository
             'total_collections' => $statistics['total_collections'],
             'total_photos'      => $statistics['total_photos'],
             'duration_in_years' => $statistics['duration_in_years']
-        );  
+        );
 
         return $site_statistics;
     }
