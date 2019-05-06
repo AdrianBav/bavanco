@@ -16,20 +16,19 @@ class BlogCardRepository implements CardRepository
      *
      * @param  Card  $card
      * @return array
-     */	
+     */
 	public function getData(Card $card)
 	{
         $visit_statistics = $this->get_visit_statistics($card);
 
         $site_statistics = array(
-            'number_of_articles' => 7,
-            'number_of_likes' => 74,
-            'number_of_comments' => 754,
+            'number_of_articles' => 2,
+            'number_of_photos' => 4,
         );
 
         $data = array_merge($visit_statistics, $site_statistics);
 
-        return $data;		
+        return $data;
 	}
 
 }

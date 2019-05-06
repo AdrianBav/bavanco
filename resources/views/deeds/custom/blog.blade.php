@@ -3,29 +3,29 @@
 @section('extra')
 @overwrite
 
-@section('group') 
+@section('group')
     deed-group5
 @overwrite
 
-@section('subtitle') 
+@section('subtitle')
     Bavanco.co.uk
 @overwrite
 
-@section('title') 
-    We Blog
+@section('title')
+    5-and-20 Past
 @overwrite
 
 
 @section('details')
-    BLOG—Our words<br>
-    @ditto('BLOG') YTD unique visits @right($ydt_unique_visits)<br>
-    @ditto('BLOG') @ditto('YTD') visits @right($ydt_visits)<br>
-    @ditto('BLOG') Total unique visits @right($total_unique_visits)<br>
-    @ditto('BLOG') @ditto('Total') visits @right($total_visits)<br>
-    @ditto('BLOG') popularity @right($rankings)<br>
-    <small>If a player owns ALL the Sites on any Colour-Group, the rent is Doubled on Unimproved Sites in that group.</small><br>
+    BLOG—Since @right($card->since()['year'])<br>
+    @ditto('BLOG') number of years @right($card->since()['years'])<br>
+    @ditto('BLOG') @ditto('number') @ditto('of') months @right($card->since()['months'])<br>
+    @ditto('BLOG') @ditto('number') @ditto('of') weeks @right($card->since()['weeks'])<br>
+    @ditto('BLOG') @ditto('number') @ditto('of') days @right($card->since()['days'])<br>
+    @ditto('BLOG') TOTAL days @right($card->since()['totalDays'])<br>
+    <small>A personal blog for me to showcase my articles and photographs on subjects such as life, music and comedy.</small><br>
     BLOG has {{ $number_of_articles }} articles<br>
-    @ditto('BLOG') @ditto('has') {{ $number_of_likes }} likes<br>
-    @ditto('BLOG') @ditto('has') {{ $number_of_comments }} comments<br>
-    Number of DAYS live, {{ $days }}
+    @ditto('BLOG') @ditto('has') {{ $number_of_photos }} photos<br>
+    @spacer('BLOG') @spacer('has') NO stock photos<br>
+    VISITS since launch, {{ $ydt_unique_visits }}
 @overwrite

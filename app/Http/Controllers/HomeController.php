@@ -14,14 +14,12 @@ class HomeController extends Controller
      * Show the home page.
      *
      * @return Response
-     */    
+     */
     public function index()
     {
         $cards = Card::all();
 
-        $rankings = Card::rankings();
-
-    	return view('home', compact('cards', 'rankings'));
+    	return view('home', compact('cards'));
     }
 
     /**
@@ -35,7 +33,7 @@ class HomeController extends Controller
         $cards = $deeds->getCards();
 
         return view('pages.monopoly', compact('cards'));
-    }  
+    }
 
     /**
     * Show the about page.
@@ -45,6 +43,6 @@ class HomeController extends Controller
     public function about()
     {
         return view('pages.about');
-    }  
+    }
 
 }

@@ -2,10 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 use DB;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
+
 
 class Card extends Model
 {
@@ -41,11 +41,11 @@ class Card extends Model
     public function getUrlAttribute($url)
     {
         return ($url) ? $url : 'javascript:void(0)';
-    }  
+    }
 
 
-    // Public functions 
-    
+    // Public functions
+
     /**
      * Get the cards view partial.
      *
@@ -56,7 +56,7 @@ class Card extends Model
         // The monopoly page creates instances of 'Card' with the 'monopoly' property set.
         if ($this->monopoly)
         {
-            return "deeds.{$this->site_identifier}";            
+            return "deeds.{$this->site_identifier}";
         }
 
         return "deeds.custom.{$this->site_identifier}";
@@ -66,17 +66,17 @@ class Card extends Model
      * Get the data from the cards data repository.
      *
      * @return Array
-     */   
+     */
     public function data()
-    {	
+    {
         $data = array();
 
         // Build the cards repository name and path from the site_identifier
         $repositoryName = sprintf('%sCardRepository', studly_case($this->site_identifier));
         $cardRepository = sprintf('\\App\\Repositories\\%s', $repositoryName);
-    	
+
         // Card repositories are optional
-        if ( ! class_exists($cardRepository)) 
+        if ( ! class_exists($cardRepository))
         {
             return $data;
         }
@@ -95,13 +95,13 @@ class Card extends Model
      */
     public function target()
     {
-        if (starts_with($this->url, 'http')) 
+        if (starts_with($this->url, 'http'))
         {
             return '_blank';
         }
 
         return '_self';
-    }    
+    }
 
     /**
      * Return the number of days since the cards creation.
@@ -110,7 +110,22 @@ class Card extends Model
      */
     public function age()
     {
-        return $this->created_at->diffInDays();    
+        return $this->created_at->diffInDays();
+    }
+
+    //
+    public function since()
+    {
+        $interval = Carbon::now()->diff($this->created_at);
+
+        return [
+            'year' => $this->created_at->year,
+            'years' => $interval->y,
+            'months' => $interval->m,
+            'weeks' => intval(floor($interval->d / 7)),
+            'days' => $interval->d % 7,
+            'totalDays' => $interval->days,
+        ];
     }
 
 
@@ -121,7 +136,7 @@ class Card extends Model
      *
      * @return string
      */
-    public static function rankings() 
+    public static function rankings()
     {
         // Get all cards in order of total visits
         $results_collection = DB::table('cards')
@@ -157,11 +172,11 @@ class Card extends Model
      * @param  integer $number
      * @return string
      */
-    private static function ordinal($number) 
+    private static function ordinal($number)
     {
         // For numbers ending 0 to 9
         $ends = array('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th');
-                
+
         if ((($number % 100) >= 11) && (($number % 100) <= 13))
         {
             // 11, 12 and 13 are exceptions to the rule
@@ -172,6 +187,6 @@ class Card extends Model
             // Use the last digit to determine which ending the number should use
             return $number . $ends[$number % 10];
         }
-    }    
+    }
 
 }

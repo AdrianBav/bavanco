@@ -3,29 +3,29 @@
 @section('extra')
 @overwrite
 
-@section('group') 
+@section('group')
     deed-group1
 @overwrite
 
-@section('subtitle') 
+@section('subtitle')
     Bavanco.co.uk
 @overwrite
 
-@section('title') 
+@section('title')
     The Archives
 @overwrite
 
 
 @section('details')
-    ARCHIVES—Bavanco History<br>
-    @ditto('ARCHIV') YTD unique visits @right($ydt_unique_visits)<br>
-    @ditto('ARCHIV') @ditto('YTD') visits @right($ydt_visits)<br>
-    @ditto('ARCHIV') Total unique visits @right($total_unique_visits)<br>
-    @ditto('ARCHIV') @ditto('Total') visits @right($total_visits)<br>
-    @ditto('ARCHIV') popularity @right($rankings)<br>
+    ARCHIVES—Since @right($card->since()['year'])<br>
+    @ditto('ARCHIV') number of years @right($card->since()['years'])<br>
+    @ditto('ARCHIV') @ditto('number') @ditto('of') months @right($card->since()['months'])<br>
+    @ditto('ARCHIV') @ditto('number') @ditto('of') weeks @right($card->since()['weeks'])<br>
+    @ditto('ARCHIV') @ditto('number') @ditto('of') days @right($card->since()['days'])<br>
+    @ditto('ARCHIV') TOTAL days @right($card->since()['totalDays'])<br>
     <small>This archives site aims to Preserve a Definitive History of the Bavanco branding and online Web Presence.</small><br>
-    ARCHIVE spans 5 domains<br>
-    @ditto('ARCHIVE') @ditto('span') 11 archived sites<br>
-    @spacer('ARCHIVE') @spacer('span') {{ $active_years }} active years<br>
-    Number of DAYS live, {{ $days }}
+    ARCHIVES spans 20 years<br>
+    @ditto('ARCHIVES') has 3 domains<br>
+    @spacer('ARCHIVES') @spacer('has') FULL history<br>
+    VISITS since launch, {{ $ydt_unique_visits }}
 @overwrite

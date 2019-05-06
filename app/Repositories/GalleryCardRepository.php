@@ -36,9 +36,8 @@ class GalleryCardRepository implements CardRepository
         // });
 
         $site_statistics = [
-            'duration_in_years' => '1',
-            'total_collections' => '1',
-            'total_photos' => '1',
+            'total_collections' => '10',
+            'total_photos' => '351',
         ];
 
         // Return the card data
