@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Cards;
 
+use DB;
 use App\Card;
 
 trait VisitStatistics
@@ -14,15 +15,21 @@ trait VisitStatistics
      */
     protected function get_visit_statistics(Card $card)
     {
+        $visits = DB::connection('traffic')
+            ->table('visits')
+            ->join('sites', 'visits.site_id', '=', 'sites.id')
+            ->where('sites.slug', $card->site_identifier)
+            ->count();
+
         $data = array(
-            'ydt_unique_visits'   => $card->visits()->ytd()->unique()->get()->count(),
-            'ydt_visits'          => $card->visits()->ytd()->get()->count(),
-            'total_unique_visits' => $card->visits()->unique()->get()->count(),
-            'total_visits'        => $card->visits()->get()->count(),
-            'days'                => $card->age(),
+            'ydt_unique_visits'   => $visits,
+            'ydt_visits'          => 0,
+            'total_unique_visits' => 0,
+            'total_visits'        => 0,
+            'days'                => 0,
         );
 
-        return $data;	
+        return $data;
     }
 
 }
