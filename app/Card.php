@@ -2,7 +2,6 @@
 
 namespace App;
 
-use DB;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -15,19 +14,9 @@ class Card extends Model
      * @var array
      */
     protected $fillable = [
-        'site_identifier', 'url'
+        'site_identifier',
+        'url',
     ];
-
-
-    // Relationships
-
-    /**
-     * Get the number of visits of this card.
-     */
-    public function visits()
-    {
-        return $this->hasMany('App\Visit');
-    }
 
 
     // Accessors & Mutators
@@ -104,16 +93,10 @@ class Card extends Model
     }
 
     /**
-     * Return the number of days since the cards creation.
+     * Get statistics since creation.
      *
-     * @return integer
+     * @return  array
      */
-    public function age()
-    {
-        return $this->created_at->diffInDays();
-    }
-
-    //
     public function since()
     {
         $interval = Carbon::now()->diff($this->created_at);
@@ -127,66 +110,4 @@ class Card extends Model
             'totalDays' => $interval->days,
         ];
     }
-
-
-    // Public static functions
-
-    /**
-     * Determine where this card ranks based on total number of visits.
-     *
-     * @return string
-     */
-    public static function rankings()
-    {
-        // Get all cards in order of total visits
-        $results_collection = DB::table('cards')
-            ->leftJoin('visits', 'cards.id', '=', 'visits.card_id')
-            ->select('cards.id AS card_id')
-            ->addSelect(DB::raw('COUNT(visits.card_id) as total'))
-            ->groupBy('cards.id')
-            ->orderBy('total', 'desc')
-            ->orderBy('cards.created_at', 'asc')
-            ->get();
-
-        // Transform the results collection to produce and array
-        // where the key is the card id and the value is the rank
-        $ranks = $results_collection
-            ->pluck('card_id')
-            ->prepend(0)
-            ->flip()
-            ->forget(0)
-            ->transform(function ($item, $key) {
-                return static::ordinal($item);
-            })
-            ->all();
-
-        return $ranks;
-    }
-
-
-    // Private static functions
-
-    /**
-     * Append an ordinal suffix to the given number.
-     *
-     * @param  integer $number
-     * @return string
-     */
-    private static function ordinal($number)
-    {
-        // For numbers ending 0 to 9
-        $ends = array('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th');
-
-        if ((($number % 100) >= 11) && (($number % 100) <= 13))
-        {
-            // 11, 12 and 13 are exceptions to the rule
-            return $number . 'th';
-        }
-        else
-        {
-            // Use the last digit to determine which ending the number should use
-            return $number . $ends[$number % 10];
-        }
-    }
-
 }
