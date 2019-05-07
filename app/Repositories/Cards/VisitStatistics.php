@@ -22,7 +22,7 @@ trait VisitStatistics
             ->count();
 
         $data = array(
-            'ydt_unique_visits'   => $visits,
+            'ydt_unique_visits'   => number_format($visits),
             'ydt_visits'          => 0,
             'total_unique_visits' => 0,
             'total_visits'        => 0,
