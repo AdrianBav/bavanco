@@ -22,7 +22,7 @@ class CardsTableSeeder extends Seeder
 
 		Card::create([
             'site_identifier' => 'gallery',
-            'url' 	          => 'https://gallery.bavanco.co.uk',
+            'url' 	          => 'https://travel.bavanco.co.uk',
             'created_at'      => Carbon::createFromDate(2017, 11, 30)->toDateTimeString(),
         ]);
 
