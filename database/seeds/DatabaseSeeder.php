@@ -12,12 +12,5 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 		$this->call(CardsTableSeeder::class);
-
-        // The faker library is only available in development
-        // Also, on production we'll generate real visit data
-        if (App::environment('local'))
-        {
-            $this->call(VisitsTableSeeder::class);    
-        }
     }
 }
