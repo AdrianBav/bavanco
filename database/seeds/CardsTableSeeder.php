@@ -38,18 +38,13 @@ class CardsTableSeeder extends Seeder
         ]);
 
         Card::create([
+            'site_identifier' => 'screaming-bears-under-construction',
+            'url'             => 'https://archives.bavanco.co.uk/screamingbears/underconstruction/',
+        ]);
+
+        Card::create([
             'site_identifier' => 'bavanco-version-2002',
             'url'             => 'https://archives.bavanco.co.uk/bavanco/version2002/',
-        ]);
-
-        Card::create([
-            'site_identifier' => 'bavanco-under-construction',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/underconstruction/',
-        ]);
-
-        Card::create([
-            'site_identifier' => 'bavanco-version-2008',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/version2008/',
         ]);
 
         Card::create([
@@ -59,9 +54,24 @@ class CardsTableSeeder extends Seeder
         ]);
 
         Card::create([
+            'site_identifier' => 'world-times',
+            'created_at'      => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
+        ]);
+
+        Card::create([
             'site_identifier' => 'about-author',
             'url'             => 'https://adrianbavister.com/',
             'created_at'      => Carbon::createFromDate(2015, 11, 3)->toDateTimeString(),
+        ]);
+
+        Card::create([
+            'site_identifier' => 'bavanco-version-2008',
+            'url'             => 'https://archives.bavanco.co.uk/bavanco/version2008/',
+        ]);
+
+        Card::create([
+            'site_identifier' => 'world-temperatures',
+            'created_at'      => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
         ]);
 
         Card::create([
@@ -71,13 +81,8 @@ class CardsTableSeeder extends Seeder
         ]);
 
         Card::create([
-            'site_identifier' => 'world-temperatures',
-            'created_at'      => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
-        ]);
-
-        Card::create([
-            'site_identifier' => 'world-times',
-            'created_at'      => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
+            'site_identifier' => 'bavanco-under-construction',
+            'url'             => 'https://archives.bavanco.co.uk/bavanco/underconstruction/',
         ]);
 
         Card::create([
@@ -93,11 +98,6 @@ class CardsTableSeeder extends Seeder
         Card::create([
             'site_identifier' => 'bavanco-coming-soon',
             'url'             => 'https://archives.bavanco.co.uk/bavanco/comingsoon/',
-        ]);
-
-        Card::create([
-            'site_identifier' => 'screaming-bears-under-construction',
-            'url'             => 'https://archives.bavanco.co.uk/screamingbears/underconstruction/',
         ]);
 
         Card::create([

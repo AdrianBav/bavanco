@@ -3,11 +3,11 @@
 @section('extra')
 @overwrite
 
-@section('title') 
+@section('title')
     World Temperatures
 @overwrite
 
-@section('subtitle') 
+@section('subtitle')
     Bavanco Global
 @overwrite
 
@@ -16,6 +16,6 @@
     Temperature @right('&deg;C/&deg;F')<br><br>
     @ditto('Temperat') in Dallas @right($dallas)<br><br>
     @ditto('Temperat') @ditto('in') London @right($london)<br><br>
-    @ditto('Temperat') @ditto('in') Honolulu @right($honolulu)<br><br>
+    @ditto('Temperat') @ditto('in') Melbourne @right($melbourne)<br><br>
     Season in Dallas @right($dallas_season)
 @overwrite

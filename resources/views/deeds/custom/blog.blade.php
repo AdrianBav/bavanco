@@ -12,7 +12,7 @@
 @overwrite
 
 @section('title')
-    5-and-20 Past
+    Five+Twenty Past
 @overwrite
 
 

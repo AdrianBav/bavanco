@@ -14,7 +14,7 @@ class WorldTimesCardRepository implements CardRepository
      *
      * @param  Card  $card
      * @return array
-     */ 
+     */
 	public function getData(Card $card)
 	{
         // Calculate the percent of the year that has elapsed
@@ -26,11 +26,11 @@ class WorldTimesCardRepository implements CardRepository
         $data = array(
             'dallas'   => Carbon::now('America/Chicago')->format('g:i a'),
             'london'   => Carbon::now('Europe/London')->format('g:i a'),
-            'honolulu' => Carbon::now('Pacific/Honolulu')->format('g:i a'),
+            'melbourne' => Carbon::now('Australia/Melbourne')->format('g:i a'),
             'percent'  => "{$percent_of_year}%",
         );
 
-        return $data;		
+        return $data;
 	}
 
 }
