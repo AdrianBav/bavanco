@@ -3,13 +3,20 @@
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/AdrianBav/traffic"
+        }
+    ],
     "type": "project",
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
         "torann/geoip": "0.2.*@dev",
         "jenssegers/agent": "^2.3",
-        "nwidart/laravel-forecast": "^2.1"        
+        "nwidart/laravel-forecast": "^2.1",
+        "adrianbav/traffic": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
