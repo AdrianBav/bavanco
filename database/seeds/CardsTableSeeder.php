@@ -21,7 +21,7 @@ class CardsTableSeeder extends Seeder
         ]);
 
 		Card::create([
-            'site_identifier' => 'gallery',
+            'site_identifier' => 'travel',
             'url' 	          => 'https://travel.bavanco.co.uk',
             'created_at'      => Carbon::createFromDate(2017, 11, 30)->toDateTimeString(),
         ]);
@@ -34,17 +34,17 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'kittyscampers',
-            'url'             => 'https://archives.bavanco.co.uk/kittyscampers/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/kittyscampers/',
         ]);
 
         Card::create([
             'site_identifier' => 'screaming-bears-under-construction',
-            'url'             => 'https://archives.bavanco.co.uk/screamingbears/underconstruction/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/screamingbears/underconstruction/',
         ]);
 
         Card::create([
             'site_identifier' => 'bavanco-version-2002',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/version2002/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/bavanco/version2002/',
         ]);
 
         Card::create([
@@ -66,7 +66,7 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'bavanco-version-2008',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/version2008/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/bavanco/version2008/',
         ]);
 
         Card::create([
@@ -82,32 +82,32 @@ class CardsTableSeeder extends Seeder
 
         Card::create([
             'site_identifier' => 'bavanco-under-construction',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/underconstruction/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/bavanco/underconstruction/',
         ]);
 
         Card::create([
             'site_identifier' => 'bavanco-version-2001',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/version2001/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/bavanco/version2001/',
         ]);
 
         Card::create([
             'site_identifier' => 'bavanco-version-2003',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/version2003/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/bavanco/version2003/',
         ]);
 
         Card::create([
             'site_identifier' => 'bavanco-coming-soon',
-            'url'             => 'https://archives.bavanco.co.uk/bavanco/comingsoon/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/bavanco/comingsoon/',
         ]);
 
         Card::create([
             'site_identifier' => 'screaming-bears-version-1',
-            'url'             => 'https://archives.bavanco.co.uk/screamingbears/version1/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/screamingbears/version1/',
         ]);
 
         Card::create([
             'site_identifier' => 'screaming-bears-version-2',
-            'url'             => 'https://archives.bavanco.co.uk/screamingbears/version2/',
+            'url'             => 'https://archives.bavanco.co.uk/storage/screamingbears/version2/',
         ]);
     }
 }
