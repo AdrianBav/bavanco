@@ -9,7 +9,7 @@ use Cache;
 use App\Card;
 use GuzzleHttp\Client;
 
-class GalleryCardRepository implements CardRepository
+class TravelCardRepository implements CardRepository
 {
     use VisitStatistics;
 
