@@ -107,7 +107,7 @@ class Card extends Model
             'months' => $interval->m,
             'weeks' => intval(floor($interval->d / 7)),
             'days' => $interval->d % 7,
-            'totalDays' => $interval->days,
+            'totalDays' => number_format($interval->days),
         ];
     }
 }
