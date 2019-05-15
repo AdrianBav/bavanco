@@ -14,8 +14,8 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         // Main app: footer
-        view()->composer('partials.footer', function ($view) {
-            
+        view()->composer('layouts.partials.footer', function ($view) {
+
             $view->with('current_year', date('Y'));
         });
     }

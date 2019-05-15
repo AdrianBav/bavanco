@@ -16,44 +16,44 @@ class DeedRepository
         $deeds = [
 
             // Properties
-            'property.old-kent-rd',
-            'property.whitechapel-rd',
-            'property.the-angel-islington',
-            'property.euston-road',
-            'property.pentonville-road',
-            'property.pall-mall',
-            'property.whitehall',
-            'property.northumberld-ave',
-            'property.bow-street',
-            'property.marlborough-st',
-            'property.vine-street',
-            'property.the-strand',
-            'property.fleet-street',
-            'property.trafalgar-square',
-            'property.leicester-square',
-            'property.coventry-street',
-            'property.piccadilly',
-            'property.regent-street',
-            'property.oxford-street',
-            'property.bond-street',
-            'property.park-lane',
-            'property.mayfair',
+            'old-kent-rd',
+            'whitechapel-rd',
+            'the-angel-islington',
+            'euston-road',
+            'pentonville-road',
+            'pall-mall',
+            'whitehall',
+            'northumberld-ave',
+            'bow-street',
+            'marlborough-st',
+            'vine-street',
+            'the-strand',
+            'fleet-street',
+            'trafalgar-square',
+            'leicester-square',
+            'coventry-street',
+            'piccadilly',
+            'regent-street',
+            'oxford-street',
+            'bond-street',
+            'park-lane',
+            'mayfair',
 
             // Utilities
-            'utility.electric-company',
-            'utility.water-works',
-        
+            'electric-company',
+            'water-works',
+
             // Stations
-            'station.kings-cross',
-            'station.marylebone',
-            'station.fenchurch-st',
-            'station.liverpool-st',
-            
+            'kings-cross',
+            'marylebone',
+            'fenchurch-st',
+            'liverpool-st',
+
             // Mortgaged Properties
-            'mortgaged.old-kent-rd',
-            'mortgaged.the-angel-islington',
-            'mortgaged.trafalgar-square',
-            'mortgaged.kings-cross',
+            'mortgaged-old-kent-rd',
+            'mortgaged-the-angel-islington',
+            'mortgaged-trafalgar-square',
+            'mortgaged-kings-cross',
         ];
 
         // Create an array of Card instances, based on the decks array.
@@ -63,7 +63,7 @@ class DeedRepository
         {
             $card = new Card;
 
-            // The 'partial' function in the Card object will 
+            // The 'partial' function in the Card object will
             // use the 'monopoly' property to adjust the site identifier accordingly.
             $card->monopoly = true;
             $card->site_identifier = $deed;
@@ -72,6 +72,6 @@ class DeedRepository
         }
 
         return $cards;
-    }     
+    }
 
 }

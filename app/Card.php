@@ -45,10 +45,10 @@ class Card extends Model
         // The monopoly page creates instances of 'Card' with the 'monopoly' property set.
         if ($this->monopoly)
         {
-            return "deeds.{$this->site_identifier}";
+            return "decks.default.{$this->site_identifier}";
         }
 
-        return "deeds.custom.{$this->site_identifier}";
+        return "decks.home.{$this->site_identifier}";
     }
 
     /**

@@ -35,7 +35,7 @@
         @yield('content')
 
         <!-- Footer -->
-        @include('partials.footer')
+        @include('layouts.partials.footer')
 
         <!-- Scripts -->
         <script src="{{ elixir('js/app.js') }}"></script>
