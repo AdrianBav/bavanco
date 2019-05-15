@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/AdrianBav/traffic.git",
-                "reference": "61eaef1f073aa306e865bb33ff21a582f3d2899b"
+                "reference": "f4295e29d496f30e44df47e685e5bf08eab50fa0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AdrianBav/traffic/zipball/61eaef1f073aa306e865bb33ff21a582f3d2899b",
-                "reference": "61eaef1f073aa306e865bb33ff21a582f3d2899b",
+                "url": "https://api.github.com/repos/AdrianBav/traffic/zipball/f4295e29d496f30e44df47e685e5bf08eab50fa0",
+                "reference": "f4295e29d496f30e44df47e685e5bf08eab50fa0",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "source": "https://github.com/AdrianBav/traffic/tree/master",
                 "issues": "https://github.com/AdrianBav/traffic/issues"
             },
-            "time": "2019-05-13T19:49:10+00:00"
+            "time": "2019-05-14T16:14:45+00:00"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -3601,6 +3601,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
         {

@@ -1,5 +1,7 @@
 <?php
 
+use AdrianBav\Traffic\Middlewares\RecordVisits;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +14,7 @@
 */
 
 // Home page
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->middleware(RecordVisits::class);
 
 // Secondary pages
 Route::get('about', 'HomeController@about');

@@ -166,6 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
+        AdrianBav\Traffic\TrafficServiceProvider::class,
         Torann\GeoIP\GeoIPServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Nwidart\LaravelForecast\LaravelForecastServiceProvider::class,
@@ -230,10 +231,11 @@ return [
         /*
          * Package Service Providers...
          */
+        'Traffic' => AdrianBav\Traffic\Facades\Traffic::class,
         'GeoIP' => Torann\GeoIP\GeoIPFacade::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Forecast' => Nwidart\LaravelForecast\ForecastFacade::class,
-        
+
     ],
 
 ];

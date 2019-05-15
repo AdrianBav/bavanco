@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Cards;
 
-use DB;
 use App\Card;
+use AdrianBav\Traffic\Facades\Traffic;
 
 trait VisitStatistics
 {
@@ -15,11 +15,7 @@ trait VisitStatistics
      */
     protected function get_visit_statistics(Card $card)
     {
-        $visits = DB::connection('traffic')
-            ->table('visits')
-            ->join('sites', 'visits.site_id', '=', 'sites.id')
-            ->where('sites.slug', $card->site_identifier)
-            ->count();
+        $visits = Traffic::visits($card->site_identifier);
 
         $data = array(
             'ydt_unique_visits'   => number_format($visits),
@@ -31,5 +27,4 @@ trait VisitStatistics
 
         return $data;
     }
-
 }
