@@ -24,8 +24,8 @@
     @ditto('SITES') @ditto('number') @ditto('of') days @right($card->since()['days'])<br>
     @ditto('SITES') TOTAL days @right($card->since()['totalDays'])<br>
     <small>This Site serves as a Handy Reference to ALL the Websites I have recently Developed for Friends and Myself.</small><br>
-    SITES has 4 domains<br>
-    @ditto('SITES') @ditto('has') 8 microsites<br>
+    SITES has {{ $domains }} domains<br>
+    @ditto('SITES') @ditto('has') {{ $microsites }} microsites<br>
     @spacer('SITES') @spacer('has') CUSTOM designs<br>
     VISITS since launch, {{ $ydt_unique_visits }}
 @overwrite

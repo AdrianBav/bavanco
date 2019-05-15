@@ -2,10 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Cards\VisitStatistics;
-use App\Repositories\Cards\CardRepository;
-
 use App\Card;
+use App\Repositories\Cards\CardRepository;
+use App\Repositories\Cards\VisitStatistics;
 
 class BlogCardRepository implements CardRepository
 {
@@ -19,16 +18,10 @@ class BlogCardRepository implements CardRepository
      */
 	public function getData(Card $card)
 	{
-        $visit_statistics = $this->get_visit_statistics($card);
-
-        $site_statistics = array(
+        return [
+            'ydt_unique_visits' => $this->get_visit_statistics($card),
             'number_of_articles' => 2,
             'number_of_photos' => 4,
-        );
-
-        $data = array_merge($visit_statistics, $site_statistics);
-
-        return $data;
+        ];
 	}
-
 }

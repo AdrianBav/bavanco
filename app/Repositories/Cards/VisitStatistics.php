@@ -15,16 +15,9 @@ trait VisitStatistics
      */
     protected function get_visit_statistics(Card $card)
     {
-        $visits = Traffic::visits($card->site_identifier);
+        //$visits = Traffic::visits($card->site_identifier);
+        $visits = 99;
 
-        $data = array(
-            'ydt_unique_visits'   => number_format($visits),
-            'ydt_visits'          => 0,
-            'total_unique_visits' => 0,
-            'total_visits'        => 0,
-            'days'                => 0,
-        );
-
-        return $data;
+        return number_format($visits);
     }
 }

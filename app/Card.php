@@ -43,8 +43,7 @@ class Card extends Model
     public function partial()
     {
         // The monopoly page creates instances of 'Card' with the 'monopoly' property set.
-        if ($this->monopoly)
-        {
+        if ($this->monopoly) {
             return "decks.default.{$this->site_identifier}";
         }
 
@@ -65,8 +64,7 @@ class Card extends Model
         $cardRepository = sprintf('\\App\\Repositories\\%s', $repositoryName);
 
         // Card repositories are optional
-        if ( ! class_exists($cardRepository))
-        {
+        if ( ! class_exists($cardRepository)) {
             return $data;
         }
 
@@ -84,8 +82,7 @@ class Card extends Model
      */
     public function target()
     {
-        if (starts_with($this->url, 'http'))
-        {
+        if (starts_with($this->url, 'http')) {
             return '_blank';
         }
 

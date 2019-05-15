@@ -2,10 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Cards\VisitStatistics;
-use App\Repositories\Cards\CardRepository;
-
 use App\Card;
+use App\Repositories\Cards\CardRepository;
+use App\Repositories\Cards\VisitStatistics;
 
 class SitesCardRepository implements CardRepository
 {
@@ -16,10 +15,13 @@ class SitesCardRepository implements CardRepository
      *
      * @param  Card  $card
      * @return array
-     */ 
+     */
 	public function getData(Card $card)
 	{
-        return $this->get_visit_statistics($card);
+        return [
+            'ydt_unique_visits' => $this->get_visit_statistics($card),
+            'domains' => 4,
+            'microsites' => 8,
+        ];
 	}
-
 }
