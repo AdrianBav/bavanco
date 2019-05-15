@@ -31,11 +31,13 @@
             <h1>Bavanco</h1>
         </header>
 
-        <!-- Page Content (Typically a deck of cards) -->
+        <!-- Page Content -->
         @yield('content')
 
         <!-- Footer -->
-        @include('layouts.partials.footer')
+        <footer>
+            Copyright © 2002 - {{ date('Y') }} Bavanco
+        </footer>
 
         <!-- Scripts -->
         <script src="{{ elixir('js/app.js') }}"></script>
