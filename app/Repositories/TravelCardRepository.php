@@ -3,13 +3,10 @@
 namespace App\Repositories;
 
 use App\Card;
-use App\Repositories\Cards\CardRepository;
-use App\Repositories\Cards\VisitStatistics;
+use App\CardRepository;
 
-class TravelCardRepository implements CardRepository
+class TravelCardRepository extends CardRepository
 {
-    use VisitStatistics;
-
     /**
      * Get the data used for the card.
      *

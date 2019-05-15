@@ -2,12 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Cards\CardRepository;
-
 use App\Card;
 use Carbon\Carbon;
+use App\CardRepository;
 
-class WorldTimesCardRepository implements CardRepository
+class WorldTimesCardRepository extends CardRepository
 {
     /**
      * Get the data used for the card.
@@ -23,14 +22,13 @@ class WorldTimesCardRepository implements CardRepository
         $day_of_year = $dt->dayOfYear;
         $percent_of_year = floor(($day_of_year / $days_in_year) * 100);
 
-        $data = array(
+        $data = [
             'dallas'   => Carbon::now('America/Chicago')->format('g:i a'),
             'london'   => Carbon::now('Europe/London')->format('g:i a'),
             'melbourne' => Carbon::now('Australia/Melbourne')->format('g:i a'),
             'percent'  => "{$percent_of_year}%",
-        );
+        ];
 
         return $data;
 	}
-
 }
