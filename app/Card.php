@@ -5,7 +5,6 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-
 class Card extends Model
 {
     /**
@@ -14,8 +13,7 @@ class Card extends Model
      * @var array
      */
     protected $fillable = [
-        'site_identifier',
-        'url',
+        'site_identifier', 'url',
     ];
 
 
@@ -42,12 +40,9 @@ class Card extends Model
      */
     public function partial()
     {
-        // The monopoly page creates instances of 'Card' with the 'monopoly' property set.
-        if ($this->monopoly) {
-            return "decks.default.{$this->site_identifier}";
-        }
+        $deck = ($this->monopoly) ? 'default' : 'home';
 
-        return "decks.home.{$this->site_identifier}";
+        return "decks.{$deck}.{$this->site_identifier}";
     }
 
     /**
@@ -57,22 +52,16 @@ class Card extends Model
      */
     public function data()
     {
-        $data = array();
+        $data = [];
 
-        // Build the cards repository name and path from the site_identifier
         $repositoryName = sprintf('%sCardRepository', studly_case($this->site_identifier));
         $cardRepository = sprintf('\\App\\CardRepositories\\%s', $repositoryName);
 
-        // Card repositories are optional
-        if ( ! class_exists($cardRepository)) {
+        if (! class_exists($cardRepository)) {
             return $data;
         }
 
-        // Extract the cards data from it's repository
-        $repository = new $cardRepository();
-    	$data = $repository->getData($this);
-
-    	return $data;
+    	return (new $cardRepository)->getData($this);
     }
 
     /**
