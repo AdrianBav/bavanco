@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests;
-
 use App\Card;
-use App\Repositories\DeedRepository;
+use App\DefaultDeckRepository;
 
 class HomeController extends Controller
 {
@@ -25,12 +22,11 @@ class HomeController extends Controller
     /**
     * Show the home page with all the official monopoly properties.
     *
-    * @param  DeedRepository $deeds
     * @return Response
     */
-    public function monopoly(DeedRepository $deeds)
+    public function monopoly()
     {
-        $cards = $deeds->getCards();
+        $cards = DefaultDeckRepository::getCards();
 
         return view('monopoly', compact('cards'));
     }
@@ -44,5 +40,4 @@ class HomeController extends Controller
     {
         return view('about');
     }
-
 }

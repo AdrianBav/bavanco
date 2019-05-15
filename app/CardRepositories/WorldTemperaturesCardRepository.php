@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\CardRepositories;
 
 use App\Card;
 use Forecast;

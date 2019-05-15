@@ -61,7 +61,7 @@ class Card extends Model
 
         // Build the cards repository name and path from the site_identifier
         $repositoryName = sprintf('%sCardRepository', studly_case($this->site_identifier));
-        $cardRepository = sprintf('\\App\\Repositories\\%s', $repositoryName);
+        $cardRepository = sprintf('\\App\\CardRepositories\\%s', $repositoryName);
 
         // Card repositories are optional
         if ( ! class_exists($cardRepository)) {

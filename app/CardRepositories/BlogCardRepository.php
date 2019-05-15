@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Repositories;
+namespace App\CardRepositories;
 
 use App\Card;
 use App\CardRepository;
 
-class SitesCardRepository extends CardRepository
+class BlogCardRepository extends CardRepository
 {
     /**
      * Get the data used for the card.
@@ -17,8 +17,8 @@ class SitesCardRepository extends CardRepository
 	{
         return [
             'ydt_unique_visits' => $this->get_visit_statistics($card),
-            'domains' => 4,
-            'microsites' => 8,
+            'number_of_articles' => 2,
+            'number_of_photos' => 4,
         ];
 	}
 }
