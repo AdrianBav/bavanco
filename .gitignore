@@ -1,12 +1,11 @@
-# Default
 /node_modules
+/public/hot
 /public/storage
+/storage/*.key
 /vendor
-/.idea
+.env
+.phpunit.result.cache
 Homestead.json
 Homestead.yaml
-.env
-
-# Custom
-scratch.md
-project.todo
+npm-debug.log
+yarn-error.log

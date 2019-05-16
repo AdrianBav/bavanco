@@ -1,114 +1,72 @@
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+
 <p align="center">
-    <img src="http://microsites.adrianbavister.com/media/bavanco.png" alt="Bavanco">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## About Laravel
 
-## Introduction
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-This official bavanco website.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Deployment
+## Learning Laravel
 
-Steps to deploy this site:
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-### Git
-Clone the **bavanco** repository into a new directory.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1400 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-    cd /path/to/projects
-    git clone git@github.com:AdrianBav/bavanco.git new-project-name
+## Laravel Sponsors
 
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Composer
-The **composer.lock** file is used to list all the installed dependencies at a given time. On running **composer install** it looks for this file. If the command finds it, it will use the versions listed in this file - no matter how outdated! If there is no lock file, it will look for the newest versions of the required packages, generate a completely new composer.lock file, and proceed as usual.
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
+- [Earthlink](https://www.earthlink.ro/)
+- [Steadfast Collective](https://steadfastcollective.com/)
+- [We Are The Robots Inc.](https://watr.mx/)
+- [Understand.io](https://www.understand.io/)
+- [Abdel Elrafa](https://abdelelrafa.com)
+- [Hyper Host](https://hyper.host)
 
-    composer install --no-dev -o
+## Contributing
 
-Notice how we used **--no-dev** to prevent installing the dev packages and make the installation faster. We also used the option **-o** which is short for **--optimize-autoloader** and builds a classmap - a special file which turns all namespace-to-classes combinations (from the autoload section of composer.json) into a fixed pre-calculated array, which in most cases significantly speeds up autoloading.
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
+## Security Vulnerabilities
 
-### Directory Permissions
-Directories within the **storage** and the **bootstrap/cache** directories should be writable by your web server.
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-Check which user PHP-FPM is running as, (commonly www-data)
+## License
 
-    ps aux | grep php
-
-Change owner of storage and bootstrap/cache laravel directories:
-
-    cd /var/www/myapp
-    sudo chown -R adrian:www-data storage bootstrap/cache
-
-
-### Environment File
-In a fresh Laravel installation, the root directory contains a **.env.example** file. If you install Laravel via Composer, this file will automatically be renamed to **.env**. Otherwise, you should rename the file manually.
-
-    cp .env.example .env
-
-Set the required values.
-
-Most importantly, for production **APP_ENV** should be set to **'production'** and **debug** should be set to **'false'**. Use the **.env.example** file as a reference.
-
-The next thing you should do is set your **application key** to a random string. If you installed Laravel via Composer or the Laravel installer, this key has already been set for you. Typically, this string should be 32 characters long. The key can be set in the .env environment file. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
-
-    php artisan key:generate
-
-
-### Configuration Caching
-To give your application a speed boost, you should cache all of your configuration files into a single file using the **config:cache** Artisan command. This will combine all of the configuration options for your application into a single file which will be loaded quickly by the framework.
-
-    php artisan config:cache
-
-
-### Database
-To run all outstanding migrations for your application, use the migrate Artisan command.
-
-    php artisan migrate
-
-If you receive a **class not found** error when running migrations, try running the **dump-autoload** command and re-issuing the migrate command.
-
-    composer dump-autoload
-
-Some migration operations are destructive, meaning they may cause you to lose data. In order to protect you from running these commands against your production database, you will be prompted for confirmation before these commands are executed. To force the commands to run without a prompt, use the **--force** flag:
-
-    php artisan migrate –force
-
-You may use the **db:seed** Artisan command to seed your database. By default, the **db:seed** command runs the **DatabaseSeeder** class, which may be used to call other seed classes. However, you may use the **--class** option to specify a specific seeder class to run individually:
-
-    php artisan db:seed
-    php artisan db:seed --class=UsersTableSeeder
-
-### Compiling Assets
-Before triggering Mix, you must first ensure that Node.js and NPM are installed on your machine.
-
-    node -v
-    npm -v
-
-The next step is to install Laravel Mix.
-
-    npm install
-
-The last step is to run mix.
-When run on production, assets will be automatically minimized.
-
-    npm run production
-
-**Note:** To clear out all compiled assets, run the following command:
-
-    php artisan public:clear
-
-
-### Public Assets
-The photographs for this project are not checked into the repository. These need to be copied to the server seperatly.
-To make them accessible from the web, you should create a symbolic link from **public/storage** to **storage/app/public.**
-
-To create the symbolic link, you may use the **storage:link** Artisan command:
-
-    php artisan storage:link
-
-Lastly, upload the public assets to **storage/app/public.**
-
-
-## Copyright Notice
-
-Copyright © 2018 Bavanco
+The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
