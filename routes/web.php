@@ -1,5 +1,7 @@
 <?php
 
+use AdrianBav\Traffic\Middlewares\RecordVisits;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home page
+Route::get('/', 'HomeController@index')->middleware(RecordVisits::class);
+
+// Secondary pages
+Route::get('about', 'HomeController@about');
+Route::get('monopoly', 'HomeController@monopoly');
