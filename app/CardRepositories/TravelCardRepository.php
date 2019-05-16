@@ -16,7 +16,7 @@ class TravelCardRepository extends CardRepository
 	public function getData(Card $card)
 	{
         return [
-            'ydt_unique_visits' => $this->get_visit_statistics($card),
+            'visits' => $this->getSiteVisits($card),
             'total_collections' => 10,
             'total_photos' => 351,
         ];

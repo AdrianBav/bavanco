@@ -27,5 +27,5 @@
     GALLERY has {{ $total_collections }} destinations<br>
     @ditto('GALLERY') @ditto('has') {{ $total_photos }} photographs<br>
     @spacer('GALLERY') @spacer('has') Various cameras<br>
-    VISITS since launch, {{ $ydt_unique_visits }}
+    VISITS since launch, {{ $visits }}
 @overwrite

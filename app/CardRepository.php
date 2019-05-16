@@ -21,7 +21,7 @@ abstract class CardRepository
      * @param  Card  $card
      * @return array
      */
-    public function get_visit_statistics(Card $card)
+    public function getSiteVisits(Card $card)
     {
         $visits = Traffic::visits($card->site_identifier);
 

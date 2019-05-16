@@ -16,7 +16,7 @@ class SitesCardRepository extends CardRepository
 	public function getData(Card $card)
 	{
         return [
-            'ydt_unique_visits' => $this->get_visit_statistics($card),
+            'visits' => $this->getSiteVisits($card),
             'domains' => 4,
             'microsites' => 8,
         ];

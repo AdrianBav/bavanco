@@ -27,5 +27,5 @@
     BLOG has {{ $number_of_articles }} articles<br>
     @ditto('BLOG') @ditto('has') {{ $number_of_photos }} photos<br>
     @spacer('BLOG') @spacer('has') NO stock photos<br>
-    VISITS since launch, {{ $ydt_unique_visits }}
+    VISITS since launch, {{ $visits }}
 @overwrite

@@ -27,5 +27,5 @@
     SITES has {{ $domains }} domains<br>
     @ditto('SITES') @ditto('has') {{ $microsites }} microsites<br>
     @spacer('SITES') @spacer('has') CUSTOM designs<br>
-    VISITS since launch, {{ $ydt_unique_visits }}
+    VISITS since launch, {{ $visits }}
 @overwrite

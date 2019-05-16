@@ -27,5 +27,5 @@
     ARCHIVES spans {{ $active_years }} years<br>
     @ditto('ARCHIVES') has {{ $domains }} domains<br>
     @spacer('ARCHIVES') @spacer('has') FULL history<br>
-    VISITS since launch, {{ $ydt_unique_visits }}
+    VISITS since launch, {{ $visits }}
 @overwrite

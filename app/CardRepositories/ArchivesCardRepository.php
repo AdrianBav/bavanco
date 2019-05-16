@@ -16,7 +16,7 @@ class ArchivesCardRepository extends CardRepository
 	public function getData(Card $card)
 	{
         return [
-            'ydt_unique_visits' => $this->get_visit_statistics($card),
+            'visits' => $this->getSiteVisits($card),
             'active_years' => date('Y') - 1999,
             'domains' => 3,
         ];

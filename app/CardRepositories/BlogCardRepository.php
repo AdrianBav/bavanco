@@ -16,7 +16,7 @@ class BlogCardRepository extends CardRepository
 	public function getData(Card $card)
 	{
         return [
-            'ydt_unique_visits' => $this->get_visit_statistics($card),
+            'visits' => $this->getSiteVisits($card),
             'number_of_articles' => 2,
             'number_of_photos' => 4,
         ];
