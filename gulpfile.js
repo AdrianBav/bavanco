@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+elixir.config.sourcemaps = false;
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -18,11 +20,11 @@ elixir(function(mix) {
     	.sass(['app.scss', 'deeds.scss'], 'resources/assets/css/app.css')
 		.styles([
             'normalize.css',
-            'app.css',            
+            'app.css',
         ]);
 
  	// Copy the application javascript to the public folder
-    mix.copy('resources/assets/js/app.js', 'public/js/app.js');        
+    mix.copy('resources/assets/js/app.js', 'public/js/app.js');
 
 	// Add versioning to the stylesheet and scripts
     mix.version(['css/all.css', 'js/app.js']);
