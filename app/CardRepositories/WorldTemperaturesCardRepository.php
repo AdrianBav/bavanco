@@ -31,10 +31,10 @@ class WorldTemperaturesCardRepository extends CardRepository
         // Request the current temperatures form the Forecast API
         foreach ($places as $place => $coorinates) {
             //$forcast = Forecast::get($coorinates['lat'], $coorinates['long'], $now_formatted);
-            $temp_in_c = 0; //$forcast['currently']['temperature'];
+            //$temp_in_c = $forcast['currently']['temperature'];
 
-            $celsius = round($temp_in_c);
-            $fahrenheit = round(($temp_in_c * 1.8) + 32);
+            $celsius = 0; //round($temp_in_c);
+            $fahrenheit = 0; //round(($temp_in_c * 1.8) + 32);
 
             $data[$place] = "{$celsius}/{$fahrenheit}";
         }
