@@ -3,9 +3,9 @@
 namespace App\CardRepositories;
 
 use App\Card;
-//use Forecast;
 use Carbon\Carbon;
 use App\CardRepository;
+use App\WorldTemperatures;
 
 class WorldTemperaturesCardRepository extends CardRepository
 {
@@ -19,27 +19,25 @@ class WorldTemperaturesCardRepository extends CardRepository
 	{
         $data = array();
 
-        $places = [
-            'dallas'   => array('lat' => '32.8205865', 'long' => '-96.8714227'),
-            'london'   => array('lat' => '51.5285582', 'long' => '-0.2416797'),
-            'melbourne' => array('lat' => '-37.971237', 'long' => '144.4926947'),
+        $cities = [
+            ['name' => 'dallas', 'lat' => '32.8205865', 'long' => '-96.8714227'],
+            ['name' => 'london', 'lat' => '51.5285582', 'long' => '-0.2416797'],
+            ['name' => 'melbourne', 'lat' => '-37.971237', 'long' => '144.4926947'],
         ];
 
-        $now = Carbon::now();
-        $now_formatted = $now->toIso8601String();
+        $temperatures = new WorldTemperatures;
 
-        // Request the current temperatures form the Forecast API
-        foreach ($places as $place => $coorinates) {
-            //$forcast = Forecast::get($coorinates['lat'], $coorinates['long'], $now_formatted);
-            $temp_in_c = 0; //$forcast['currently']['temperature'];
+        foreach ($cities as $city) {
+            $temp_in_c = $temperatures->fromLatLng($city['name'], $city['lat'], $city['long']);
 
             $celsius = round($temp_in_c);
             $fahrenheit = round(($temp_in_c * 1.8) + 32);
 
-            $data[$place] = "{$celsius}/{$fahrenheit}";
+            $data["{$city['name']}"] = "{$celsius}/{$fahrenheit}";
         }
 
         // Determine the current season in Dallas
+        $now = Carbon::now();
         $spring = Carbon::createFromDate(null, 3, 20);
         $summer = Carbon::createFromDate(null, 6, 21);
         $fall = Carbon::createFromDate(null, 9, 22);
