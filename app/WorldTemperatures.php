@@ -3,6 +3,7 @@
 namespace App;
 
 use GuzzleHttp\Client as HttpClient;
+use Illuminate\Support\Facades\Cache;
 
 class WorldTemperatures
 {
@@ -44,7 +45,15 @@ class WorldTemperatures
      */
     public function fromLatLng($city, $lat, $lng)
     {
-        $weather = $this->weather($lat, $lng);
+        $keyName = sprintf('weather-%s', $city);
+
+        // @openweathermap.org
+        // We recommend making calls to the API no more than one time every 10 minutes for one location
+        $seconds = now()->addMinutes(15);
+
+        $weather = Cache::remember($keyName, $seconds, function () use ($lat, $lng) {
+            return $this->weather($lat, $lng);
+        });
 
         return $weather->main->temp;
     }
