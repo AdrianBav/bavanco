@@ -17,6 +17,17 @@ class Card extends Model
     ];
 
 
+    // Eloquent Relationships
+
+    /**
+     * Get the post that owns the comment.
+     */
+    public function deck()
+    {
+        return $this->belongsTo(Deck::class);
+    }
+
+
     // Accessors & Mutators
 
     /**
@@ -27,23 +38,35 @@ class Card extends Model
      */
     public function getUrlAttribute($url)
     {
-        return ($url) ? $url : 'javascript:void(0)';
+        return $url ?: 'javascript:void(0)';
     }
 
+    /**
+     * Get the cards link target.
+     *
+     * @return string
+     */
+    public function getTargetAttribute()
+    {
+        if (starts_with($this->url, 'http')) {
+            return '_blank';
+        }
 
-    // Public functions
+        return '_self';
+    }
 
     /**
      * Get the cards view partial.
      *
      * @return string
      */
-    public function partial()
+    public function getPartialAttribute()
     {
-        $deck = ($this->monopoly) ? 'default' : 'home';
-
-        return "decks.{$deck}.{$this->site_identifier}";
+        return "decks.{$this->deck->name}.{$this->site_identifier}";
     }
+
+
+    // Public functions
 
     /**
      * Get the data from the cards data repository.
@@ -62,20 +85,6 @@ class Card extends Model
         }
 
     	return (new $cardRepository)->getData($this);
-    }
-
-    /**
-     * Get the cards link target.
-     *
-     * @return string
-     */
-    public function target()
-    {
-        if (starts_with($this->url, 'http')) {
-            return '_blank';
-        }
-
-        return '_self';
     }
 
     /**

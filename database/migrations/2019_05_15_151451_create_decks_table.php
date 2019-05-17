@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCardsTable extends Migration
+class CreateDecksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cards', function (Blueprint $table) {
+        Schema::create('decks', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('site_identifier')->unique();
-            $table->string('url')->nullable();
-
-            $table->unsignedBigInteger('deck_id');
-            $table->foreign('deck_id')->references('id')->on('decks');
+            $table->string('name');
 
             $table->timestamps();
         });
@@ -33,6 +29,6 @@ class CreateCardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('decks');
     }
 }

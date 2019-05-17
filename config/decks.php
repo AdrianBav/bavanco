@@ -108,4 +108,57 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Default Deck
+    |--------------------------------------------------------------------------
+    |
+    | The default deck contains all of the offical monopoly cards. The
+    | URL and creation date are not required.
+    |
+    */
+
+   'default' => [
+
+        // Properties
+        'old-kent-rd',
+        'whitechapel-rd',
+        'the-angel-islington',
+        'euston-road',
+        'pentonville-road',
+        'pall-mall',
+        'whitehall',
+        'northumberld-ave',
+        'bow-street',
+        'marlborough-st',
+        'vine-street',
+        'the-strand',
+        'fleet-street',
+        'trafalgar-square',
+        'leicester-square',
+        'coventry-street',
+        'piccadilly',
+        'regent-street',
+        'oxford-street',
+        'bond-street',
+        'park-lane',
+        'mayfair',
+
+        // Utilities
+        'electric-company',
+        'water-works',
+
+        // Stations
+        'kings-cross',
+        'marylebone',
+        'fenchurch-st',
+        'liverpool-st',
+
+        // Mortgaged Properties
+        'mortgaged-old-kent-rd',
+        'mortgaged-the-angel-islington',
+        'mortgaged-trafalgar-square',
+        'mortgaged-kings-cross',
+   ],
+
 ];

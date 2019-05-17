@@ -1,7 +1,7 @@
 <?php
 
+use App\Deck;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class CardsTableSeeder extends Seeder
 {
@@ -12,8 +12,18 @@ class CardsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cards')->insert(
+        // Create the home deck of cards
+        $deck = Deck::whereName('home')->first();
+
+        $deck->cards()->createMany(
             config('decks.home')
+        );
+
+        // Create the default deck of cards
+        $deck = Deck::whereName('default')->first();
+
+        $deck->cards()->createMany(
+            config('decks.default')
         );
     }
 }

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Card;
-use App\DefaultDeckRepository;
+use App\Deck;
 
 class HomeController extends Controller
 {
@@ -14,7 +13,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cards = Card::all();
+        $cards = Deck::whereName('home')->first()->cards;
 
         return view('home', compact('cards'));
     }
@@ -26,7 +25,7 @@ class HomeController extends Controller
     */
     public function monopoly()
     {
-        $cards = DefaultDeckRepository::getCards();
+        $cards = Deck::whereName('default')->first()->cards;
 
         return view('monopoly', compact('cards'));
     }
