@@ -153,12 +153,6 @@ return [
         'marylebone',
         'fenchurch-st',
         'liverpool-st',
-
-        // Mortgaged Properties
-        'mortgaged-old-kent-rd',
-        'mortgaged-the-angel-islington',
-        'mortgaged-trafalgar-square',
-        'mortgaged-kings-cross',
    ],
 
 ];

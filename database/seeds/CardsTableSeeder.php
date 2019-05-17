@@ -14,16 +14,14 @@ class CardsTableSeeder extends Seeder
     {
         // Create the home deck of cards
         $deck = Deck::whereName('home')->first();
-
-        $deck->cards()->createMany(
-            config('decks.home')
-        );
+        $deck->cards()->createMany(config('decks.home'));
 
         // Create the default deck of cards
-        $deck = Deck::whereName('default')->first();
+        $defaultDeck = collect(config('decks.default'))->map(function($name) {
+            return ['site_identifier' => $name];
+        })->all();
 
-        $deck->cards()->createMany(
-            config('decks.default')
-        );
+        $deck = Deck::whereName('default')->first();
+        $deck->cards()->createMany($defaultDeck);
     }
 }

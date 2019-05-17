@@ -16,11 +16,13 @@ class CreateCardsTable extends Migration
         Schema::create('cards', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('site_identifier')->unique();
+            $table->string('site_identifier');
             $table->string('url')->nullable();
 
             $table->unsignedBigInteger('deck_id');
             $table->foreign('deck_id')->references('id')->on('decks');
+
+            $table->unique(['site_identifier', 'deck_id']);
 
             $table->timestamps();
         });
