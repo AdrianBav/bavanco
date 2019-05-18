@@ -16,6 +16,13 @@ class Deck extends Model
     ];
 
     /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * Get the cards for the deck.
      */
     public function cards()
