@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
@@ -84,25 +83,6 @@ class Card extends Model
             return $data;
         }
 
-    	return (new $cardRepository)->getData($this);
-    }
-
-    /**
-     * Get statistics since creation.
-     *
-     * @return  array
-     */
-    public function since()
-    {
-        $interval = Carbon::now()->diff($this->created_at);
-
-        return [
-            'year' => $this->created_at->year,
-            'years' => $interval->y,
-            'months' => $interval->m,
-            'weeks' => intval(floor($interval->d / 7)),
-            'days' => $interval->d % 7,
-            'totalDays' => number_format($interval->days),
-        ];
+    	return (new $cardRepository($this))->getData();
     }
 }

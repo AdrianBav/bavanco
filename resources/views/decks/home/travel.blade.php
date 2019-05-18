@@ -17,15 +17,15 @@
 
 
 @section('details')
-    GALLERY—Since @right($card->since()['year'])<br>
-    @ditto('GALLER') number of years @right($card->since()['years'])<br>
-    @ditto('GALLER') @ditto('number') @ditto('of') months @right($card->since()['months'])<br>
-    @ditto('GALLER') @ditto('number') @ditto('of') weeks @right($card->since()['weeks'])<br>
-    @ditto('GALLER') @ditto('number') @ditto('of') days @right($card->since()['days'])<br>
-    @ditto('GALLER') TOTAL days @right($card->since()['totalDays'])<br>
+    GALLERY—Since @right($since['year'])<br>
+    @ditto('GALLER') number of years @right($since['years'])<br>
+    @ditto('GALLER') @ditto('number') @ditto('of') months @right($since['months'])<br>
+    @ditto('GALLER') @ditto('number') @ditto('of') weeks @right($since['weeks'])<br>
+    @ditto('GALLER') @ditto('number') @ditto('of') days @right($since['days'])<br>
+    @ditto('GALLER') TOTAL days @right($since['totalDays'])<br>
     <small>A gallery of photographs documenting the world travels of Adrian and Jillian since the time they first met.</small><br>
-    GALLERY has {{ $total_collections }} destinations<br>
-    @ditto('GALLERY') @ditto('has') {{ $total_photos }} photographs<br>
+    GALLERY has {{ $meta['total_collections'] }} destinations<br>
+    @ditto('GALLERY') @ditto('has') {{ $meta['total_photos'] }} photographs<br>
     @spacer('GALLERY') @spacer('has') Various cameras<br>
     VISITS since launch, {{ $visits }}
 @overwrite

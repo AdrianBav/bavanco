@@ -2,7 +2,6 @@
 
 namespace App\CardRepositories;
 
-use App\Card;
 use App\CardRepository;
 
 class TravelCardRepository extends CardRepository
@@ -10,15 +9,27 @@ class TravelCardRepository extends CardRepository
     /**
      * Get the data used for the card.
      *
-     * @param  Card  $card
      * @return array
      */
-	public function getData(Card $card)
-	{
+    public function getData()
+    {
         return [
-            'visits' => $this->getSiteVisits($card),
+            'since' => $this->getDaysSince(),
+            'meta' => $this->getMetaData(),
+            'visits' => $this->getSiteVisits(),
+        ];
+    }
+
+    /**
+     * Get the cards site meta data.
+     *
+     * @return  array
+     */
+    private function getMetaData()
+    {
+        return [
             'total_collections' => 10,
             'total_photos' => 351,
         ];
-	}
+    }
 }

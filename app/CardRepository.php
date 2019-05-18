@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Card;
+use Carbon\Carbon;
 use AdrianBav\Traffic\Facades\Traffic;
 
 abstract class CardRepository
@@ -10,20 +11,55 @@ abstract class CardRepository
     /**
      * Get the data used for the given card.
      *
-     * @param  Card  $card
      * @return array
      */
-	abstract protected function getData(Card $card);
+	abstract protected function getData();
+
+    /**
+     * An instance of the card.
+     *
+     * @var  App\Card
+     */
+    protected $card;
+
+    /**
+     * Instantiate the card repository.
+     *
+     * @param   App\Card  $card
+     * @return  void
+     */
+    public function __construct(Card $card)
+    {
+        $this->card = $card;
+    }
+
+    /**
+     * Get various date statistics since creation.
+     *
+     * @return  array
+     */
+    public function getDaysSince()
+    {
+        $interval = Carbon::now()->diff($this->card->created_at);
+
+        return [
+            'year' => $this->card->created_at->year,
+            'years' => $interval->y,
+            'months' => $interval->m,
+            'weeks' => intval(floor($interval->d / 7)),
+            'days' => $interval->d % 7,
+            'totalDays' => number_format($interval->days),
+        ];
+    }
 
     /**
      * Get the given cards visit statistics.
      *
-     * @param  Card  $card
-     * @return array
+     * @return integer
      */
-    public function getSiteVisits(Card $card)
+    public function getSiteVisits()
     {
-        $visits = Traffic::visits($card->site_identifier);
+        $visits = Traffic::visits($this->card->site_identifier);
 
         return number_format($visits);
     }

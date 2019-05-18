@@ -17,15 +17,15 @@
 
 
 @section('details')
-    ARCHIVES—Since @right($card->since()['year'])<br>
-    @ditto('ARCHIV') number of years @right($card->since()['years'])<br>
-    @ditto('ARCHIV') @ditto('number') @ditto('of') months @right($card->since()['months'])<br>
-    @ditto('ARCHIV') @ditto('number') @ditto('of') weeks @right($card->since()['weeks'])<br>
-    @ditto('ARCHIV') @ditto('number') @ditto('of') days @right($card->since()['days'])<br>
-    @ditto('ARCHIV') TOTAL days @right($card->since()['totalDays'])<br>
+    ARCHIVES—Since @right($since['year'])<br>
+    @ditto('ARCHIV') number of years @right($since['years'])<br>
+    @ditto('ARCHIV') @ditto('number') @ditto('of') months @right($since['months'])<br>
+    @ditto('ARCHIV') @ditto('number') @ditto('of') weeks @right($since['weeks'])<br>
+    @ditto('ARCHIV') @ditto('number') @ditto('of') days @right($since['days'])<br>
+    @ditto('ARCHIV') TOTAL days @right($since['totalDays'])<br>
     <small>This archives site aims to Preserve a Definitive History of the Bavanco branding and online Web Presence.</small><br>
-    ARCHIVES spans {{ $active_years }} years<br>
-    @ditto('ARCHIVES') has {{ $domains }} domains<br>
+    ARCHIVES spans {{ $meta['active_years'] }} years<br>
+    @ditto('ARCHIVES') has {{ $meta['domains'] }} domains<br>
     @spacer('ARCHIVES') @spacer('has') FULL history<br>
     VISITS since launch, {{ $visits }}
 @overwrite
