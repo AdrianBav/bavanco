@@ -1,6 +1,5 @@
 @import 'normalize';
 @import 'deeds';
-@import 'flip';
 
 /*!
  * Bavanco (http://www.bavanco.co.uk)
@@ -47,6 +46,8 @@ header {
   width: 100%;
   height: $header-height;
   padding: $header-vertical-padding 0;
+  // To ensure it goes above the cards
+  z-index: 1;
 
   // Header styling
   background: #263489;
@@ -142,8 +143,16 @@ a.item {
     display: block;
     color: #000000;
     text-decoration: none;
+    // prevent user from selecting text
+    user-select: none;
+    // for the mortgage side
+    position: relative;
 }
-
+a.item .mortgaged {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 
 //

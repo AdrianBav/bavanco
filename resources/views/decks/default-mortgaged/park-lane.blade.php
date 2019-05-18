@@ -10,7 +10,7 @@
 
 
 @section('info')
-    Mortgaged for &#163;0
+    Mortgaged for &#163;175
 @overwrite
 
 

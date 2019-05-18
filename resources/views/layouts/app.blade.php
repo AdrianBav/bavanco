@@ -24,32 +24,25 @@
     </head>
 
     <body class="green-felt">
+        <div id="app">
 
-        <!-- Sticky Header -->
-        <header id="app-header">
-            <div class="slogan">bee-a-vee-a-en-cee-o</div>
-            <h1>Bavanco</h1>
-        </header>
+            <!-- Sticky Header -->
+            <header id="app-header">
+                <div class="slogan">bee-a-vee-a-en-cee-o</div>
+                <h1>Bavanco</h1>
+            </header>
 
-        <!-- Page Content -->
-        @yield('content')
+            <!-- Page Content -->
+            @yield('content')
 
-        <!-- Footer -->
-        <footer>
-            Copyright © 2002 - {{ date('Y') }} Bavanco
-        </footer>
+            <!-- Footer -->
+            <footer>
+                Copyright © 2002 - {{ date('Y') }} Bavanco
+            </footer>
+
+        </div>
 
         <!-- Scripts -->
-        <script>
-            // Sticky Header
-            window.onscroll = function() {
-                if (window.pageYOffset > 1) {
-                    document.getElementById( "app-header" ).classList.add( "sticky" );
-                } else {
-                    document.getElementById( "app-header" ).classList.remove( "sticky" );
-                }
-            };
-        </script>
-
+        <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 </html>

@@ -5,12 +5,12 @@
 @overwrite
 
 @section('title')
-    Northumberld Ave
+    Northumberl'd Ave.
 @overwrite
 
 
 @section('info')
-    Mortgaged for &#163;0
+    Mortgaged for &#163;80
 @overwrite
 
 

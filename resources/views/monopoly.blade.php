@@ -7,19 +7,17 @@
 <div class="container">
 
     @foreach ($cards as $card)
-    <div class="flip-card">
-        <div class="flip-card-inner">
+    <card>
 
-            <a class="item flip-card-front">
-                @include($card->partial)
-            </a>
+        <template slot="front">
+            @include($card->partial)
+        </template>
 
-            <a class="item flip-card-back">
-                @include("decks.default-mortgaged.{$card->site_identifier}")
-            </a>
+        <template slot="back">
+            @include("decks.default-mortgaged.{$card->site_identifier}")
+        </template>
 
-        </div>
-    </div>
+    </card>
     @endforeach
 
 </div>

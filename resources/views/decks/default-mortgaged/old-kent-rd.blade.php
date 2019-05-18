@@ -5,7 +5,7 @@
 @overwrite
 
 @section('title')
-    Old Kend Rd.
+    Old Kent Rd.
 @overwrite
 
 

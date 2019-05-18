@@ -5,12 +5,12 @@
 @overwrite
 
 @section('title')
-    Marylebone
+    Marylebone Station
 @overwrite
 
 
 @section('info')
-    Mortgaged for &#163;0
+    Mortgaged for &#163;100
 @overwrite
 
 
