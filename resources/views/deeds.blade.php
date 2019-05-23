@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('slogan', 'Default Deeds')
 
 
 @section('content')
@@ -7,7 +8,7 @@
 <div class="container">
 
     @foreach ($cards as $card)
-    <card>
+    <deed>
 
         <template slot="front">
             @include($card->partial)
@@ -17,7 +18,7 @@
             @include("decks.default-mortgaged.{$card->site_identifier}")
         </template>
 
-    </card>
+    </deed>
     @endforeach
 
 </div>

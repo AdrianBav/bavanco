@@ -10,7 +10,7 @@
 
 
 @section('details')
-	For comparison Fig A and Fig B<br>
-	show the original followed by<br>
-	my version
+    You have won second prize<br>
+    in a beauty contest<br>
+    collect £10
 @overwrite

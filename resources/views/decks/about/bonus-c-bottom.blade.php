@@ -10,7 +10,7 @@
 
 
 @section('details')
-	Modern versions of the same card<br>
-	do not seem to retain many of<br>
-	the original details as in Fig C
+    You have won a<br>
+    crossword competition<br>
+    collect £100
 @overwrite

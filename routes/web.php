@@ -14,8 +14,8 @@ use AdrianBav\Traffic\Middlewares\RecordVisits;
 */
 
 // Home page
-Route::get('/', 'HomeController@index')->middleware(RecordVisits::class);
+Route::get('/', 'HomeController@index')->middleware(RecordVisits::class)->name('home');
 
 // Secondary pages
-Route::get('about', 'HomeController@about');
-Route::get('monopoly', 'HomeController@monopoly');
+Route::get('about', 'HomeController@about')->name('about');
+Route::get('deeds', 'HomeController@deeds')->name('deeds');

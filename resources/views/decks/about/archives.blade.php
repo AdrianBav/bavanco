@@ -10,7 +10,6 @@
 
 
 @section('details')
-	I have replicated the unique style<br>
-	of the Title Deed cards using<br>
-	HTML and CSS
+	Take a trip to the<br>
+    Bavanco archives
 @overwrite

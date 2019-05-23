@@ -1,16 +1,15 @@
 @extends('decks.card')
 
 @section('card-type')
-    community-chest
+    chance
 @overwrite
 
 @section('title')
-    Community Chest
+    Chance
 @overwrite
 
 
 @section('details')
-	Click here to see a<br>
-	gallery of Title Deed<br>
-	cards rendered in CSS
+    Advance to the nearest<br>
+    title deed CSS render
 @overwrite

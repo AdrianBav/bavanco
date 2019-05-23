@@ -10,7 +10,6 @@
 
 
 @section('details')
-	Note the large word spacing<br>
-	Mix of case and a liberal<br>
-	sprinkling of ditto marks
+    Doctor's fee<br>
+    Pay £50
 @overwrite

@@ -10,8 +10,5 @@
 
 
 @section('details')
-	Things get worse in 1996 Fig D<br>
-	with massive spacing in the<br>
-	header and square edges<br>
-	meeting rounded corners
+    Speeding fine £15
 @overwrite

@@ -1,15 +1,14 @@
 @extends('decks.card')
 
 @section('card-type')
-    chance
+    community-chest
 @overwrite
 
 @section('title')
-    Chance
+    Community Chest
 @overwrite
 
 
 @section('details')
-	Not just any set but the actual<br>
-    set I would play on as a child
+    Go back to the home page
 @overwrite
