@@ -18,7 +18,12 @@ class CreateIpDetailsTable extends Migration
 
             $table->ipAddress('address');
 
-            $table->string('location');
+            $table->string('city');
+            $table->string('state_prov');
+            $table->string('zipcode');
+            $table->string('country_name');
+            $table->string('country_flag');
+            $table->string('continent_name');
         });
     }
 

@@ -48,4 +48,8 @@ return [
         'apikey' => env('OPEN_WEATHER_MAP_API_KEY'),
     ],
 
+    'ipgeolocation' => [
+        'apikey' => env('IP_GEO_LOCATION_API_KEY'),
+    ],
+
 ];
