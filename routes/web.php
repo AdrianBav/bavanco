@@ -17,5 +17,5 @@ use AdrianBav\Traffic\Middlewares\RecordVisits;
 Route::get('/', 'HomeController@index')->middleware(RecordVisits::class)->name('home');
 
 // Secondary pages
-Route::get('about', 'HomeController@about')->name('about');
-Route::get('deeds', 'HomeController@deeds')->name('deeds');
+Route::get('about-this-site', 'HomeController@about')->name('about');
+Route::get('monopoly-title-deed-cards', 'HomeController@deeds')->name('deeds');

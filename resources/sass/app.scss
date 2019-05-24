@@ -177,8 +177,8 @@ a.item .mortgaged {
     text-decoration: none;
     // position cards relative to their holder
     position: absolute;
-    top: 6px;
-    left: 7px;
+    top: 10px;
+    left: 0;
 }
 
 
@@ -206,7 +206,7 @@ a.item .mortgaged {
     margin: 0 0 24px;
 }
 #about-page .card-holder {
-    margin: 48px 0 24px;
+    margin: 48px 0 48px;
 }
 #about-page figure {
     margin: 48px 0 48px;

@@ -911,8 +911,8 @@ a.item .mortgaged {
   color: #000000;
   text-decoration: none;
   position: absolute;
-  top: 6px;
-  left: 7px;
+  top: 10px;
+  left: 0;
 }
 
 #about-page {
@@ -937,7 +937,7 @@ a.item .mortgaged {
 }
 
 #about-page .card-holder {
-  margin: 48px 0 24px;
+  margin: 48px 0 48px;
 }
 
 #about-page figure {

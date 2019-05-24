@@ -11,5 +11,6 @@
 
 @section('details')
     Advance to the nearest<br>
-    title deed CSS render
+    deck of monoply title deed cards<br>
+    rendered in CSS
 @overwrite

@@ -21,7 +21,7 @@
         transform: rotate(-3deg);
     }
     .middle-card-tilt {
-        transform: rotate(4deg);
+        transform: rotate(1deg);
     }
 </style>
 

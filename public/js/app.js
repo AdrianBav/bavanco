@@ -209,7 +209,7 @@ __webpack_require__.r(__webpack_exports__);
 
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n.bottom-card-tilt {\n    -webkit-transform: rotate(-3deg);\n            transform: rotate(-3deg);\n}\n.middle-card-tilt {\n    -webkit-transform: rotate(4deg);\n            transform: rotate(4deg);\n}\n", ""]);
+exports.push([module.i, "\n.bottom-card-tilt {\n    -webkit-transform: rotate(-3deg);\n            transform: rotate(-3deg);\n}\n.middle-card-tilt {\n    -webkit-transform: rotate(1deg);\n            transform: rotate(1deg);\n}\n", ""]);
 
 
 

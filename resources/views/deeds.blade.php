@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('slogan', 'Default Deeds')
+@section('slogan', 'Monopoly Title Deed Cards')
 
 
 @section('content')
