@@ -19,3 +19,6 @@ Route::get('/', 'HomeController@index')->middleware(RecordVisits::class);
 // Secondary pages
 Route::get('about', 'HomeController@about');
 Route::get('monopoly', 'HomeController@monopoly');
+
+// Dashboard
+Route::get('dashboard', 'DashboardController@index');
