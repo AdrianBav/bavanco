@@ -18,7 +18,14 @@ class CreateAgentDetailsTable extends Migration
 
             $table->string('name');
 
-            $table->string('device');
+            $table->string('browser')->nullable();
+            $table->string('browser_version')->nullable();
+
+            $table->string('platform')->nullable();
+            $table->string('platform_version')->nullable();
+
+            $table->string('device')->nullable();
+            $table->string('device_type')->nullable();
         });
     }
 
