@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class TrafficTableSeeder extends Seeder
 {
+    /*
+        mfs
+        php artisan traffic:migrate
+
+        php artisan db:seed --class=TrafficTableSeeder
+
+        php artisan traffic:dashboard-refresh --fresh
+     */
+
     /**
      * Run the database seeds.
      * # php artisan db:seed --class=TrafficTableSeeder

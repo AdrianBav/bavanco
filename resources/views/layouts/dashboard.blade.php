@@ -11,12 +11,12 @@
     </head>
 
     <body>
-        <div class="container">
+        <div id="app" class="container">
             @yield('content')
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
-        @stack('scripts')
+        <!-- Scripts -->
+        <script src="{{ mix('/js/app.js') }}"></script>
     </body>
 
 </html>
