@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Services\DummyIpgeoResponse;
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Exception\ClientException;
 
 class IpAddressDetails
 {
@@ -37,10 +39,14 @@ class IpAddressDetails
      */
     protected function ipgeo($ipAddress)
     {
-        $response = $this->client->request('GET', 'ipgeo', ['query' => [
-            'ip' => $ipAddress,
-            'apiKey' => $this->apiKey,
-        ]]);
+        try {
+            $response = $this->client->request('GET', 'ipgeo', ['query' => [
+                'ip' => $ipAddress,
+                'apiKey' => $this->apiKey,
+            ]]);
+        } catch (ClientException $e) {
+            return new DummyIpgeoResponse;
+        }
 
         $body = $response->getBody();
         $stringBody = (string) $body;
