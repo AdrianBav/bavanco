@@ -15,7 +15,7 @@
 	</p>
 
 	<card-holder class="community-chest-holder">
-        <a href="/archives" target="_blank" class="card-link">
+        <a href="https://archives.bavanco.co.uk" target="_blank" class="card-link">
         	@include('decks.about.archives')
         </a>
 
