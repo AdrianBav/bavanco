@@ -192,21 +192,15 @@ a.item .mortgaged {
     // center container
     margin: 0 auto;
     max-width: 700px;
-    // spacing from header
-    margin-top: 25px;
-}
-// All devices larger than 768px
-@media (min-width: 768px)
-{
-    #about-page {
-        padding: 0;
-    }
 }
 #about-page h3 {
     font-family: 'Work Sans', sans-serif;
     font-size: 32px;
     text-transform: uppercase;
     margin: 48px 0 24px;
+}
+#about-page h3:first-child {
+    margin-top: 15px;
 }
 #about-page p {
     font-size: 20px;
@@ -224,6 +218,19 @@ a.item .mortgaged {
 }
 #about-page figure figcaption {
     margin-top: 6px;
+}
+
+// All devices larger than 768px
+@media (min-width: 768px)
+{
+    #about-page {
+        padding: 0;
+        // spacing from header
+        margin-top: 25px;
+    }
+    #about-page h3:first-child {
+        margin-top: 48px;
+    }
 }
 
 
