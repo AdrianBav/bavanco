@@ -117,6 +117,12 @@
 		Hard to know where to start with this version.
 		The cards have lost all their character and become bland and generic.
 	</p>
+
+	<figure>
+		<img src="{{ asset('images/deed-usa2011.jpg') }}" alt="From the American version, 2011" class="bs-img-responsive">
+		<figcaption><strong>Fig. E:</strong> From the American version, 2011.</figcaption>
+	</figure>
+
 	<p>
 		Some of the issues inclue, but are not limited to;
 		the header has an ugly black border,
@@ -131,10 +137,6 @@
 		I get none of the personality of the creator.
 	</p>
 
-	<figure>
-		<img src="{{ asset('images/deed-usa2011.jpg') }}" alt="From the American version, 2011" class="bs-img-responsive">
-		<figcaption><strong>Fig. E:</strong> From the American version, 2011.</figcaption>
-	</figure>
 
 	<h3>Summary</h3>
 

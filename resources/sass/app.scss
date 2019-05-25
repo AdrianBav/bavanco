@@ -188,11 +188,19 @@ a.item .mortgaged {
 #about-page {
     color: #ffffff;
     font-family: 'Raleway', sans-serif;
+    padding: 1em;
     // center container
     margin: 0 auto;
     max-width: 700px;
     // spacing from header
     margin-top: 25px;
+}
+// All devices larger than 768px
+@media (min-width: 768px)
+{
+    #about-page {
+        padding: 0;
+    }
 }
 #about-page h3 {
     font-family: 'Work Sans', sans-serif;
