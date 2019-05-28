@@ -6,6 +6,46 @@ use Illuminate\Support\Facades\DB;
 
 class TrafficStatisticsService
 {
+    // TODO
+    private $colors = [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+    ];
+
+    /**
+     * Get any new IPs since the last refresh.
+     *
+     * @return  Collection
+     */
+    public function getNewIps()
+    {
+        return DB::connection('traffic')
+            ->table('ips')
+            ->leftJoin('ip_details', 'ips.address', '=', 'ip_details.address')
+            ->select('ips.*')
+            ->whereNull('ip_details.address')
+            ->get();
+    }
+
+    /**
+     * Get any new agents since the last refresh.
+     *
+     * @return  Collection
+     */
+    public function getNewAgents()
+    {
+        return DB::connection('traffic')
+            ->table('agents')
+            ->leftJoin('agent_details', 'agents.name', '=', 'agent_details.name')
+            ->select('agents.*')
+            ->whereNull('agent_details.name')
+            ->get();
+    }
+
     /**
      * Get site statistics.
      *
@@ -39,26 +79,75 @@ class TrafficStatisticsService
             ->get();
     }
 
-    //
-    public function sampleChartData()
+    /**
+     * Get the platform share, formatted for a pie chart.
+     *
+     * @return  array
+     */
+    public function browserShareChart()
     {
-        $ips = $this->top10Ips();
+        $browserShare = $this->getAgentShareBy('browser');
 
+        return $this->AgentShareChart($browserShare);
+    }
+
+    /**
+     * Get the platform share, formatted for a pie chart.
+     *
+     * @return  array
+     */
+    public function platformShareChart()
+    {
+        $platformShare = $this->getAgentShareBy('platform');
+
+        return $this->AgentShareChart($platformShare);
+    }
+
+    /**
+     * Get the device share, formatted for a pie chart.
+     *
+     * @return  array
+     */
+    public function deviceShareChart()
+    {
+        $deviceShare = $this->getAgentShareBy('device');
+
+        return $this->AgentShareChart($deviceShare);
+    }
+
+    /**
+     * Get the agent share by the given column.
+     *
+     * @param   string  $column
+     * @return  Collection
+     */
+    private function getAgentShareBy($column = 'device')
+    {
+        return DB::connection('traffic')
+            ->table('visits')
+            ->join('agent_details', 'visits.agent_id', '=', 'agent_details.id')
+            ->select("agent_details.{$column} AS label")->selectRaw('COUNT(*) AS total')
+            ->groupBy('label')
+            ->orderByDesc('total')
+            ->get();
+    }
+
+    /**
+     * Get the agent share, formatted for a pie chart.
+     *
+     * @param   Collection  $share
+     * @return  array
+     */
+    private function AgentShareChart($share)
+    {
         return [
             'datasets' => [
                 [
-                    'backgroundColor' => [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    'data' => $ips->pluck('total'),
+                    'backgroundColor' => $this->colors,
+                    'data' => $share->pluck('total'),
                 ],
             ],
-            'labels' => $ips->pluck('country'),
+            'labels' => $share->pluck('label'),
         ];
     }
 }

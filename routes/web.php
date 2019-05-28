@@ -22,3 +22,4 @@ Route::get('monopoly', 'HomeController@monopoly');
 
 // Dashboard
 Route::get('dashboard', 'DashboardController@index');
+Route::post('dashboard/refresh', 'DashboardController@refresh');

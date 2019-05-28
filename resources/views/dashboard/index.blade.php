@@ -6,6 +6,8 @@
 
     <h1>Dashboard</h1>
 
+    <hr class="mt-5 mb-5">
+
     <table class="table">
         <tr>
             <th>Site</th>
@@ -21,8 +23,15 @@
         @endforeach
     </table>
 
-    <p>There are x new IPS and x new Agents...</p>
-    <button>Refresh Dashboard Statistics</button>
+    <hr class="mt-5 mb-5">
+
+    <p>There are {{ $statistics->getNewIps()->count() }} new IPs and {{ $statistics->getNewAgents()->count() }} new Agents...</p>
+    <form action="/dashboard/refresh" method="POST">
+        @csrf
+        <button type="submit">Refresh Dashboard Statistics</button>
+    </form>
+
+    <hr class="mt-5 mb-5">
 
     <h3>Top 10 IP countries</h3>
     <table class="table">
@@ -38,21 +47,17 @@
         @endforeach
     </table>
 
+    <hr class="mt-5 mb-5">
+
     <h3>Agents</h3>
 
-    <h5>Pie chart of devices</h5>
-    <doughnut-chart :chart-data="{{ json_encode($statistics->sampleChartData()) }}"></doughnut-chart>
+    <h5>Pie chart of browser</h5>
+    <chart type="doughnut" :data="{{ json_encode($statistics->browserShareChart()) }}"></chart>
+
+    <h5>Pie chart of platform</h5>
+    <chart type="doughnut" :data="{{ json_encode($statistics->platformShareChart()) }}"></chart>
 
     <h5>Pie chart of devices</h5>
-    <p>pie</p>
-
-    <h5>Pie chart of platform (version)</h5>
-    <p>pie</p>
-
-    <h5>Pie chart of browser (version)</h5>
-    <p>pie</p>
-
-    <h5>Pie chart of device type</h5>
-    <p>pie</p>
+    <chart type="doughnut" :data="{{ json_encode($statistics->deviceShareChart()) }}"></chart>
 
 @endsection

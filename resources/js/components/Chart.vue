@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id="chart" width="400" height="400"></canvas>
+        <canvas ref="chart" width="400" height="400"></canvas>
     </div>
 </template>
 
@@ -10,15 +10,14 @@
     export default {
 
         props: [
-            "chartData",
+            "type",
+            "data",
         ],
 
         mounted() {
-            let ctx = document.getElementById( "chart" );
-
-            let chart = new Chart(ctx, {
-                type: "doughnut",
-                data: this.chartData,
+            let chart = new Chart(this.$refs[ "chart" ], {
+                type: this.type,
+                data: this.data,
                 options: {
                     responsive: false,
                 },

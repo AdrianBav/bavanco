@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Artisan;
+
 class DashboardController extends Controller
 {
     /**
@@ -12,5 +14,17 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard.index');
+    }
+
+    /**
+     * Refresh the dashboard database tables.
+     *
+     * @return Response
+     */
+    public function refresh()
+    {
+        Artisan::call('traffic:dashboard-refresh');
+
+        return back();
     }
 }

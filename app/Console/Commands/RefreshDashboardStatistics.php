@@ -7,6 +7,7 @@ use App\Services\IpAddressDetails;
 use App\Services\UserAgentDetails;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use App\Services\TrafficStatisticsService;
 
 class RefreshDashboardStatistics extends Command
 {
@@ -25,13 +26,39 @@ class RefreshDashboardStatistics extends Command
     protected $description = 'Refresh dashboard statistics';
 
     /**
+     * Traffic statistics service.
+     *
+     * @var  \App\Services\TrafficStatisticsService
+     */
+    protected $statistics;
+
+    /**
+     * Holds the number of new IPs since the last refresh.
+     *
+     * @var  integer
+     */
+    protected $refreshedIps;
+
+    /**
+     * Holds the number of new agents since the last refresh.
+     *
+     * @var  integer
+     */
+    protected $refreshedAgents;
+
+    /**
      * Create a new command instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(TrafficStatisticsService $trafficStatistics)
     {
         parent::__construct();
+
+        $this->statistics = $trafficStatistics;
+
+        $this->refreshedIps = 0;
+        $this->refreshedAgents = 0;
     }
 
     /**
@@ -50,7 +77,7 @@ class RefreshDashboardStatistics extends Command
         $this->refreshIps();
         $this->refreshAgents();
 
-        $this->info('Done.');
+        $this->info("Refreshed {$this->refreshedIps} IP(s) and {$this->refreshedAgents} agent(s).");
     }
 
     /**
@@ -94,7 +121,7 @@ class RefreshDashboardStatistics extends Command
     {
         $ipAddressDetails = new IpAddressDetails;
 
-        $this->getNewIps()->each(function ($ip) use ($ipAddressDetails) {
+        $this->newIps()->each(function ($ip) use ($ipAddressDetails) {
             $ipDetails = $ipAddressDetails->getDetails($ip->address);
 
             DB::connection('traffic')->table('ip_details')->insert([
@@ -119,7 +146,7 @@ class RefreshDashboardStatistics extends Command
     {
         $userAgentDetails = new UserAgentDetails;
 
-        $this->getNewAgents()->each(function ($agent) use ($userAgentDetails) {
+        $this->newAgents()->each(function ($agent) use ($userAgentDetails) {
             $agentDetails = $userAgentDetails->getDetails($agent->name);
 
             DB::connection('traffic')->table('agent_details')->insert([
@@ -140,14 +167,13 @@ class RefreshDashboardStatistics extends Command
      *
      * @return  Collection
      */
-    private function getNewIps()
+    private function newIps()
     {
-        return DB::connection('traffic')
-            ->table('ips')
-            ->leftJoin('ip_details', 'ips.address', '=', 'ip_details.address')
-            ->select('ips.*')
-            ->whereNull('ip_details.address')
-            ->get();
+        $ips = $this->statistics->getNewIps();
+
+        $this->refreshedIps = $ips->count();
+
+        return $ips;
     }
 
     /**
@@ -155,13 +181,12 @@ class RefreshDashboardStatistics extends Command
      *
      * @return  Collection
      */
-    private function getNewAgents()
+    private function newAgents()
     {
-        return DB::connection('traffic')
-            ->table('agents')
-            ->leftJoin('agent_details', 'agents.name', '=', 'agent_details.name')
-            ->select('agents.*')
-            ->whereNull('agent_details.name')
-            ->get();
+        $agents = $this->statistics->getNewAgents();
+
+        $this->refreshedAgents = $agents->count();
+
+        return $agents;
     }
 }
