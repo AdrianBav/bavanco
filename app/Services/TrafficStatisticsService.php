@@ -6,16 +6,6 @@ use Illuminate\Support\Facades\DB;
 
 class TrafficStatisticsService
 {
-    // TODO
-    private $colors = [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-    ];
-
     /**
      * Get any new IPs since the last refresh.
      *
@@ -80,7 +70,7 @@ class TrafficStatisticsService
     }
 
     /**
-     * Get the platform share, formatted for a pie chart.
+     * Get the browser share, formatted for a pie chart.
      *
      * @return  array
      */
@@ -88,7 +78,25 @@ class TrafficStatisticsService
     {
         $browserShare = $this->getAgentShareBy('browser');
 
-        return $this->AgentShareChart($browserShare);
+        $data = $browserShare->map(function ($browser) {
+            return [
+                'name' => $browser->label,
+                'y' => (int) $browser->total,
+                'drilldown' => $browser->label,
+            ];
+        });
+
+        $drilldownSeries = $data->map(function ($browser) {
+            $version = $this->getBrowserVersionShare($browser['name']);
+
+            return [
+                'name' => $browser['name'],
+                'id' => $browser['name'],
+                'data' => $version,
+            ];
+        });
+
+        return $this->chartStructure('Browser Share', $data, $drilldownSeries);
     }
 
     /**
@@ -100,7 +108,25 @@ class TrafficStatisticsService
     {
         $platformShare = $this->getAgentShareBy('platform');
 
-        return $this->AgentShareChart($platformShare);
+        $data = $platformShare->map(function ($platform) {
+            return [
+                'name' => $platform->label,
+                'y' => (int) $platform->total,
+                'drilldown' => $platform->label,
+            ];
+        });
+
+        $drilldownSeries = $data->map(function ($platform) {
+            $version = $this->getPlatformVersionShare($platform['name']);
+
+            return [
+                'name' => $platform['name'],
+                'id' => $platform['name'],
+                'data' => $version,
+            ];
+        });
+
+        return $this->chartStructure('Platform Share', $data, $drilldownSeries);
     }
 
     /**
@@ -112,7 +138,82 @@ class TrafficStatisticsService
     {
         $deviceShare = $this->getAgentShareBy('device');
 
-        return $this->AgentShareChart($deviceShare);
+        $data = $deviceShare->map(function ($device) {
+            return [
+                'name' => $device->label,
+                'y' => (int) $device->total,
+                'drilldown' => $device->label,
+            ];
+        });
+
+        $drilldownSeries = $data->map(function ($device) {
+            $version = $this->getDeviceVersionShare($device['name']);
+
+            return [
+                'name' => $device['name'],
+                'id' => $device['name'],
+                'data' => $version,
+            ];
+        });
+
+        return $this->chartStructure('Device Share', $data, $drilldownSeries);
+    }
+
+    /**
+     * Get the browser version share.
+     *
+     * @param   string  $browserName
+     * @return  Collection
+     */
+    private function getBrowserVersionShare($browserName)
+    {
+        $filter = ['browser', $browserName];
+
+        return $this->getAgentShareBy('browser_version', $filter)
+            ->map(function ($browser) {
+                return [
+                    $browser->label,
+                    (int) $browser->total,
+                ];
+            });
+    }
+
+    /**
+     * Get the platform version share.
+     *
+     * @param   string  $platformName
+     * @return  Collection
+     */
+    private function getPlatformVersionShare($platformName)
+    {
+        $filter = ['platform', $platformName];
+
+        return $this->getAgentShareBy('platform_version', $filter)
+            ->map(function ($browser) {
+                return [
+                    $browser->label,
+                    (int) $browser->total,
+                ];
+            });
+    }
+
+    /**
+     * Get the device version share.
+     *
+     * @param   string  $deviceName
+     * @return  Collection
+     */
+    private function getDeviceVersionShare($deviceName)
+    {
+        $filter = ['device', $deviceName];
+
+        return $this->getAgentShareBy('device_type', $filter)
+            ->map(function ($browser) {
+                return [
+                    $browser->label,
+                    (int) $browser->total,
+                ];
+            });
     }
 
     /**
@@ -121,33 +222,55 @@ class TrafficStatisticsService
      * @param   string  $column
      * @return  Collection
      */
-    private function getAgentShareBy($column = 'device')
+    private function getAgentShareBy($column, $filter = [])
     {
         return DB::connection('traffic')
             ->table('visits')
             ->join('agent_details', 'visits.agent_id', '=', 'agent_details.id')
             ->select("agent_details.{$column} AS label")->selectRaw('COUNT(*) AS total')
+            ->when($filter, function ($query, $filter) {
+                return $query->where($filter[0], $filter[1]);
+            })
             ->groupBy('label')
             ->orderByDesc('total')
             ->get();
     }
 
     /**
-     * Get the agent share, formatted for a pie chart.
+     * Build the chart structure.
      *
-     * @param   Collection  $share
+     * @param   string  $title
+     * @param   array  $data
+     * @param   array  $drilldownSeries
      * @return  array
      */
-    private function AgentShareChart($share)
+    private function chartStructure($title, $data, $drilldownSeries)
     {
         return [
-            'datasets' => [
-                [
-                    'backgroundColor' => $this->colors,
-                    'data' => $share->pluck('total'),
+            'chart' => ['type' => 'pie'],
+            'title' => ['text' => $title],
+            'subtitle' => ['text' => 'Click the slices to view versions.'],
+            'plotOptions' => [
+                'series' => [
+                    'dataLabels' => [
+                        'enabled' => true,
+                        'format' => '{point.name}: {point.y:.1f}%',
+                    ],
                 ],
             ],
-            'labels' => $share->pluck('label'),
+            'tooltip' => [
+                'headerFormat' => '<span style="font-size:11px">{series.name}</span><br>',
+                'pointFormat' => '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
+            ],
+            'series' => [
+                [
+                    'colorByPoint' => true,
+                    'data' => $data,
+                ],
+            ],
+            'drilldown' => [
+                'series' => $drilldownSeries,
+            ],
         ];
     }
 }

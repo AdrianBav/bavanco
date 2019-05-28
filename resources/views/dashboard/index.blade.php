@@ -52,12 +52,12 @@
     <h3>Agents</h3>
 
     <h5>Pie chart of browser</h5>
-    <chart type="doughnut" :data="{{ json_encode($statistics->browserShareChart()) }}"></chart>
+    <chart :options="{{ json_encode($statistics->browserShareChart()) }}"></chart>
 
     <h5>Pie chart of platform</h5>
-    <chart type="doughnut" :data="{{ json_encode($statistics->platformShareChart()) }}"></chart>
+    <chart :options="{{ json_encode($statistics->platformShareChart()) }}"></chart>
 
     <h5>Pie chart of devices</h5>
-    <chart type="doughnut" :data="{{ json_encode($statistics->deviceShareChart()) }}"></chart>
+    <chart :options="{{ json_encode($statistics->deviceShareChart()) }}"></chart>
 
 @endsection

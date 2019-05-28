@@ -1,27 +1,23 @@
 <template>
     <div>
-        <canvas ref="chart" width="400" height="400"></canvas>
+        <div ref="chart" style="width:100%; height:400px;"></div>
     </div>
 </template>
 
 <script>
-    import Chart from 'chart.js';
+    import Highcharts from "highcharts";
+    import loadDrillDown from "highcharts/modules/drilldown";
 
     export default {
 
         props: [
-            "type",
-            "data",
+            "options",
         ],
 
         mounted() {
-            let chart = new Chart(this.$refs[ "chart" ], {
-                type: this.type,
-                data: this.data,
-                options: {
-                    responsive: false,
-                },
-            });
+            loadDrillDown( Highcharts );
+
+            Highcharts.chart( this.$refs[ "chart" ], this.options );
         },
 
     };
