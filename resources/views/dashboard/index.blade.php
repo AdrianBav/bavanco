@@ -8,19 +8,23 @@
 
     <hr class="mt-5 mb-5">
 
-    <table class="table">
-        <tr>
-            <th>Site</th>
-            <th>Visits</th>
-            <th>Robots</th>
-        </tr>
-        @foreach ($statistics->sites() as $site)
-        <tr>
-            <td>{{ $site->slug }}</td>
-            <td>{{ $site->visits }}</td>
-            <td>{{ $site->robots }}</td>
-        </tr>
-        @endforeach
+    <table class="table table-sm table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Site</th>
+                <th>Visits</th>
+                <th>Robots</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($statistics->sites() as $site)
+            <tr>
+                <td>{{ $site->slug }}</td>
+                <td>{{ $site->visits }}</td>
+                <td>{{ $site->robots }}</td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 
     <hr class="mt-5 mb-5">
@@ -34,30 +38,33 @@
     <hr class="mt-5 mb-5">
 
     <h3>Top 10 IP countries</h3>
-    <table class="table">
-        <tr>
-            <th>Country</th>
-            <th>Total</th>
-        </tr>
-        @foreach ($statistics->top10Ips() as $ip)
-        <tr>
-            <td>{{ $ip->country }}</td>
-            <td>{{ $ip->total }}</td>
-        </tr>
-        @endforeach
+    <table class="table table-sm table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Country</th>
+                <th>Flag</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($statistics->top10Ips() as $ip)
+            <tr>
+                <td>{{ $ip->country }}</td>
+                <td><img src="{{ $ip->flag }}" alt="{{ $ip->country }}" height="10"></td>
+                <td>{{ $ip->total }}</td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 
     <hr class="mt-5 mb-5">
 
     <h3>Agents</h3>
 
-    <h5>Pie chart of browser</h5>
-    <chart :options="{{ json_encode($statistics->browserShareChart()) }}"></chart>
-
-    <h5>Pie chart of platform</h5>
-    <chart :options="{{ json_encode($statistics->platformShareChart()) }}"></chart>
-
-    <h5>Pie chart of devices</h5>
-    <chart :options="{{ json_encode($statistics->deviceShareChart()) }}"></chart>
+    <div class="d-flex justify-content-between">
+        <chart :options="{{ json_encode($statistics->browserShareChart()) }}"></chart>
+        <chart :options="{{ json_encode($statistics->platformShareChart()) }}"></chart>
+        <chart :options="{{ json_encode($statistics->deviceShareChart()) }}"></chart>
+    </div>
 
 @endsection

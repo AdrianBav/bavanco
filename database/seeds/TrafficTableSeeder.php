@@ -34,76 +34,20 @@ class TrafficTableSeeder extends Seeder
             ['slug' => Str::slug($faker->word), 'robots' => $faker->randomDigit],
         ]);
 
-        DB::connection('traffic')->table('ips')->insert([
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-            ['address' => $faker->ipv4],
-        ]);
+        foreach (range(1, 200) as $ips) {
+            DB::connection('traffic')->table('ips')->insert(['address' => $faker->ipv4]);
+        }
 
-        DB::connection('traffic')->table('agents')->insert([
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-            ['name' => $faker->userAgent],
-        ]);
+        foreach (range(1, 80) as $agents) {
+            DB::connection('traffic')->table('agents')->insert(['name' => $faker->userAgent]);
+        }
 
-        DB::connection('traffic')->table('visits')->insert([
-            [
+        foreach (range(1, 1500) as $visits) {
+            DB::connection('traffic')->table('visits')->insert([
                 'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
                 'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
                 'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-            [
-                'site_id' => DB::table('sites')->inRandomOrder()->first()->id,
-                'ip_id' => DB::table('ips')->inRandomOrder()->first()->id,
-                'agent_id' => DB::table('agents')->inRandomOrder()->first()->id,
-            ],
-        ]);
+            ]);
+        }
     }
 }

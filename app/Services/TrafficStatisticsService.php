@@ -46,10 +46,18 @@ class TrafficStatisticsService
         return DB::connection('traffic')
             ->table('visits')
             ->join('sites', 'visits.site_id', '=', 'sites.id')
-            ->select('sites.slug AS slug')->selectRaw('COUNT(*) AS visits')->selectRaw('SUM(robots) AS robots')
+            ->select('sites.slug AS slug')
+            ->selectRaw('COUNT(*) AS visits')
+            ->selectRaw('SUM(robots) AS robots')
             ->groupBy('slug')
             ->orderByDesc('visits')
-            ->get();
+            ->get()
+            ->map(function($site) {
+                $site->visits = number_format($site->visits);
+                $site->robots = number_format($site->robots);
+
+                return $site;
+            });
     }
 
     /**
@@ -62,11 +70,18 @@ class TrafficStatisticsService
         return DB::connection('traffic')
             ->table('visits')
             ->join('ip_details', 'visits.ip_id', '=', 'ip_details.id')
-            ->select('ip_details.country_name AS country')->selectRaw('COUNT(*) AS total')
+            ->selectRaw('COALESCE(ip_details.country_name, "Unknown") AS country')
+            ->selectRaw('COALESCE(ip_details.country_flag, "default.png") AS flag')
+            ->selectRaw('COUNT(*) AS total')
             ->groupBy('country')
             ->orderByDesc('total')
             ->take(10)
-            ->get();
+            ->get()
+            ->map(function($ip) {
+                $ip->total = number_format($ip->total);
+
+                return $ip;
+            });
     }
 
     /**
@@ -227,7 +242,8 @@ class TrafficStatisticsService
         return DB::connection('traffic')
             ->table('visits')
             ->join('agent_details', 'visits.agent_id', '=', 'agent_details.id')
-            ->select("agent_details.{$column} AS label")->selectRaw('COUNT(*) AS total')
+            ->select("agent_details.{$column} AS label")
+            ->selectRaw('COUNT(*) AS total')
             ->when($filter, function ($query, $filter) {
                 return $query->where($filter[0], $filter[1]);
             })
@@ -240,8 +256,8 @@ class TrafficStatisticsService
      * Build the chart structure.
      *
      * @param   string  $title
-     * @param   array  $data
-     * @param   array  $drilldownSeries
+     * @param   array   $data
+     * @param   array   $drilldownSeries
      * @return  array
      */
     private function chartStructure($title, $data, $drilldownSeries)
@@ -254,13 +270,13 @@ class TrafficStatisticsService
                 'series' => [
                     'dataLabels' => [
                         'enabled' => true,
-                        'format' => '{point.name}: {point.y:.1f}%',
+                        'format' => '{point.name}: {percentage:.1f}%',
                     ],
                 ],
             ],
             'tooltip' => [
                 'headerFormat' => '<span style="font-size:11px">{series.name}</span><br>',
-                'pointFormat' => '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>',
+                'pointFormat' => '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> of total<br/>',
             ],
             'series' => [
                 [
