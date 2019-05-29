@@ -27,6 +27,17 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        // Disable to guests, effectively disabling it
+        $this->middleware('auth');
+    }
+
+    /**
+     * Display the form to request a password reset link.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLinkRequestForm()
+    {
+        return view('dashboard.auth.passwords.email');
     }
 }

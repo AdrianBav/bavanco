@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,5 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(DecksTableSeeder::class);
         $this->call(CardsTableSeeder::class);
+
+        DB::table('users')->insert([
+            'name' => 'Adrian Bavister',
+            'email' => 'adrian@bavanco.co.uk',
+            'password' => bcrypt('local'),
+        ]);
     }
 }

@@ -20,6 +20,16 @@ Route::get('/', 'HomeController@index')->middleware(RecordVisits::class);
 Route::get('about', 'HomeController@about');
 Route::get('monopoly', 'HomeController@monopoly');
 
-// Dashboard
-Route::get('dashboard', 'DashboardController@index')->name('dashboard');
-Route::post('dashboard/refresh', 'DashboardController@refresh')->name('dashboard.refresh');
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+*/
+
+Auth::routes();
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::post('dashboard/refresh', 'DashboardController@refresh')->name('dashboard.refresh');
+});

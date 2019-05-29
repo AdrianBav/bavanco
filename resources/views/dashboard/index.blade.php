@@ -9,6 +9,12 @@
         <small class="text-muted">Get the traffic statistics across all Bavanco domains</small>
     </h3>
 
+    @if (session('status'))
+        <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+        </div>
+    @endif
+
 
     <h4>Summary:</h4>
 
