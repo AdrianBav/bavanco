@@ -9,7 +9,7 @@
 
 	<p>Welcome to the Bavanco website.</p>
 	<p>
-		Over the years this website has taken many forms.
+		Over the years this website has taken on many forms.
 		(If you are interested, you can view the full back catalogue in the Bavanco archives).
 		This current incarnation, as you can probably tell, is based upon the title deed cards of a Monopoly set.
 	</p>
@@ -38,7 +38,7 @@
 	<p>
 		Our friends might want to be the iron or the Scottie dog.
 		But we, from our selection of post-war pieces, could choose from such tokens as the bulldozer, the Golden Hind or the tank!
-		My brother would usually pick the headless man on a motorbike, although I think that was only available in our version.
+		My brother would usually pick the headless man on a motorbike, although I think that was only available in our set.
 	</p>
 
 	<figure>
@@ -51,10 +51,10 @@
 
 	<p>
 		The redesign of this website hopes to capture the graphic design styles seen in that old post-war monopoly set.
-		In my opinion, those styles tend to leak the technical nature of their creator.
+		I like how those styles tend to leak the technical nature of their creator.
 	</p>
 	<p>
-		Some of the more unique and quirky elements I've notived include; large word spacing, the plentiful use of ditto marks and emphasizing text by use of capitalization instead of bold text.
+		Some of the more unique and quirky elements I've noticed include; large word spacing, the plentiful use of ditto marks and emphasizing text by use of capitalization instead of bold text.
 		I’m guessing it was just easier to use uppercase letters than it would have been to switch to a bolder typeface.
 	</p>
 
@@ -65,17 +65,17 @@
 
 	<p>
 		For my site, I have used Monopoly title deed cards to act as links to the various pages of the website.
-		Historically I’ve used something like a drop-down menu.
-		In recent years, 'card design' has been a popular website navigation trend.
+		Historically I’ve used something like a drop-down menu but in recent years,
+		'card design' has been a popular website navigation trend and I've decided to embrace it.
 	</p>
 	<p>
-		So, I decided to implement this card design using some of my favorite cards; title deed cards.
+		I decided to implement card design using some of my favorite cards; title deed cards.
 		By rendering the cards with HTML and CSS, instead of using an image, I can dynamically control the content that appears on the cards.
 	</p>
 
 	<figure>
-		<img src="{{ asset('images/deed-css-render.jpg') }}" alt="My faithfull reproduction." class="bs-img-responsive">
-		<figcaption><strong>Fig. C:</strong> My faithfull reproduction.</figcaption>
+		<img src="{{ asset('images/deed-css-render.jpg') }}" alt="My faithful reproduction." class="bs-img-responsive">
+		<figcaption><strong>Fig. C:</strong> My faithful reproduction.</figcaption>
 	</figure>
 
 	<p>
@@ -94,7 +94,7 @@
 
 	<h3>Modern Design</h3>
 
-	<p>To reenforce my opinion that graphic design has lost some charcter over the years, let’s compare some modern designs.</p>
+	<p>To reinforce my opinion that graphic design has lost some character over the years, let’s compare some modern designs.</p>
 	<p>First off, a title deed card from my 1990’s European Edition.</p>
 
 	<figure>
@@ -104,7 +104,7 @@
 
 	<p>
 		Overall, its looks pretty smart and I don't have any real issues with its appearance.
-		It is however, clearly designed on computer, so right away you lose some of the inconsistencies and quriks that give the old cards their character.
+		It is however, clearly designed on computer, so right away you lose some of the inconsistencies and quirks that give the old cards their character.
 		The typeface looks good when bold, but I don't like the light variant.
 		There are less ditto marks and less capitalization.
 		The information on the card looks more cramped and there is visibly less white space.
@@ -124,17 +124,17 @@
 	</figure>
 
 	<p>
-		Some of the issues inclue, but are not limited to;
-		the header has an ugly black border,
+		Some of the issues include, but are not limited to;
+		the color header now has an ugly black border,
 		the beautiful dark shade of blue is gone,
 		a generic serif typeface reduces the cleanness,
-		everything is center justified which might be why the dollar amounts don't line up,
+		everything is center justified which might be why the dollar amounts don't line up!,
 		all of the ditto marks are gone and
 		the mortgaged side is very boring and basic and doesn't even feature any red.
 	</p>
 	<p>
-		Overall, it just looks like its been thrown together by an intern using Microsoft Word.
-		I get none of the personality of the creator.
+		Overall, it just looks like it has been thrown together by an intern using Microsoft Word.
+		None of the personality of the creator comes through.
 	</p>
 
 
