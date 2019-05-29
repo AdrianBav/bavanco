@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Artisan;
+use App\Services\TrafficStatisticsService;
 
 class DashboardController extends Controller
 {
@@ -13,6 +14,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        TrafficStatisticsService::createDetailsTablesIfNotExist();
+
         return view('dashboard.index');
     }
 

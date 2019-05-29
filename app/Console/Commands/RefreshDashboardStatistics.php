@@ -6,7 +6,6 @@ use Illuminate\Console\Command;
 use App\Services\IpAddressDetails;
 use App\Services\UserAgentDetails;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
 use App\Services\TrafficStatisticsService;
 
 class RefreshDashboardStatistics extends Command
@@ -68,7 +67,7 @@ class RefreshDashboardStatistics extends Command
      */
     public function handle()
     {
-        $this->createDetailsTables();
+        $this->statistics::createDetailsTablesIfNotExist();
 
         if ($this->option('fresh')) {
             $this->truncateDetailsTables();
@@ -78,25 +77,6 @@ class RefreshDashboardStatistics extends Command
         $this->refreshAgents();
 
         $this->info("Refreshed {$this->refreshedIps} IP(s) and {$this->refreshedAgents} agent(s).");
-    }
-
-    /**
-     * Create the *_details tables if they don't already exist.
-     *
-     * @return  void
-     */
-    private function createDetailsTables()
-    {
-        $runMigrations =
-            ! Schema::connection('traffic')->hasTable('ip_details') ||
-            ! Schema::connection('traffic')->hasTable('agent_details');
-
-        if ($runMigrations) {
-            $this->call('migrate', [
-                '--database' => 'traffic',
-                '--path' => 'database/migrations/dashboard',
-            ]);
-        }
     }
 
     /**

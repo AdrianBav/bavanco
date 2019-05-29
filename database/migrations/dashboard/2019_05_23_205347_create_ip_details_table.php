@@ -16,7 +16,7 @@ class CreateIpDetailsTable extends Migration
         Schema::create('ip_details', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->ipAddress('address');
+            $table->ipAddress('address')->unique();
 
             $table->string('city')->nullable();
             $table->string('state_prov')->nullable();

@@ -16,14 +16,12 @@ class CreateAgentDetailsTable extends Migration
         Schema::create('agent_details', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name');
+            $table->string('name')->unique();
 
             $table->string('browser')->nullable();
             $table->string('browser_version')->nullable();
-
             $table->string('platform')->nullable();
             $table->string('platform_version')->nullable();
-
             $table->string('device')->nullable();
             $table->string('device_type')->nullable();
         });

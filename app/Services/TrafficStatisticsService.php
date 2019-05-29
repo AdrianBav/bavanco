@@ -3,9 +3,30 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Artisan;
 
 class TrafficStatisticsService
 {
+    /**
+     * Create the *_details tables if they don't already exist.
+     *
+     * @return  void
+     */
+    public static function createDetailsTablesIfNotExist()
+    {
+        $runMigrations =
+            ! Schema::connection('traffic')->hasTable('ip_details') ||
+            ! Schema::connection('traffic')->hasTable('agent_details');
+
+        if ($runMigrations) {
+            Artisan::call('migrate', [
+                '--database' => 'traffic',
+                '--path' => 'database/migrations/dashboard',
+            ]);
+        }
+    }
+
     /**
      * Get any new IPs since the last refresh.
      *
