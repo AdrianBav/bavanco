@@ -4,9 +4,13 @@
 
 @section('content')
 
-    <h1>Dashboard</h1>
+    <h3 class="mt-4 mb-5">
+        Bavanco Traffic Dashboard
+        <small class="text-muted">Get the traffic statistics across all Bavanco domains</small>
+    </h3>
 
-    <hr class="mt-5 mb-5">
+
+    <h4>Summary:</h4>
 
     <table class="table table-sm table-striped">
         <thead class="thead-dark">
@@ -27,17 +31,16 @@
         </tbody>
     </table>
 
-    <hr class="mt-5 mb-5">
 
-    <p>There are {{ $statistics->getNewIps()->count() }} new IPs and {{ $statistics->getNewAgents()->count() }} new Agents...</p>
-    <form action="/dashboard/refresh" method="POST">
-        @csrf
-        <button type="submit">Refresh Dashboard Statistics</button>
-    </form>
+    <refresh-dashboard
+        :new-ip-count="{{ $statistics->getNewIps()->count() }}"
+        :new-agent-count="{{ $statistics->getNewAgents()->count() }}"
+        class="mt-5 mb-5"
+    ></refresh-dashboard>
 
-    <hr class="mt-5 mb-5">
 
-    <h3>Top 10 IP countries</h3>
+    <h4 class="mt-4">Top 10 IP countries</h4>
+
     <table class="table table-sm table-striped">
         <thead class="thead-dark">
             <tr>
@@ -57,9 +60,8 @@
         </tbody>
     </table>
 
-    <hr class="mt-5 mb-5">
 
-    <h3>Agents</h3>
+    <h4 class="mt-5">Agents</h4>
 
     <div class="d-flex justify-content-between">
         <chart :options="{{ json_encode($statistics->browserShareChart()) }}"></chart>

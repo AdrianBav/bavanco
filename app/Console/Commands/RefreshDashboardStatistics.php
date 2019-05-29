@@ -67,7 +67,7 @@ class RefreshDashboardStatistics extends Command
      */
     public function handle()
     {
-        $this->statistics::createDetailsTablesIfNotExist();
+        $this->statistics->createDetailsTablesIfNotExist();
 
         if ($this->option('fresh')) {
             $this->truncateDetailsTables();

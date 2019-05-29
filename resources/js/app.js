@@ -22,6 +22,7 @@ window.Vue = require('vue');
 
 Vue.component('card', require('./components/Card.vue').default);
 Vue.component('chart', require('./components/Chart.vue').default);
+Vue.component('refresh-dashboard', require('./components/RefreshDashboard.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

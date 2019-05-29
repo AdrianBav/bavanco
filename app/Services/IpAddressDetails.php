@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use GuzzleHttp\Psr7;
+use Illuminate\Support\Facades\Log;
 use App\Services\DummyIpgeoResponse;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
@@ -44,7 +46,11 @@ class IpAddressDetails
                 'ip' => $ipAddress,
                 'apiKey' => $this->apiKey,
             ]]);
+
         } catch (ClientException $e) {
+            Log::info("Failed to geocode IP address: {$ipAddress}");
+            Log::debug(Psr7\str($e->getResponse()));
+
             return new DummyIpgeoResponse;
         }
 

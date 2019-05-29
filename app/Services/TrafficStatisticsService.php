@@ -13,7 +13,7 @@ class TrafficStatisticsService
      *
      * @return  void
      */
-    public static function createDetailsTablesIfNotExist()
+    public function createDetailsTablesIfNotExist()
     {
         $runMigrations =
             ! Schema::connection('traffic')->hasTable('ip_details') ||
@@ -91,8 +91,8 @@ class TrafficStatisticsService
         return DB::connection('traffic')
             ->table('visits')
             ->join('ip_details', 'visits.ip_id', '=', 'ip_details.id')
-            ->selectRaw('COALESCE(ip_details.country_name, "Unknown") AS country')
-            ->selectRaw('COALESCE(ip_details.country_flag, "default.png") AS flag')
+            ->select('ip_details.country_name AS country')
+            ->addSelect('ip_details.country_flag AS flag')
             ->selectRaw('COUNT(*) AS total')
             ->groupBy('country')
             ->orderByDesc('total')
@@ -296,7 +296,7 @@ class TrafficStatisticsService
                 ],
             ],
             'tooltip' => [
-                'headerFormat' => '<span style="font-size:11px">{series.name}</span><br>',
+                'headerFormat' => '<span style="font-size:11px">Share</span><br>',
                 'pointFormat' => '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b> of total<br/>',
             ],
             'series' => [
