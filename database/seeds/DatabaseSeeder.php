@@ -14,11 +14,5 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(DecksTableSeeder::class);
         $this->call(CardsTableSeeder::class);
-
-        DB::table('users')->insert([
-            'name' => 'Adrian Bavister',
-            'email' => 'adrian@bavanco.co.uk',
-            'password' => bcrypt('local'),
-        ]);
     }
 }
