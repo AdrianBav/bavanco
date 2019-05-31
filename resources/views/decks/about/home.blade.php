@@ -10,7 +10,5 @@
 
 
 @section('details')
-	Note the large word spacing<br>
-	Mix of case and a liberal<br>
-	sprinkling of ditto marks
+    Go back to the home page
 @overwrite

@@ -28,13 +28,13 @@ $card-height: (265px * $scale);
 // font-family: 'Raleway', sans-serif;
 
 
-/* 
+/*
  * Common to all Deeds
  */
 .deed {
     background-color: #f1eddc;
     background-image: url('/images/card.png');
-    border-radius: (15px * $scale);    
+    border-radius: (15px * $scale);
     box-shadow: 0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903;
     padding: (35px * $scale) (22px * $scale);
 
@@ -46,8 +46,8 @@ $card-height: (265px * $scale);
 }
 .deed:hover {
     cursor: pointer;
-    box-shadow: 
-        0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903, 
+    box-shadow:
+        0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903,
         0 (4px * $scale) (8px * $scale) 0 rgba(0, 0, 0, 0.9);
 }
 
@@ -63,28 +63,28 @@ $card-height: (265px * $scale);
 }
 
 
-/* 
+/*
  * Property Deed
  */
 .deed-property .deed-header {
     color: #000000;
     font-family: 'Work Sans', sans-serif;
     text-align: center;
-    text-transform: uppercase;    
+    text-transform: uppercase;
     margin: 0;
     padding: (10px * $scale) 0 (15px * $scale);
 }
 .deed-property .deed-header .deed-subtitle {
     font-weight: 600;
-    font-size: (16px * $scale);    
+    font-size: (16px * $scale);
     letter-spacing: (-0.5px * $scale);
-    word-spacing: (4px * $scale);    
+    word-spacing: (4px * $scale);
     margin-bottom: (3px * $scale);
 }
 .deed-property .deed-header h2.deed-title {
-    font-weight: 800;   
-    font-size: (26px * $scale);    
-    letter-spacing: (-0.5px * $scale); 
+    font-weight: 800;
+    font-size: (26px * $scale);
+    letter-spacing: (-0.5px * $scale);
     word-spacing: (10px * $scale);
     margin: 0;
 }
@@ -114,42 +114,42 @@ $card-height: (265px * $scale);
     font-size: (18px * $scale);
     line-height: 1.5;
     letter-spacing: (0.25px * $scale);
-    word-spacing: (3px * $scale);      
+    word-spacing: (3px * $scale);
     padding: (2px * $scale) (8px * $scale);
 }
 
-.deed-property .deed-body small {     
+.deed-property .deed-body small {
     font-weight: 600;
     font-size: (11px * $scale);
     line-height: 1.5;
-    word-spacing: (4px * $scale);    
+    word-spacing: (4px * $scale);
     // so that it inherits the line height
     display: inline-block;
 }
 
 
-/* 
+/*
  * Station & Utility Deed
  */
 
 .deed-station .deed-header,
-.deed-utility .deed-header {    
+.deed-utility .deed-header {
     font-family: 'Work Sans', sans-serif;
     text-transform: uppercase;
     text-align: center;
-    margin: (15px * $scale) 0 (40px * $scale);   
+    margin: (15px * $scale) 0 (40px * $scale);
 }
 .deed-station .deed-header h2.deed-title,
 .deed-utility .deed-header h2.deed-title {
     font-weight: 700;
-    font-size: (23px * $scale);    
+    font-size: (23px * $scale);
     letter-spacing: (0.5px * $scale);
     word-spacing: (2px * $scale);
     margin: 0 0 (15px * $scale);
 }
 .deed-station .deed-header .deed-subtitle {
     font-weight: 700;
-    font-size: (15px * $scale);    
+    font-size: (15px * $scale);
     letter-spacing: (0.5px * $scale);
     word-spacing: (2px * $scale);
 }
@@ -161,12 +161,12 @@ $card-height: (265px * $scale);
     font-size: (19px * $scale);
     line-height: 1.5;
     letter-spacing: (0.5px * $scale);
-    word-spacing: (4px * $scale);     
+    word-spacing: (4px * $scale);
     padding: (2px * $scale) (8px * $scale);
 }
 
 
-/* 
+/*
  * Mortgaged Deed
  */
 
@@ -182,17 +182,17 @@ $card-height: (265px * $scale);
     margin-top: (45px * $scale);
     text-transform: uppercase;
 }
-.deed-mortgaged .deed-header .deed-subtitle {    
+.deed-mortgaged .deed-header .deed-subtitle {
     font-weight: 800;
-    font-size: (42px * $scale);    
+    font-size: (42px * $scale);
     word-spacing: (4px * $scale);
     margin-top: (25px * $scale);
 }
-.deed-mortgaged .deed-header h2.deed-title {    
+.deed-mortgaged .deed-header h2.deed-title {
     border-top: (3px * $scale) solid #d21625;
     border-bottom: (3px * $scale) solid #d21625;
     font-weight: 800;
-    font-size: (24px * $scale);      
+    font-size: (24px * $scale);
     word-spacing: (4px * $scale);
     margin: (60px * $scale) 0 (10px * $scale);
     padding: (8px * $scale) 0;
@@ -202,7 +202,7 @@ $card-height: (265px * $scale);
 
 .deed-mortgaged .deed-body .deed-info {
     font-weight: 500;
-    font-size: (22px * $scale);    
+    font-size: (22px * $scale);
     word-spacing: (5px * $scale);
     margin: (15px * $scale) 0 (50px * $scale);
 }
@@ -214,31 +214,30 @@ $card-height: (265px * $scale);
 }
 
 
-/* 
+/*
  * Card
  */
 .card {
     background-color: #ffffff;
-    border-radius: (15px * $scale);    
-    box-shadow: 0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903;
-
+    border-radius: (15px * $scale);
     height: $card-height;
     width: $card-width;
-
     // for the hover transition
     -webkit-transition: box-shadow 0s;
 }
-.card:hover {
-    cursor: pointer;
-    box-shadow: 
-        0 (10px * $scale) (6px * $scale) (-6px * $scale) #032903, 
-        0 (4px * $scale) (8px * $scale) 0 rgba(0, 0, 0, 0.9);
-}
 .card.community-chest {
     background-color: #f5ebad;
+    box-shadow: 0 0 0 1px #c5bb77;
 }
 .card.chance {
     background-color: #f26166;
+    box-shadow: 0 0 0 1px #ca3238;
+}
+.card:hover {
+    cursor: pointer;
+    box-shadow:
+        0 (10px * $scale) (6px * $scale) (-6px * $scale) rgb(3, 41, 3),
+        0 (4px * $scale) (8px * $scale) 0 rgba(0, 0, 0, 0.9);
 }
 
 .card .card-inner {
@@ -259,12 +258,12 @@ $card-height: (265px * $scale);
 }
 .card-header h2.card-title {
     font-weight: 900;
-    font-size: (18px * $scale);  
+    font-size: (18px * $scale);
     word-spacing: (4px * $scale);
 }
 .card-body {
     font-weight: 600;
-    font-size: (16px * $scale);      
+    font-size: (16px * $scale);
     line-height: 1.5;
     text-align: center;
     text-transform: uppercase;
@@ -274,7 +273,7 @@ $card-height: (265px * $scale);
 }
 
 
-/* 
+/*
  * Utilities
  */
 
@@ -306,7 +305,7 @@ $card-height: (265px * $scale);
 
 // For long titles, reduce the word spacing
 .deed-property .deed-header.long-title h2.deed-title,
-.deed-station .deed-header.long-title h2.deed-title {    
+.deed-station .deed-header.long-title h2.deed-title {
     word-spacing: 0;
 }
 
@@ -317,7 +316,7 @@ $card-height: (265px * $scale);
 }
 
 // Ditto marks
-.ditto-mark {  
+.ditto-mark {
     // hide the word to be ditto'd
     color: transparent;
     // positioning for the :after pseudo element
@@ -340,7 +339,7 @@ $card-height: (265px * $scale);
 }
 
 // Spacer
-.spacer {  
+.spacer {
     // hide the word, making it a spacer
     color: transparent;
 }

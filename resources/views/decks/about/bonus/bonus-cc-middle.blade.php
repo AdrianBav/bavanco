@@ -10,7 +10,7 @@
 
 
 @section('details')
-	I have replicated the unique style<br>
-	of the Title Deed cards using<br>
-	HTML and CSS
+    You have won second prize<br>
+    in a beauty contest<br>
+    collect £10
 @overwrite

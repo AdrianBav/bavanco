@@ -1,15 +1,15 @@
 @extends('decks.card')
 
 @section('card-type')
-    chance
+    community-chest
 @overwrite
 
 @section('title')
-    Chance
+    Community Chest
 @overwrite
 
 
 @section('details')
-	Not just any set but the actual<br>
-    set I would play on as a child
+	Take a trip to the<br>
+    Bavanco archives
 @overwrite

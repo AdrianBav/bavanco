@@ -156,41 +156,82 @@ a.item .mortgaged {
 
 
 //
-// About page
+// Card Holders
 //
-#about-page.container {
-    max-width: 500px;
+.card-holder {
+    background-repeat: no-repeat;
+    height: 194px;
+    width: 320px;
+    // Cards will be relative to this
+    position: relative;
 }
-#about-page a.card-link {
-    margin-top: 14px;
-    // undo link styling
+.community-chest-holder {
+    background-image: url("/images/community-chest-holder.png");
+}
+.chance-holder {
+    background-image: url("/images/chance-holder.png");
+}
+.card-holder .card-link {
     display: block;
     color: #000000;
     text-decoration: none;
+    // position cards relative to their holder
+    position: absolute;
+    top: 10px;
+    left: 0;
 }
 
+
+//
+// About page
+//
+#about-page {
+    color: #ffffff;
+    font-family: 'Raleway', sans-serif;
+    padding: 1em;
+    // center container
+    margin: 0 auto;
+    max-width: 700px;
+}
+#about-page h3 {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 32px;
+    text-transform: uppercase;
+    margin: 48px 0 24px;
+}
+#about-page h3:first-child {
+    margin-top: 15px;
+}
+#about-page p {
+    font-size: 20px;
+    line-height: 1.5em;
+    margin: 0 0 24px;
+}
+#about-page .card-holder {
+    margin: 48px 0 48px;
+}
 #about-page figure {
-    border: 5px solid rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    margin: 14px 0 0;
+    margin: 48px 0 48px;
+}
+#about-page figure img.border {
+    border: 3px solid #ffffff;
 }
 #about-page figure figcaption {
-    background-color: rgba(0, 0, 0, 0.4);
-    color: #ffffff;
-    border-top: 3px solid rgba(0, 0, 0, 0.5);
-    font-size: 12px;
-    font-style: italic;
-    padding: 6px;
-    text-align: center;
+    margin-top: 6px;
 }
 
-@media (min-width: 768px) {
-
-    #about-page figure figcaption {
-        font-size: 16px;
+// All devices larger than 768px
+@media (min-width: 768px)
+{
+    #about-page {
+        padding: 0;
+        // spacing from header
+        margin-top: 25px;
+    }
+    #about-page h3:first-child {
+        margin-top: 48px;
     }
 }
-
 
 
 //

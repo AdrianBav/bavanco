@@ -10,7 +10,6 @@
 
 
 @section('details')
-	Click here to see a<br>
-	gallery of Title Deed<br>
-	cards rendered in CSS
+    Doctor's fee<br>
+    Pay £50
 @overwrite

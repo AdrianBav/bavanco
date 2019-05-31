@@ -23,11 +23,11 @@ class HomeController extends Controller
     *
     * @return Response
     */
-    public function monopoly()
+    public function deeds()
     {
         $cards = Deck::whereName('default')->first()->cards;
 
-        return view('monopoly', compact('cards'));
+        return view('deeds', compact('cards'));
     }
 
     /**

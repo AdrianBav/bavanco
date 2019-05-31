@@ -28,7 +28,7 @@ return [
         ],
         [
             'site_identifier' => 'about-website',
-            'url' => '/about',
+            'url' => '/about-this-site',
             'created_at' => Carbon::createFromDate(2015, 11, 3)->toDateTimeString(),
         ],
         [

@@ -10,7 +10,7 @@
 
 
 @section('details')
-	Modern versions of the same card<br>
-	do not seem to retain many of<br>
-	the original details as in Fig C
+    Advance to the nearest<br>
+    deck of monoply title deed cards<br>
+    rendered in CSS
 @overwrite

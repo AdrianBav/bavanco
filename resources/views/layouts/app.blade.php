@@ -8,7 +8,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
         <!-- SEO Meta details -->
-        <title>{{ config('app.name') }} | bee-a-vee-a-en-cee-o</title>
+        <title>{{ config('app.name') }} | @yield('slogan', 'bee-a-vee-a-en-cee-o')</title>
         <meta name="description" content="Welcome to the Bavanco Website">
         <meta name="author" content="Adrian Bavister">
 
@@ -28,7 +28,7 @@
 
             <!-- Sticky Header -->
             <header id="app-header">
-                <div class="slogan">bee-a-vee-a-en-cee-o</div>
+                <div class="slogan">@yield('slogan', 'bee-a-vee-a-en-cee-o')</div>
                 <h1>Bavanco</h1>
             </header>
 

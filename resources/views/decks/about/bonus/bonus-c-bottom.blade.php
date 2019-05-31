@@ -10,5 +10,7 @@
 
 
 @section('details')
-    Go back to the home page
+    You have won a<br>
+    crossword competition<br>
+    collect £100
 @overwrite
