@@ -94,7 +94,7 @@ class TrafficStatisticsService
             ->select('ip_details.country_name AS country')
             ->addSelect('ip_details.country_flag AS flag')
             ->selectRaw('COUNT(*) AS total')
-            ->groupBy('country')
+            ->groupBy('country', 'flag')
             ->orderByDesc('total')
             ->take(10)
             ->get()
