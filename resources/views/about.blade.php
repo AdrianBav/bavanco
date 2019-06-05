@@ -10,7 +10,7 @@
 	<p>Welcome to the Bavanco website.</p>
 	<p>
 		Over the years this website has taken on many forms.
-		(If you are interested, you can view the full back catalogue in the Bavanco archives).
+		(If you are interested, you can view the full back catalog in the Bavanco archives).
 		This current incarnation, as you can probably tell, is based upon the title deed cards of a Monopoly set.
 	</p>
 
@@ -37,7 +37,7 @@
 	</p>
 	<p>
 		Our friends might want to be the iron or the Scottie dog.
-		But we, from our selection of post-war pieces, could choose from such tokens as the bulldozer, the Golden Hind or the tank!
+		But from our selection of post-war pieces, we could choose from such tokens as the bulldozer, the Golden Hind or the tank!
 		My brother would usually pick the headless man on a motorbike, although I think that was only available in our set.
 	</p>
 
