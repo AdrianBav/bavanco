@@ -66,7 +66,7 @@
 	<p>
 		For my site, I have used Monopoly title deed cards to act as links to the various pages of the website.
 		Historically I’ve used something like a drop-down menu but in recent years,
-		'card design' has been a popular website navigation trend and I've decided to embrace it.
+		"card design" has been a popular website navigation trend and I've decided to embrace it.
 	</p>
 	<p>
 		I decided to implement card design using some of my favorite cards; title deed cards.
