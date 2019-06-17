@@ -28,8 +28,8 @@ class BlogCardRepository extends CardRepository
     private function getMetaData()
     {
         return [
-            'number_of_articles' => 4,
-            'number_of_photos' => (1 + 3 + 7 + 6),
+            'number_of_articles' => 5,
+            'number_of_photos' => (1 + 3 + 7 + 6 + 7),
         ];
     }
 }
