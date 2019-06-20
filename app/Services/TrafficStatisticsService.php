@@ -3,25 +3,30 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 
 class TrafficStatisticsService
 {
     /**
-     * Create the *_details tables if they don't already exist.
+     * Holds the database name for the 'mysql' connection.
      *
-     * @return  void
+     * @var  string
      */
-    public function createDetailsTablesIfNotExist()
-    {
-        $runMigrations =
-            ! Schema::hasTable('ip_details') ||
-            ! Schema::hasTable('agent_details');
+    protected $wwwDb;
 
-        if ($runMigrations) {
-            Artisan::call('migrate');
-        }
+    /**
+     * Holds the database name for the 'traffic' connection.
+     *
+     * @var  string
+     */
+    protected $trafficDb;
+
+    /**
+     * Instantiate the TrafficStatisticsService class.
+     */
+    public function __construct()
+    {
+        $this->wwwDb = DB::connection('mysql')->getDatabaseName();
+        $this->trafficDb = DB::connection('traffic')->getDatabaseName();
     }
 
     /**
@@ -31,9 +36,8 @@ class TrafficStatisticsService
      */
     public function getNewIps()
     {
-        return DB::connection('traffic')
-            ->table('ips')
-            ->leftJoin('bavanco_www.ip_details AS ip_details', 'ips.address', '=', 'ip_details.address')
+        return DB::table("{$this->trafficDb}.ips AS ips")
+            ->leftJoin("{$this->wwwDb}.ip_details AS ip_details", 'ips.address', '=', 'ip_details.address')
             ->select('ips.*')
             ->whereNull('ip_details.address')
             ->get();
@@ -46,9 +50,8 @@ class TrafficStatisticsService
      */
     public function getNewAgents()
     {
-        return DB::connection('traffic')
-            ->table('agents')
-            ->leftJoin('bavanco_www.agent_details AS agent_details', 'agents.name', '=', 'agent_details.name')
+        return DB::table("{$this->trafficDb}.agents AS agents")
+            ->leftJoin("{$this->wwwDb}.agent_details AS agent_details", 'agents.name', '=', 'agent_details.name')
             ->select('agents.*')
             ->whereNull('agent_details.name')
             ->get();
@@ -85,9 +88,8 @@ class TrafficStatisticsService
      */
     public function top10Ips()
     {
-        return DB::connection('traffic')
-            ->table('visits')
-            ->join('bavanco_www.ip_details AS ip_details', 'visits.ip_id', '=', 'ip_details.id')
+        return DB::table("{$this->trafficDb}.visits AS visits")
+            ->join("{$this->wwwDb}.ip_details AS ip_details", 'visits.ip_id', '=', 'ip_details.id')
             ->select('ip_details.country_name AS country')
             ->addSelect('ip_details.country_flag AS flag')
             ->selectRaw('COUNT(*) AS total')
@@ -257,9 +259,8 @@ class TrafficStatisticsService
      */
     private function getAgentShareBy($column, $filter = [])
     {
-        return DB::connection('traffic')
-            ->table('visits')
-            ->join('bavanco_www.agent_details AS agent_details', 'visits.agent_id', '=', 'agent_details.id')
+        return DB::table("{$this->trafficDb}.visits AS visits")
+            ->join("{$this->wwwDb}.agent_details AS agent_details", 'visits.agent_id', '=', 'agent_details.id')
             ->select("agent_details.{$column} AS label")
             ->selectRaw('COUNT(*) AS total')
             ->when($filter, function ($query, $filter) {
