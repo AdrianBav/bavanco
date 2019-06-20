@@ -86,8 +86,8 @@ class RefreshDashboardStatistics extends Command
      */
     private function truncateDetailsTables()
     {
-        DB::connection('traffic')->table('ip_details')->truncate();
-        DB::connection('traffic')->table('agent_details')->truncate();
+        DB::table('ip_details')->truncate();
+        DB::table('agent_details')->truncate();
 
         $this->info('Truncated details tables.');
     }
@@ -104,7 +104,7 @@ class RefreshDashboardStatistics extends Command
         $this->newIps()->each(function ($ip) use ($ipAddressDetails) {
             $ipDetails = $ipAddressDetails->getDetails($ip->address);
 
-            DB::connection('traffic')->table('ip_details')->insert([
+            DB::table('ip_details')->insert([
                 'id' => $ip->id,
                 'address' => $ip->address,
                 'city' => $ipDetails->city,
@@ -129,7 +129,7 @@ class RefreshDashboardStatistics extends Command
         $this->newAgents()->each(function ($agent) use ($userAgentDetails) {
             $agentDetails = $userAgentDetails->getDetails($agent->name);
 
-            DB::connection('traffic')->table('agent_details')->insert([
+            DB::table('agent_details')->insert([
                 'id' => $agent->id,
                 'name' => $agent->name,
                 'browser' => $agentDetails['browser'],

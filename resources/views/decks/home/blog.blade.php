@@ -24,8 +24,8 @@
     @ditto('BLOG') @ditto('number') @ditto('of') days @right($since['days'])<br>
     @ditto('BLOG') TOTAL days @right($since['totalDays'])<br>
     <small>A personal blog for me to showcase my articles and photographs on subjects such as life, music and comedy.</small><br>
-    BLOG has {{ $meta['number_of_articles'] }} articles<br>
-    @ditto('BLOG') @ditto('has') {{ $meta['number_of_photos'] }} photos<br>
-    @spacer('BLOG') @spacer('has') NO stock photos<br>
+    BLOG has {{ $meta->itemOne }}<br>
+    @ditto('BLOG') @ditto('has') {{ $meta->itemTwo }}<br>
+    @spacer('BLOG') @spacer('has') {{ $meta->info }}<br>
     VISITS since launch, {{ $visits }}
 @overwrite

@@ -16,14 +16,11 @@ class TrafficStatisticsService
     public function createDetailsTablesIfNotExist()
     {
         $runMigrations =
-            ! Schema::connection('traffic')->hasTable('ip_details') ||
-            ! Schema::connection('traffic')->hasTable('agent_details');
+            ! Schema::hasTable('ip_details') ||
+            ! Schema::hasTable('agent_details');
 
         if ($runMigrations) {
-            Artisan::call('migrate', [
-                '--database' => 'traffic',
-                '--path' => 'database/migrations/dashboard',
-            ]);
+            Artisan::call('migrate');
         }
     }
 
@@ -36,7 +33,7 @@ class TrafficStatisticsService
     {
         return DB::connection('traffic')
             ->table('ips')
-            ->leftJoin('ip_details', 'ips.address', '=', 'ip_details.address')
+            ->leftJoin('bavanco_www.ip_details AS ip_details', 'ips.address', '=', 'ip_details.address')
             ->select('ips.*')
             ->whereNull('ip_details.address')
             ->get();
@@ -51,7 +48,7 @@ class TrafficStatisticsService
     {
         return DB::connection('traffic')
             ->table('agents')
-            ->leftJoin('agent_details', 'agents.name', '=', 'agent_details.name')
+            ->leftJoin('bavanco_www.agent_details AS agent_details', 'agents.name', '=', 'agent_details.name')
             ->select('agents.*')
             ->whereNull('agent_details.name')
             ->get();
@@ -90,7 +87,7 @@ class TrafficStatisticsService
     {
         return DB::connection('traffic')
             ->table('visits')
-            ->join('ip_details', 'visits.ip_id', '=', 'ip_details.id')
+            ->join('bavanco_www.ip_details AS ip_details', 'visits.ip_id', '=', 'ip_details.id')
             ->select('ip_details.country_name AS country')
             ->addSelect('ip_details.country_flag AS flag')
             ->selectRaw('COUNT(*) AS total')
@@ -262,7 +259,7 @@ class TrafficStatisticsService
     {
         return DB::connection('traffic')
             ->table('visits')
-            ->join('agent_details', 'visits.agent_id', '=', 'agent_details.id')
+            ->join('bavanco_www.agent_details AS agent_details', 'visits.agent_id', '=', 'agent_details.id')
             ->select("agent_details.{$column} AS label")
             ->selectRaw('COUNT(*) AS total')
             ->when($filter, function ($query, $filter) {

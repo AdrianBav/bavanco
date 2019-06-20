@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Services;
 
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\Facades\Cache;
@@ -29,7 +29,7 @@ class WorldTemperatures
     public function __construct()
     {
         $this->client = new HttpClient([
-            'base_uri' => 'http://api.openweathermap.org/data/2.5/'
+            'base_uri' => config('services.openweathermap.baseurl')
         ]);
 
         $this->apiKey = config('services.openweathermap.apikey');

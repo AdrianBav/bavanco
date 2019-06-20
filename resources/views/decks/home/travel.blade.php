@@ -24,8 +24,8 @@
     @ditto('GALLER') @ditto('number') @ditto('of') days @right($since['days'])<br>
     @ditto('GALLER') TOTAL days @right($since['totalDays'])<br>
     <small>A gallery of photographs documenting the world travels of Adrian and Jillian since the time they first met.</small><br>
-    GALLERY has {{ $meta['total_collections'] }} destinations<br>
-    @ditto('GALLERY') @ditto('has') {{ $meta['total_photos'] }} photographs<br>
-    @spacer('GALLERY') @spacer('has') Various cameras<br>
+    GALLERY has {{ $meta->itemOne }}<br>
+    @ditto('GALLERY') @ditto('has') {{ $meta->itemTwo }}<br>
+    @spacer('GALLERY') @spacer('has') {{ $meta->info }}<br>
     VISITS since launch, {{ $visits }}
 @overwrite

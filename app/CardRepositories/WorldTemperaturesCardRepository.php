@@ -4,7 +4,7 @@ namespace App\CardRepositories;
 
 use Carbon\Carbon;
 use App\CardRepository;
-use App\WorldTemperatures;
+use App\Services\WorldTemperatures;
 
 class WorldTemperaturesCardRepository extends CardRepository
 {

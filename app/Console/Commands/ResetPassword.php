@@ -48,7 +48,7 @@ class ResetPassword extends Command
 
         $validator = Validator::make($userAttributes, [
             'email' => 'required|email',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required|confirmed|min:5',
         ]);
 
         if ($validator->fails()) {

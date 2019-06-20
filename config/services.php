@@ -45,10 +45,12 @@ return [
     ],
 
     'openweathermap' => [
+        'baseurl' => env('OPEN_WEATHER_MAP_BASE_URL'),
         'apikey' => env('OPEN_WEATHER_MAP_API_KEY'),
     ],
 
     'ipgeolocation' => [
+        'baseurl' => env('IP_GEO_LOCATION_BASE_URL'),
         'apikey' => env('IP_GEO_LOCATION_API_KEY'),
     ],
 

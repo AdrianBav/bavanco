@@ -24,8 +24,8 @@
     @ditto('SITES') @ditto('number') @ditto('of') days @right($since['days'])<br>
     @ditto('SITES') TOTAL days @right($since['totalDays'])<br>
     <small>This Site serves as a Handy Reference to ALL the Websites I have recently Developed for Friends and Myself.</small><br>
-    SITES has {{ $meta['domains'] }} domains<br>
-    @ditto('SITES') @ditto('has') {{ $meta['microsites'] }} microsites<br>
-    @spacer('SITES') @spacer('has') CUSTOM designs<br>
+    SITES has {{ $meta->itemOne }}<br>
+    @ditto('SITES') @ditto('has') {{ $meta->itemTwo }}<br>
+    @spacer('SITES') @spacer('has') {{ $meta->info }}<br>
     VISITS since launch, {{ $visits }}
 @overwrite

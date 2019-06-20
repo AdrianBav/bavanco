@@ -16,7 +16,7 @@ class IpAddressDetails
     public function __construct()
     {
         $this->client = new HttpClient([
-            'base_uri' => 'https://api.ipgeolocation.io/'
+            'base_uri' => config('services.ipgeolocation.baseurl')
         ]);
 
         $this->apiKey = config('services.ipgeolocation.apikey');

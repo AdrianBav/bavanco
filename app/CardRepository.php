@@ -4,6 +4,7 @@ namespace App;
 
 use App\Card;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use AdrianBav\Traffic\Facades\Traffic;
 
 abstract class CardRepository
@@ -50,6 +51,21 @@ abstract class CardRepository
             'days' => $interval->d % 7,
             'totalDays' => number_format($interval->days),
         ];
+    }
+
+    /**
+     * Get the cards site meta data.
+     *
+     * @return  array
+     */
+    public function getMetaData()
+    {
+        $meta = DB::table('site_details')->whereSlug($this->card->site_identifier)->first();
+
+        $meta->itemOne = sprintf($meta->item1, $meta->number1);
+        $meta->itemTwo = sprintf($meta->item2, $meta->number2);
+
+        return $meta;
     }
 
     /**
