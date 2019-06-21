@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 
 class Card extends Model
@@ -61,7 +62,11 @@ class Card extends Model
      */
     public function getPartialAttribute()
     {
-        return "decks.{$this->deck->name}.{$this->site_identifier}";
+        $cacheKey = sprintf('%s-partial', $this->site_identifier);
+
+        return Cache::rememberForever($cacheKey, function () {
+            return "decks.{$this->deck->name}.{$this->site_identifier}";
+        });
     }
 
 
