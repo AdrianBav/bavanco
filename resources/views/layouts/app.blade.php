@@ -9,7 +9,7 @@
 
         <!-- SEO Meta details -->
         <title>{{ config('app.name') }} | @yield('slogan', 'bee-a-vee-a-en-cee-o')</title>
-        <meta name="description" content="Welcome to the Bavanco Website">
+        <meta name="description" content="Welcome to the Bavanco website, each card links to an individual page. The design is based on title deed cards from a 1950's Monopoly set.">
         <meta name="author" content="Adrian Bavister">
 
         <!-- Fonts (CDN) -->
