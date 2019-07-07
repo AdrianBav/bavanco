@@ -20,7 +20,7 @@ class CreateCardsTable extends Migration
             $table->string('url')->nullable();
 
             $table->unsignedBigInteger('deck_id');
-            $table->foreign('deck_id')->references('id')->on('decks');
+            $table->foreign('deck_id')->references('id')->on('decks')->onDelete('cascade');
 
             $table->unique(['site_identifier', 'deck_id']);
 

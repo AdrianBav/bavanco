@@ -37,6 +37,11 @@ return [
             'created_at' => Carbon::createFromDate(2009, 1, 1)->toDateTimeString(),
         ],
         [
+            'site_identifier' => 'myrhdb',
+            'url' => 'https://myrhdb.bavanco.co.uk',
+            'created_at' => Carbon::createFromDate(2019, 7, 5)->toDateTimeString(),
+        ],
+        [
             'site_identifier' => 'screaming-bears-under-construction',
             'url' => 'https://archives.bavanco.co.uk/storage/screamingbears/underconstruction/',
             'created_at' => Carbon::createFromDate(1999, 1, 1)->toDateTimeString(),
@@ -47,16 +52,6 @@ return [
             'created_at' => Carbon::createFromDate(2002, 1, 1)->toDateTimeString(),
         ],
         [
-            'site_identifier' => 'sites',
-            'url' => 'https://sites.adrianbavister.com',
-            'created_at' => Carbon::createFromDate(2015, 6, 11)->toDateTimeString(),
-        ],
-        [
-            'site_identifier' => 'world-times',
-            'url' => null,
-            'created_at' => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
-        ],
-        [
             'site_identifier' => 'about-author',
             'url' => 'https://adrianbavister.com/',
             'created_at' => Carbon::createFromDate(2015, 11, 3)->toDateTimeString(),
@@ -65,6 +60,16 @@ return [
             'site_identifier' => 'bavanco-version-2008',
             'url' => 'https://archives.bavanco.co.uk/storage/bavanco/version2008/',
             'created_at' => Carbon::createFromDate(2008, 1, 1)->toDateTimeString(),
+        ],
+        [
+            'site_identifier' => 'sites',
+            'url' => 'https://sites.adrianbavister.com',
+            'created_at' => Carbon::createFromDate(2015, 6, 11)->toDateTimeString(),
+        ],
+        [
+            'site_identifier' => 'world-times',
+            'url' => null,
+            'created_at' => Carbon::createFromDate(2016, 9, 5)->toDateTimeString(),
         ],
         [
             'site_identifier' => 'world-temperatures',
