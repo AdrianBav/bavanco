@@ -4,7 +4,7 @@ namespace App;
 
 use App\Card;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
+use App\Services\SiteMeta;
 use AdrianBav\Traffic\Facades\Traffic;
 
 abstract class CardRepository
@@ -60,12 +60,9 @@ abstract class CardRepository
      */
     public function getMetaData()
     {
-        $meta = DB::table('site_details')->whereSlug($this->card->site_identifier)->first();
+        $metaData = new SiteMeta($this->card->site_identifier);
 
-        $meta->itemOne = sprintf($meta->item1, $meta->number1);
-        $meta->itemTwo = sprintf($meta->item2, $meta->number2);
-
-        return $meta;
+        return $metaData->get();
     }
 
     /**

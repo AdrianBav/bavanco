@@ -18,13 +18,8 @@ class CreateSiteDetailsTable extends Migration
 
             $table->string('slug', 50)->unique();
 
-            $table->string('item1', 25);
-            $table->unsignedSmallInteger('number1');
-
-            $table->string('item2', 25);
-            $table->unsignedSmallInteger('number2');
-
-            $table->string('info', 25);
+            $table->string('url');
+            $table->string('token', 80);
         });
     }
 

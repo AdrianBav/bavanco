@@ -16,28 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-// temp...
-Route::get('ips', function() {
-    $ips = \Illuminate\Support\Facades\DB::connection('traffic')->table('ips')->get();
-
-    return $ips;
-});
-
-Route::get('ip_details', function() {
-    $ips = \Illuminate\Support\Facades\DB::connection('traffic')->table('ip_details')->get();
-
-    return $ips;
-});
-
-Route::get('agents', function() {
-    $agents = \Illuminate\Support\Facades\DB::connection('traffic')->table('agents')->get();
-
-    return $agents;
-});
-
-Route::get('agent_details', function() {
-    $agents = \Illuminate\Support\Facades\DB::connection('traffic')->table('agent_details')->get();
-
-    return $agents;
-});
