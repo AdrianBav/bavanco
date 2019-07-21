@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 
@@ -38,7 +39,15 @@ class Card extends Model
      */
     public function getUrlAttribute($url)
     {
-        return $url ?: 'javascript:void(0)';
+        if (is_null($url)) {
+            return 'javascript:void(0)';
+        }
+
+        if (App::environment('local')) {
+            $url = local_url($url);
+        }
+
+        return $url;
     }
 
     /**
@@ -48,11 +57,19 @@ class Card extends Model
      */
     public function getTargetAttribute()
     {
-        if (starts_with($this->url, 'http')) {
-            return '_blank';
-        }
+        return ($this->isExternalLink())
+            ? '_blank'
+            : '_self';
+    }
 
-        return '_self';
+    /**
+     * Determine if the link points to an external site.
+     *
+     * @return  boolean
+     */
+    private function isExternalLink()
+    {
+        return starts_with($this->url, 'http');
     }
 
     /**

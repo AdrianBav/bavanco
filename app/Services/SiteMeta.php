@@ -62,26 +62,10 @@ class SiteMeta
         $details = DB::table('site_details')->whereSlug($this->siteSlug)->first();
 
         if (App::environment('local') && ! is_null($details)) {
-            $details->url = $this->makeUrlLocal($details->url);
+            $details->url = local_url($details->url, $removeSsl = true);
         }
 
         return $details;
-    }
-
-    /**
-     * Make URL local.
-     *
-     * @param   string  $url
-     * @return  string
-     */
-    private function makeUrlLocal($url)
-    {
-        $url = str_replace('https', 'http', $url);
-
-        $url = str_replace('.co.uk', '.local', $url);
-        $url = str_replace('.com', '.local', $url);
-
-        return $url;
     }
 
     /**
