@@ -10,7 +10,7 @@
 	<p>Welcome to the Bavanco website.</p>
 	<p>
 		Over the years this website has taken on many forms.
-		(If you are interested, you can view the full back catalog in the Bavanco archives).
+		(If you are interested, you can view the full back catalogue in the Bavanco archives).
 		This current incarnation, as you can probably tell, is based upon the title deed cards of a Monopoly set.
 	</p>
 
@@ -69,7 +69,7 @@
 		"card design" has been a popular website navigation trend and I've decided to embrace it.
 	</p>
 	<p>
-		I decided to implement card design using some of my favorite cards; title deed cards.
+		I decided to implement card design using some of my favourite cards; title deed cards.
 		By rendering the cards with HTML and CSS, instead of using an image, I can dynamically control the content that appears on the cards.
 	</p>
 
@@ -80,7 +80,7 @@
 
 	<p>
 		Comparing my reproduction with the originals, hopefully you agree, the likeness is pretty spot on.
-		The only real difference is the discoloring and the wear and tear on the 60 year old original.
+		The only real difference is the discolouring and the wear and tear on the 60-year-old original.
 	</p>
 
 	<card-holder class="chance-holder">
@@ -108,7 +108,7 @@
 		The typeface looks good when bold, but I don't like the light variant.
 		There are less ditto marks and less capitalization.
 		The information on the card looks more cramped and there is visibly less white space.
-		The addition of trade marks and copyrights changes the tone.
+		The addition of trademarks and copyrights changes the tone.
 		I do enjoy the striking red mortgaged side of the card though.
 	</p>
 
@@ -125,10 +125,10 @@
 
 	<p>
 		Some of the issues include, but are not limited to;
-		the color header now has an ugly black border,
+		the colour header now has an ugly black border,
 		the beautiful dark shade of blue is gone,
 		a generic serif typeface reduces the cleanness,
-		everything is center justified which might be why the dollar amounts don't line up!,
+		everything is centre justified which might be why the dollar amounts don't line up!,
 		all of the ditto marks are gone and
 		the mortgaged side is very boring and basic and doesn't even feature any red.
 	</p>
