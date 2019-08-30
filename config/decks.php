@@ -22,8 +22,8 @@ return [
             'created_at' => Carbon::createFromDate(2019, 5, 2)->toDateTimeString(),
         ],
         [
-            'site_identifier' => 'travel',
-            'url' => 'https://travel.bavanco.co.uk',
+            'site_identifier' => 'travelography',
+            'url' => 'https://travelography.bavanco.co.uk',
             'created_at' => Carbon::createFromDate(2017, 11, 30)->toDateTimeString(),
         ],
         [

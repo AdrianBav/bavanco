@@ -19,8 +19,8 @@ class SiteDetailsTableSeeder extends Seeder
         ]);
 
         DB::table('site_details')->insert([
-            'slug' => 'travel',
-            'url' => 'https://travel.bavanco.co.uk/api/meta',
+            'slug' => 'travelography',
+            'url' => 'https://travelography.bavanco.co.uk/api/meta',
             'token' => '',
         ]);
 

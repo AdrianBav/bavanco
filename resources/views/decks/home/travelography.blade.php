@@ -12,7 +12,7 @@
 @overwrite
 
 @section('title')
-    Travel Gallery
+    Travelography
 @overwrite
 
 

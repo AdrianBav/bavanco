@@ -5,7 +5,7 @@ namespace App\CardRepositories;
 use App\CardRepository;
 use App\CardRepositories\TitleDeedData;
 
-class TravelCardRepository extends CardRepository
+class TravelographyCardRepository extends CardRepository
 {
     use TitleDeedData;
 }
