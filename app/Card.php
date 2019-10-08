@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
@@ -69,7 +70,7 @@ class Card extends Model
      */
     private function isExternalLink()
     {
-        return starts_with($this->url, 'http');
+        return Str::startsWith($this->url, 'http');
     }
 
     /**
@@ -98,7 +99,7 @@ class Card extends Model
     {
         $data = [];
 
-        $repositoryName = sprintf('%sCardRepository', studly_case($this->site_identifier));
+        $repositoryName = sprintf('%sCardRepository', Str::studly($this->site_identifier));
         $cardRepository = sprintf('\\App\\CardRepositories\\%s', $repositoryName);
 
         if (! class_exists($cardRepository)) {
