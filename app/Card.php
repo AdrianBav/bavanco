@@ -45,7 +45,7 @@ class Card extends Model
         }
 
         if (App::environment('local')) {
-            $url = local_url($url);
+            return local_url($url);
         }
 
         return $url;

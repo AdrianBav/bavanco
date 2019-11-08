@@ -62,7 +62,7 @@ class SiteMeta
         $details = DB::table('site_details')->whereSlug($this->siteSlug)->first();
 
         if (App::environment('local') && ! is_null($details)) {
-            $details->url = local_url($details->url, $removeSsl = true);
+            $details->url = local_url($details->url);
         }
 
         return $details;
