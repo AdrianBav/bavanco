@@ -27,19 +27,14 @@ return [
             'created_at' => Carbon::createFromDate(2017, 11, 30)->toDateTimeString(),
         ],
         [
-            'site_identifier' => 'lonopolystreets',
-            'url' => 'https://lonopolystreets.bavanco.co.uk',
-            'created_at' => Carbon::createFromDate(2019, 11, 10)->toDateTimeString(),
+            'site_identifier' => 'kittyscampers',
+            'url' => 'https://archives.bavanco.co.uk/storage/kittyscampers/',
+            'created_at' => Carbon::createFromDate(2009, 1, 1)->toDateTimeString(),
         ],
         [
             'site_identifier' => 'about-website',
             'url' => '/about-this-site',
             'created_at' => Carbon::createFromDate(2015, 11, 3)->toDateTimeString(),
-        ],
-        [
-            'site_identifier' => 'kittyscampers',
-            'url' => 'https://archives.bavanco.co.uk/storage/kittyscampers/',
-            'created_at' => Carbon::createFromDate(2009, 1, 1)->toDateTimeString(),
         ],
         [
             'site_identifier' => 'myrhdb',
@@ -50,6 +45,11 @@ return [
             'site_identifier' => 'screaming-bears-under-construction',
             'url' => 'https://archives.bavanco.co.uk/storage/screamingbears/underconstruction/',
             'created_at' => Carbon::createFromDate(1999, 1, 1)->toDateTimeString(),
+        ],
+        [
+            'site_identifier' => 'lonopolystreets',
+            'url' => 'https://lonopolystreets.bavanco.co.uk',
+            'created_at' => Carbon::createFromDate(2019, 11, 10)->toDateTimeString(),
         ],
         [
             'site_identifier' => 'bavanco-version-2002',
