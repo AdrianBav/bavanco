@@ -28,6 +28,11 @@ return [
         'local' => '.local:8005',
     ],
 
+    'lonopolystreets' => [
+        'prod' => '.co.uk',
+        'local' => '.local:8006',
+    ],
+
     'archives' => [
         'prod' => '.co.uk',
         'local' => '.local:8002',

@@ -27,6 +27,11 @@ return [
             'created_at' => Carbon::createFromDate(2017, 11, 30)->toDateTimeString(),
         ],
         [
+            'site_identifier' => 'lonopolystreets',
+            'url' => 'https://lonopolystreets.bavanco.co.uk',
+            'created_at' => Carbon::createFromDate(2019, 11, 10)->toDateTimeString(),
+        ],
+        [
             'site_identifier' => 'about-website',
             'url' => '/about-this-site',
             'created_at' => Carbon::createFromDate(2015, 11, 3)->toDateTimeString(),

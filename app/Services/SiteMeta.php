@@ -84,6 +84,7 @@ class SiteMeta
             ])->get($url);
 
         } catch (ConnectionException $e) {
+            logger()->error($e->getMessage());
             return $this->nullObject();
         }
 

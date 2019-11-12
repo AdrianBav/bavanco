@@ -31,6 +31,12 @@ class SiteDetailsTableSeeder extends Seeder
         ]);
 
         DB::table('site_details')->insert([
+            'slug' => 'lonopolystreets',
+            'url' => 'https://lonopolystreets.adrianbavister.com/api/meta',
+            'token' => '',
+        ]);
+
+        DB::table('site_details')->insert([
             'slug' => 'archives',
             'url' => 'https://archives.bavanco.co.uk/api/meta',
             'token' => '',
